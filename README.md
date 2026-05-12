@@ -2,6 +2,11 @@
 
 The goal of the project is to create a Portfolio Page using Next.js with Tailwind CSS and Hero UI. It should be a statically generated page, because it will be hosted on GitHub Pages.
 
+### Disclaimer
+
+> Copyright © 2026 Beáta Németh.  
+> All rights reserved. This source code and the content of this repository are provided for **viewing purposes only** and may NOT be copied, reproduced, or distributed without express written permission.
+
 <br/><br/>
 
 ## 1. Technical Details
