@@ -1,6 +1,7 @@
 import Container from '@/components/Container';
 import ContainerWrapper from '@/components/ContainerWrapper';
 import { getMarkdownContent } from '@/utils/mdContent';
+import { withBasePath } from '@/utils/path';
 import { Accordion } from '@heroui/react';
 import { HiOutlineHandRaised } from 'react-icons/hi2';
 import { LuBookOpenCheck } from 'react-icons/lu';
@@ -56,7 +57,9 @@ export default function SectionPerson() {
       <div
         id="parallaxPerson"
         className="h-96 w-full bg-cover bg-fixed bg-center bg-no-repeat"
-        style={{ backgroundImage: "url('/system_architecture.png')" }}
+        style={{
+          backgroundImage: `url('${withBasePath('/system_architecture.png')}')`,
+        }}
       />
 
       <Container className="flex flex-col gap-8 pt-16">

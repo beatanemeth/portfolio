@@ -2,6 +2,7 @@
 
 import { PERSONAL_DATA } from '@/constants/general';
 import { INTERNAL_LINKS } from '@/constants/links';
+import { withBasePath } from '@/utils/path';
 import Image from 'next/image';
 import Link from 'next/link';
 import { useState } from 'react';
@@ -38,13 +39,15 @@ export default function Header() {
   return (
     <ContainerWrapper as="header" id="headerSection" className="relative z-50">
       <Container className="flex items-end gap-2 py-2">
-        <Image
-          src="/bn_logo_white.png"
-          alt="Beata Nemeth initials"
-          width={80}
-          height={80}
-          priority
-        />
+        <div className="bg-very-light-gray rounded-2xl p-2">
+          <Image
+            src={withBasePath('/bn_logo_white.png')}
+            alt="Beata Nemeth initials"
+            width={80}
+            height={80}
+            priority
+          />
+        </div>
 
         <h6 className="mb-0">{PERSONAL_DATA.NAME}</h6>
 

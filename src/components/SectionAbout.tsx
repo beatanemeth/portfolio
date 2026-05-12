@@ -1,5 +1,6 @@
 import { EXTERNAL_LINKS } from '@/constants/links';
 import { getMarkdownContent } from '@/utils/mdContent';
+import { withBasePath } from '@/utils/path';
 import { Card, Link as HeroUILink } from '@heroui/react';
 import Image from 'next/image';
 import ReactMarkdown from 'react-markdown';
@@ -58,13 +59,15 @@ export default function SectionAbout() {
       <div
         id="parallaxAbout"
         className="w-full bg-cover bg-fixed bg-center bg-no-repeat lg:h-132"
-        style={{ backgroundImage: "url('/system_patterns.png')" }}
+        style={{
+          backgroundImage: `url('${withBasePath('/system_patterns.png')}')`,
+        }}
       >
         <Container className="flex flex-col items-start gap-8 py-10">
           <Card className="shadow-very-dark-blue/80 bg-very-soft-blue mx-auto my-16 flex w-full flex-col items-stretch p-10 shadow-lg/40 lg:w-2/3 lg:flex-row">
             <div className="w-full overflow-hidden lg:w-1/3">
               <Image
-                src={data.certification.image}
+                src={withBasePath(data.certification.image)}
                 alt={data.certification.title}
                 width={240}
                 height={240}

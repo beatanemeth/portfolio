@@ -1,5 +1,6 @@
 import Container from '@/components/Container';
 import ContainerWrapper from '@/components/ContainerWrapper';
+import { withBasePath } from '@/utils/path';
 import { Accordion } from '@heroui/react';
 import fs from 'fs';
 import matter from 'gray-matter';
@@ -94,7 +95,7 @@ export default function SectionEvolution() {
     <ContainerWrapper
       id="evolutionSection"
       className="bg-cover bg-fixed bg-center bg-no-repeat"
-      style={{ backgroundImage: "url('/system_blue.png')" }}
+      style={{ backgroundImage: `url('${withBasePath('/system_blue.png')}')` }}
     >
       <Container className="flex flex-col gap-8 py-32">
         <h2 className="text-center">{evolutionData.title}</h2>

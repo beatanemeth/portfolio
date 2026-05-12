@@ -1,6 +1,7 @@
 import Container from '@/components/Container';
 import { PERSONAL_DATA } from '@/constants/general';
 import { getMarkdownContent } from '@/utils/mdContent';
+import { withBasePath } from '@/utils/path';
 import { Tooltip } from '@heroui/react';
 import Image from 'next/image';
 import Link from 'next/link';
@@ -75,7 +76,7 @@ export default function SectionHero() {
           {/* Wrap image in a div to define the bounds for the absolute tooltip */}
           <div className="relative h-fit w-fit">
             <Image
-              src={data.image.src}
+              src={withBasePath(data.image.src)}
               alt={data.image.alt}
               width={560}
               height={560}
