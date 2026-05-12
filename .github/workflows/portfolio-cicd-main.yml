@@ -58,6 +58,7 @@ jobs:
           node-version: '24'
           cache: ${{ steps.detect-package-manager.outputs.manager }}
       - name: Setup Pages
+        if: github.event_name == 'push'
         uses: actions/configure-pages@v5
         with:
           # Automatically inject basePath in your Next.js configuration file and disable
@@ -86,6 +87,7 @@ jobs:
 
   # Deployment job
   deploy:
+    if: github.event_name == 'push'
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
