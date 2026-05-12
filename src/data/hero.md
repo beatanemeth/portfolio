@@ -3,7 +3,7 @@ availability: 'Open for new projects'
 title: |
   Systems
   Engineer & Architect
-name: 'Beata Nemeth'
+name: 'NAME'
 bio: 'I am designing and building systems that allow problems to keep solving themselves tomorrow.'
 buttonText: 'Find out more'
 image:

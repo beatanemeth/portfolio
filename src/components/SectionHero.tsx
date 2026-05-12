@@ -1,4 +1,5 @@
 import Container from '@/components/Container';
+import { PERSONAL_DATA } from '@/constants/general';
 import { getMarkdownContent } from '@/utils/mdContent';
 import { Link as HeroUILink, Tooltip } from '@heroui/react';
 import Image from 'next/image';
@@ -46,7 +47,7 @@ export default function SectionHero() {
         {/* Left Side: Text */}
         <div className="flex w-full flex-col justify-center gap-2 lg:w-2/3">
           <h1 className="mb-8 whitespace-pre-line">{data.title}</h1>
-          <h4>{data.name}</h4>
+          <h4>{PERSONAL_DATA.NAME}</h4>
           <ReactMarkdown
             components={{
               p: ({ children }) => (

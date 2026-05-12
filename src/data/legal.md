@@ -1,8 +1,8 @@
 # Legal Notice & Privacy Policy
 
-- **Operator:** Beata Nemeth
+- **Operator:** {{NAME}}
 - **Location:** Budapest, Hungary
-- **Contact:** beataspace@gmail.com
+- **Contact:** {{EMAIL}}
 
 ---
 
@@ -29,6 +29,6 @@ This portfolio is architected as a static application to ensure maximum performa
 
 ## Copyright
 
-© 2026 Beeta Nemeth. All rights reserved.
+© 2026 {{NAME}}. All rights reserved.
 
 All content on this website, including text, design elements, and original source code, is my intellectual property. Unauthorized reproduction, distribution, or use of any part of this site without express written permission is prohibited.

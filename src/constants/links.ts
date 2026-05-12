@@ -11,3 +11,9 @@ export const EXTERNAL_LINKS = {
     'https://github.com/beatanemeth/ai-engineering-custom-wix-data-chat',
   N8N_WIX_WORKFLOW: 'https://github.com/beatanemeth/n8n_wix_events',
 };
+
+export const INTERNAL_LINKS = {
+  ABOUT: '#aboutSection',
+  SOLUTIONS: '#technicalSection',
+  CONTACT: '#contactSection',
+};

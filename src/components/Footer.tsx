@@ -1,3 +1,4 @@
+import { PERSONAL_DATA } from '@/constants/general';
 import { getMarkdownContent } from '@/utils/mdContent';
 import { Button, Modal } from '@heroui/react';
 import ReactMarkdown from 'react-markdown';
@@ -6,6 +7,9 @@ import Container from './Container';
 export default function Footer() {
   const currentYear = new Date().getFullYear();
   const { content } = getMarkdownContent('legal.md');
+  const dynamicContent = content
+    .replaceAll('{{NAME}}', PERSONAL_DATA.NAME)
+    .replaceAll('{{EMAIL}}', PERSONAL_DATA.EMAIL);
 
   return (
     <Container
@@ -14,7 +18,7 @@ export default function Footer() {
       className="flex flex-col items-center justify-between gap-4 py-8 lg:flex-row"
     >
       <p className="text-very-light-gray/80 mb-0 text-sm">
-        Copyright © {currentYear} Beáta Németh
+        Copyright © {currentYear} {PERSONAL_DATA.NAME}
       </p>
 
       <div className="flex gap-6">
@@ -57,7 +61,7 @@ export default function Footer() {
                       hr: () => <hr className="my-6 border-white/10" />,
                     }}
                   >
-                    {content}
+                    {dynamicContent}
                   </ReactMarkdown>
                 </Modal.Body>
                 <Modal.Footer className="flex justify-end">
