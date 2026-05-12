@@ -66,7 +66,7 @@ export default function Footer() {
                 </Modal.Body>
                 <Modal.Footer className="flex justify-end">
                   <p className="text-very-dark-blue/70 text-sm italic">
-                    Built with Next.js & Tailwind CSS
+                    Built with Next.js, HeroUI & Tailwind CSS
                   </p>
                 </Modal.Footer>
               </Modal.Dialog>

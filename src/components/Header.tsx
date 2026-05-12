@@ -2,6 +2,7 @@
 
 import { PERSONAL_DATA } from '@/constants/general';
 import { INTERNAL_LINKS } from '@/constants/links';
+import Image from 'next/image';
 import Link from 'next/link';
 import { useState } from 'react';
 import { HiMenu, HiX } from 'react-icons/hi';
@@ -36,7 +37,15 @@ export default function Header() {
 
   return (
     <ContainerWrapper as="header" id="headerSection" className="relative z-50">
-      <Container className="flex items-center py-6">
+      <Container className="flex items-end gap-2 py-2">
+        <Image
+          src="/bn_logo_white.png"
+          alt="Beata Nemeth initials"
+          width={80}
+          height={80}
+          priority
+        />
+
         <h6 className="mb-0">{PERSONAL_DATA.NAME}</h6>
 
         {/* Desktop Navigation */}

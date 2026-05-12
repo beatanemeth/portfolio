@@ -53,38 +53,48 @@ export default function SectionAbout() {
             </ul>
           </div>
         </div>
+      </Container>
 
-        <Card className="shadow-very-dark-blue/80 bg-very-soft-blue mx-auto my-16 flex w-full flex-col items-stretch p-10 shadow-lg/40 lg:w-2/3 lg:flex-row">
-          <div className="w-full overflow-hidden lg:w-1/3">
-            <Image
-              src={data.certification.image}
-              alt={data.certification.title}
-              width={240}
-              height={240}
-            />
-          </div>
-          <div className="flex flex-1 flex-col gap-3">
-            <Card.Header className="gap-1">
-              <Card.Title className="text-very-dark-blue">
-                {data.certification.title}
-              </Card.Title>
-              <Card.Description className="text-very-dark-blue">
-                {data.certification.description}
-              </Card.Description>
-            </Card.Header>
-            <Card.Footer className="mt-auto">
-              <HeroUILink
-                href={EXTERNAL_LINKS[data.certification.linkKey]}
-                target="_blank"
-                className="text-hyperlink"
-              >
-                View Badge
-                <HeroUILink.Icon />
-              </HeroUILink>
-            </Card.Footer>
-          </div>
-        </Card>
+      <div
+        id="parallaxAbout"
+        className="w-full bg-cover bg-fixed bg-center bg-no-repeat lg:h-132"
+        style={{ backgroundImage: "url('/system_patterns.png')" }}
+      >
+        <Container className="flex flex-col items-start gap-8 py-10">
+          <Card className="shadow-very-dark-blue/80 bg-very-soft-blue mx-auto my-16 flex w-full flex-col items-stretch p-10 shadow-lg/40 lg:w-2/3 lg:flex-row">
+            <div className="w-full overflow-hidden lg:w-1/3">
+              <Image
+                src={data.certification.image}
+                alt={data.certification.title}
+                width={240}
+                height={240}
+              />
+            </div>
+            <div className="flex flex-1 flex-col gap-3">
+              <Card.Header className="gap-1">
+                <Card.Title className="text-very-dark-blue">
+                  {data.certification.title}
+                </Card.Title>
+                <Card.Description className="text-very-dark-blue">
+                  {data.certification.description}
+                </Card.Description>
+              </Card.Header>
+              <Card.Footer className="mt-auto">
+                <HeroUILink
+                  href={EXTERNAL_LINKS[data.certification.linkKey]}
+                  target="_blank"
+                  className="text-hyperlink"
+                >
+                  View Badge
+                  <HeroUILink.Icon />
+                </HeroUILink>
+              </Card.Footer>
+            </div>
+          </Card>
+        </Container>
+      </div>
 
+      <Container className="flex flex-col items-start gap-8 py-10">
         <div className="mx-auto w-full border-t border-white/5 lg:w-3/4">
           <Timeline />
         </div>

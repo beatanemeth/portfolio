@@ -39,7 +39,7 @@ export default function SectionPerson() {
 
   return (
     <ContainerWrapper id="personSection" className="py-16">
-      <Container className="flex flex-col gap-8 py-32">
+      <Container className="flex flex-col gap-8 pt-32 pb-16">
         <h2 className="text-center">{data.title}</h2>
 
         <ReactMarkdown
@@ -51,6 +51,15 @@ export default function SectionPerson() {
         >
           {data.intro}
         </ReactMarkdown>
+      </Container>
+
+      <div
+        id="parallaxPerson"
+        className="h-96 w-full bg-cover bg-fixed bg-center bg-no-repeat"
+        style={{ backgroundImage: "url('/system_architecture.png')" }}
+      />
+
+      <Container className="flex flex-col gap-8 pt-16">
         <div className="flex flex-col justify-center gap-8 lg:flex-row">
           {data.sections.map((section, index) => (
             <div

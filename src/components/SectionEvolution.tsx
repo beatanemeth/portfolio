@@ -59,7 +59,7 @@ const AnalogyItem = ({ title, biology, architecture }: Analogy) => (
             </ReactMarkdown>
             <div className="mt-10 flex items-center gap-4">
               <p className="mb-0 font-semibold">The Architecture Analogy</p>
-              <GiCrane className="text-moderate-lime-green text-3xl" />
+              <GiCrane className="text-dark-moderate-lime-green text-3xl" />
             </div>
             <ReactMarkdown
               components={{
@@ -91,7 +91,11 @@ export default function SectionEvolution() {
   const evolutionData = data as unknown as EvolutionData;
 
   return (
-    <ContainerWrapper id="evolutionSection">
+    <ContainerWrapper
+      id="evolutionSection"
+      className="bg-cover bg-fixed bg-center bg-no-repeat"
+      style={{ backgroundImage: "url('/system_blue.png')" }}
+    >
       <Container className="flex flex-col gap-8 py-32">
         <h2 className="text-center">{evolutionData.title}</h2>
         <ReactMarkdown
@@ -103,38 +107,46 @@ export default function SectionEvolution() {
         >
           {evolutionData.intro}
         </ReactMarkdown>
+      </Container>
 
-        <div className="my-6 flex flex-col items-start justify-center lg:flex-row lg:gap-18">
-          {/* Left Side: Text */}
-          <div className="flex w-full flex-col gap-2 p-8 lg:w-1/2">
-            <ReactMarkdown
-              components={{
-                ol: ({ children }) => (
-                  <ol className="mb-4 list-decimal space-y-2 pl-6">
-                    {children}
-                  </ol>
-                ),
-                ul: ({ children }) => (
-                  <ul className="mb-4 list-disc space-y-2 pl-6">{children}</ul>
-                ),
-                li: ({ children }) => <li>{children}</li>,
-              }}
-            >
-              {content}
-            </ReactMarkdown>
+      <ContainerWrapper>
+        <Container className="flex flex-col gap-8 py-16">
+          <div className="my-6 flex flex-col items-start justify-center lg:flex-row lg:gap-18">
+            {/* Left Side: Text */}
+            <div className="flex w-full flex-col gap-2 p-8 lg:w-1/2">
+              <ReactMarkdown
+                components={{
+                  ol: ({ children }) => (
+                    <ol className="mb-4 list-decimal space-y-2 pl-6">
+                      {children}
+                    </ol>
+                  ),
+                  ul: ({ children }) => (
+                    <ul className="mb-4 list-disc space-y-2 pl-6">
+                      {children}
+                    </ul>
+                  ),
+                  li: ({ children }) => <li>{children}</li>,
+                }}
+              >
+                {content}
+              </ReactMarkdown>
+            </div>
+
+            {/* Right Side: Text */}
+            <div className="shadow-very-dark-blue/80 flex w-full flex-col justify-center rounded-2xl p-8 shadow-lg/40 lg:w-1/2">
+              <GiTestTubes className="text-moderate-lime-green mb-2 text-5xl" />
+              <ReactMarkdown>{evolutionData.example1}</ReactMarkdown>
+              <AiOutlinePartition className="text-moderate-lime-green mt-10 text-5xl" />
+              <ReactMarkdown>{evolutionData.example2}</ReactMarkdown>
+            </div>
           </div>
+        </Container>
+      </ContainerWrapper>
 
-          {/* Right Side: Text */}
-          <div className="shadow-very-dark-blue/80 flex w-full flex-col justify-center rounded-2xl p-8 shadow-lg/40 lg:w-1/2">
-            <GiTestTubes className="text-moderate-lime-green mb-2 text-5xl" />
-            <ReactMarkdown>{evolutionData.example1}</ReactMarkdown>
-            <AiOutlinePartition className="text-moderate-lime-green mt-10 text-5xl" />
-            <ReactMarkdown>{evolutionData.example2}</ReactMarkdown>
-          </div>
-        </div>
-
+      <Container className="flex flex-col gap-8 py-32">
         <div className="flex flex-col justify-center gap-4">
-          <h4 className="text-center">Analogies: Biology vs Tech</h4>
+          <h3 className="text-center">Analogies: Biology vs Tech</h3>
           <ReactMarkdown
             components={{
               p: ({ children }) => <p className="text-center">{children}</p>,

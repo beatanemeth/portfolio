@@ -1,7 +1,7 @@
 import Container from '@/components/Container';
 import { PERSONAL_DATA } from '@/constants/general';
 import { getMarkdownContent } from '@/utils/mdContent';
-import { Link as HeroUILink, Tooltip } from '@heroui/react';
+import { Tooltip } from '@heroui/react';
 import Image from 'next/image';
 import Link from 'next/link';
 import { FaCircle } from 'react-icons/fa';
@@ -36,7 +36,7 @@ export default function SectionHero() {
     <Container
       as="section"
       id="heroSection"
-      className="flex min-h-screen flex-col items-start gap-14 py-10"
+      className="flex min-h-screen flex-col items-start gap-6 py-10"
     >
       <div className="flex items-center gap-2">
         <FaCircle className="text-moderate-lime-green" />
@@ -77,22 +77,20 @@ export default function SectionHero() {
             <Image
               src={data.image.src}
               alt={data.image.alt}
-              width={380}
-              height={380}
+              width={560}
+              height={560}
               priority
               className="object-contain"
             />
 
             {/* Tooltip anchored to the bottom right of the image */}
-            <div className="absolute right-12 bottom-0">
-              <Tooltip delay={600} closeDelay={0}>
-                <HeroUILink
-                  href={data.image.attributionUrl}
-                  target="_blank"
-                  className="text-very-light-gray/50 hover:text-very-light-gray no-underline transition-opacity"
-                >
-                  <small className="text-sm">Flaticon</small>
-                </HeroUILink>
+            <div className="absolute right-20 bottom-0">
+              <Tooltip delay={600} closeDelay={0} trigger="hover">
+                <Tooltip.Trigger className="cursor-pointer">
+                  <small className="text-very-light-gray/80 text-sm">
+                    Gemini
+                  </small>
+                </Tooltip.Trigger>
                 <Tooltip.Content
                   className="bg-slate-600 p-2 text-xs text-white italic"
                   placement="top"
@@ -107,7 +105,7 @@ export default function SectionHero() {
 
       <div className="flex flex-col gap-6">
         <h5 className="text-center">{data.coreStackTitle}</h5>
-        <div className="mx-auto flex w-full flex-wrap justify-center gap-4 lg:w-3/4 lg:gap-8">
+        <div className="mx-auto flex w-full flex-wrap justify-center gap-4 lg:gap-8">
           {data.coreStackItems.map((item, index) => (
             <CoreStackItem key={index} title={item} />
           ))}
