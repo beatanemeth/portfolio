@@ -1,15 +1,11 @@
 import BackToTop from '@/components/BackToTop';
 import Footer from '@/components/Footer';
 import Header from '@/components/Header';
-import type { Metadata } from 'next';
+import { siteMetadata } from '@/utils/metadata';
 import { montserrat, raleway } from '../utils/fonts';
 import './globals.css';
 
-export const metadata: Metadata = {
-  title: 'Beata Nemeth | Systems-First Architect & AI Engineer',
-  description:
-    'Architecting scalable digital backbones and AI-driven automation systems. Bridging biological precision with software scalability.',
-};
+export const metadata = siteMetadata;
 
 export default function RootLayout({
   children,
