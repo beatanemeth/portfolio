@@ -1,0 +1,14 @@
+@import 'tailwindcss';
+
+/* 
+ * HeroUI v3 Accordion Global Overrides
+ * https://github.com/heroui-inc/heroui/blob/v3/packages/styles/components/accordion.css
+ */
+
+.accordion__trigger {
+  @apply text-lg leading-[1.4] font-medium tracking-wide sm:text-xl lg:text-2xl;
+}
+
+.accordion__body-inner {
+  @apply text-very-dark-blue;
+}

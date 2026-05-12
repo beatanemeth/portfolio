@@ -1,0 +1,13 @@
+@import 'tailwindcss';
+
+/* 
+ * HeroUI v3 Accordion Global Overrides
+ * https://github.com/heroui-inc/heroui/blob/v3/packages/styles/components/link.css
+ */
+.link {
+  @apply text-sm leading-relaxed font-normal tracking-normal sm:text-base lg:text-xl;
+}
+
+.link__icon {
+  @apply size-6;
+}

@@ -1,0 +1,18 @@
+@import 'tailwindcss';
+
+/* 
+ * HeroUI v3 Accordion Global Overrides
+ * https://github.com/heroui-inc/heroui/blob/v3/packages/styles/components/card.css
+ */
+
+.card__title {
+  @apply text-lg leading-[1.4] font-medium tracking-wide sm:text-xl lg:text-2xl;
+}
+
+.card__description {
+  @apply text-sm leading-relaxed font-normal tracking-normal sm:text-base lg:text-xl;
+}
+
+.card__footer {
+  @apply text-very-dark-blue text-sm leading-relaxed font-normal tracking-normal sm:text-base lg:text-lg;
+}

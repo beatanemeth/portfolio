@@ -45,6 +45,7 @@ The project uses [ESLint](https://eslint.org/), [Prettier](https://prettier.io/d
 **DEPENDENCIES & THEIR PURPOSE**
 
 - [ESLint](https://eslint.org/) &rarr; The Logic Police: to ensure code consistency, e.g., catches actual bugs (like a variable that isn't used)
+- [eslint-plugin-unused-imports](https://www.npmjs.com/package/eslint-plugin-unused-imports) &rarr; The Cleanup Crew: automatically removes unused imports while you code (as warnings) and purges them on commit.
 - [Prettier](https://prettier.io/docs/en/) &rarr; The Stylist: to ensure that code is properly formatted according to the rules defined
   - [eslint-config-prettier](https://www.npmjs.com/package/eslint-config-prettier) &rarr; The Mediator: prevents any code formatting conflicts between `ESLint` and `Prettier`. As we know, `ESLint` handles both code quality and code formatting. This package disables the rule in `ESLint` that formats code so that `ESLint` only focuses on ensuring code quality.
   - [prettier-plugin-tailwindcss](https://github.com/tailwindlabs/prettier-plugin-tailwindcss) &rarr; The Choreographer: sorts Tailwind CSS classes in the recommended order for readability.
@@ -57,7 +58,27 @@ The project uses [ESLint](https://eslint.org/), [Prettier](https://prettier.io/d
 
 #### &rarr; ESLint
 
-[Next.js ](https://nextjs.org/) already has `ESLint` preconfigured. The only thing you’ll need to do is to extend `eslint.config.mjs` file with `Prettier`(see below).
+[Next.js ](https://nextjs.org/) already has `ESLint` preconfigured. The only thing you’ll need to do is:
+
+1. to extend `eslint.config.mjs` file with `Prettier`(see below).
+2. install `eslint-plugin-unused-imports` as "The Cleanup Crew". By adding this plugin to your ESLint config, the "fix" command will automatically delete any imports that aren't being used before the commit is finalized.
+
+- install the plugin
+
+```bash
+npm install --save-dev eslint-plugin-unused-imports
+```
+
+- update the `eslint.config.mjs` to set the rules (see below)
+- ensure `package.json` contains
+
+```bash
+"lint-staged": {
+  "*.{js,jsx,ts,tsx}": [
+    "eslint --fix",
+    "prettier --write"
+  ],
+```
 
 #### &rarr; Prettier and additional plugins
 
@@ -78,12 +99,32 @@ npm install --save-dev --save-exact prettier eslint-config-prettier prettier-plu
 ```JavaScript
 // ...
 import eslintConfigPrettier from 'eslint-config-prettier';
+import unusedImports from 'eslint-plugin-unused-imports';
 
 const eslintConfig = defineConfig([
 	// ...
   globalIgnores([
 	// ...
   ]),
+  {
+    plugins: {
+      'unused-imports': unusedImports,
+    },
+    rules: {
+      'no-unused-vars': 'off',
+      '@typescript-eslint/no-unused-vars': 'off',
+      'unused-imports/no-unused-imports': 'warn',
+      'unused-imports/no-unused-vars': [
+        'warn',
+        {
+          vars: 'all',
+          varsIgnorePattern: '^_',
+          args: 'after-used',
+          argsIgnorePattern: '^_',
+        },
+      ],
+    },
+  },
   eslintConfigPrettier,
 ]);
 
