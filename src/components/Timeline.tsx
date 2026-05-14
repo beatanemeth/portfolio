@@ -1,5 +1,6 @@
 import { getMarkdownContent } from '@/utils/mdContent';
 import { Chip } from '@heroui/react';
+import clsx from 'clsx';
 import { FaCode, FaCogs, FaMicroscope } from 'react-icons/fa';
 import ReactMarkdown from 'react-markdown';
 
@@ -38,7 +39,14 @@ export default function Timeline() {
           <div key={index} className="relative z-10 mb-12 flex gap-8 last:mb-0">
             {/* The Vertical Line Logic */}
             <div
-              className={`bg-very-dark-blue/20 absolute left-[23px] w-[2px] ${index === 0 ? 'top-[-40px] bottom-[-48px]' : ''} ${index > 0 && index < data.events.length - 1 ? 'top-0 bottom-[-48px]' : ''} ${index === data.events.length - 1 ? 'top-0 h-[24px]' : ''} `}
+              className={clsx(
+                'bg-very-dark-blue/20 absolute left-[23px] w-[2px]',
+                index === 0 && 'top-[-40px] bottom-[-48px]',
+                index > 0 &&
+                  index < data.events.length - 1 &&
+                  'top-0 bottom-[-48px]',
+                index === data.events.length - 1 && 'top-0 h-[24px]',
+              )}
             />
 
             {/* Timeline Marker */}
@@ -56,9 +64,10 @@ export default function Timeline() {
                   <Chip
                     size="md"
                     variant="secondary"
-                    className={`text-very-dark-blue/80 bg-very-light-gray/60 text-base ${
-                      event.status !== 'Completed' ? 'font-bold' : ''
-                    }`}
+                    className={clsx(
+                      'bg-very-light-gray/60 text-very-dark-blue/80 text-base',
+                      event.status !== 'Completed' && 'font-bold',
+                    )}
                   >
                     {event.status}
                   </Chip>

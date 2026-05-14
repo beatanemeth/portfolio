@@ -1,8 +1,9 @@
 'use client';
 
 import { Button } from '@heroui/react';
+import clsx from 'clsx';
 import { useEffect, useState } from 'react';
-import { FaArrowUp } from 'react-icons/fa';
+import { SlArrowUp } from 'react-icons/sl';
 
 export default function BackToTop() {
   const [isVisible, setIsVisible] = useState(false);
@@ -37,19 +38,20 @@ export default function BackToTop() {
 
   return (
     <div
-      className={`fixed right-8 bottom-8 z-50 transition-opacity duration-300 ${
-        isVisible ? 'opacity-100' : 'pointer-events-none opacity-0'
-      }`}
+      className={clsx(
+        'fixed right-8 bottom-8 z-50 transition-opacity duration-300',
+        isVisible ? 'opacity-100' : 'pointer-events-none opacity-0',
+      )}
     >
       <Button
         isIconOnly
         aria-label="Back to top"
         variant="primary"
         size="lg"
-        className="bg-very-soft-violet text-very-dark-blue shadow-2xl"
+        className="bg-very-soft-violet text-very-dark-blue hover:bg-moderate-lime-green shadow-2xl transition-colors"
         onClick={scrollToTop}
       >
-        <FaArrowUp />
+        <SlArrowUp strokeWidth={96} />
       </Button>
     </div>
   );

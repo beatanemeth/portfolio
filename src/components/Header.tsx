@@ -3,6 +3,7 @@
 import { PERSONAL_DATA } from '@/constants/general';
 import { INTERNAL_LINKS } from '@/constants/links';
 import { withBasePath } from '@/utils/path';
+import clsx from 'clsx';
 import Image from 'next/image';
 import Link from 'next/link';
 import { useState } from 'react';
@@ -23,9 +24,10 @@ const MenuItem = ({ linkText, linkKey, onClick, isMobile = false }: Item) => (
   <Link
     href={INTERNAL_LINKS[linkKey]}
     onClick={onClick}
-    className={`${
-      isMobile ? 'text-very-dark-blue' : 'text-very-light-gray'
-    } hover:text-moderate-lime-green w-fit px-8 py-4 text-xs font-semibold transition-transform duration-300 hover:scale-105 active:scale-95 sm:text-sm lg:text-lg`}
+    className={clsx(
+      'hover:text-moderate-lime-green w-fit px-8 py-4 text-xs font-semibold transition-transform duration-300 hover:scale-105 active:scale-95 sm:text-sm lg:text-lg',
+      isMobile ? 'text-very-dark-blue' : 'text-very-light-gray',
+    )}
   >
     {linkText}
   </Link>

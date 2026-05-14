@@ -360,7 +360,11 @@ Finally, tell GitHub to use your Action for deployment:
 
 <br></br>
 
-## 5. Appendix
+## 5. Specific Packages
+
+### gray-matter npm package
+
+[gray-matter](https://www.npmjs.com/package/gray-matter) is a Node.js library used to parse front-matter from strings or files, typically for extracting YAML, JSON, or JavaScript data from Markdown files. It returns an object containing the parsed data (front-matter), the content, and additional metadata.
 
 ### serve npm package
 
@@ -385,3 +389,19 @@ The [serve npm package](https://www.npmjs.com/package/serve) is a command-line t
 - _Purpose:_ This is your most important test. It simulates exactly how GitHub Pages hosts your site.
 - _Appearance:_ It works, because GitHub hosts you at `/portfolio/`, your code expects images to be at `/portfolio/image.png`. The symbolic link we created makes this work.
 - _Use this:_ Right before you commit and push to GitHub, to make sure nothing is broken.
+
+### clsx npm package
+
+[clsx](https://www.npmjs.com/package/clsx) is a utility library for JavaScript and React applications used to construct `className` strings conditionally. It allows developers to toggle CSS classes based on boolean conditions, objects, or arrays. Crucially, it handles "falsy" values (like `null`, `undefined`, or `false`) so they are ignored rather than appearing as literal strings in your HTML output.
+
+- Example _without_ `clsx` (manual logic):
+
+```JavaScript
+`${active ? 'text-white' : ''} ${error ? 'border-red-500' : ''}`
+```
+
+- Example _with_ `clsx` (cleaner logic):
+
+```JavaScript
+clsx('bg-blue-500', active && 'text-white', error && 'border-red-500')
+```

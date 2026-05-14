@@ -1,3 +1,5 @@
+import clsx from 'clsx';
+
 type Props = {
   children?: React.ReactNode;
   className?: string;
@@ -18,7 +20,7 @@ export default function Container({
       {...props}
       id={id}
       /* We keep container logic first, then inject custom classes */
-      className={`container mx-auto px-12 ${className}`}
+      className={clsx('container mx-auto px-12', className)}
     >
       {children}
     </Component>
