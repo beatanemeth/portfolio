@@ -1,4 +1,4 @@
-import clsx from 'clsx';
+import { cn } from '@/utils/cn';
 
 type Props = {
   children?: React.ReactNode;
@@ -20,7 +20,7 @@ export default function Container({
       {...props}
       id={id}
       /* We keep container logic first, then inject custom classes */
-      className={clsx('container mx-auto px-12', className)}
+      className={cn('container mx-auto px-12', className)}
     >
       {children}
     </Component>

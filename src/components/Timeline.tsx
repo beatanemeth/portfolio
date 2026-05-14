@@ -1,6 +1,6 @@
+import { cn } from '@/utils/cn';
 import { getMarkdownContent } from '@/utils/mdContent';
 import { Chip } from '@heroui/react';
-import clsx from 'clsx';
 import { FaCode, FaCogs, FaMicroscope } from 'react-icons/fa';
 import ReactMarkdown from 'react-markdown';
 
@@ -39,7 +39,7 @@ export default function Timeline() {
           <div key={index} className="relative z-10 mb-12 flex gap-8 last:mb-0">
             {/* The Vertical Line Logic */}
             <div
-              className={clsx(
+              className={cn(
                 'bg-very-dark-blue/20 absolute left-[23px] w-[2px]',
                 index === 0 && 'top-[-40px] bottom-[-48px]',
                 index > 0 &&
@@ -64,7 +64,7 @@ export default function Timeline() {
                   <Chip
                     size="md"
                     variant="secondary"
-                    className={clsx(
+                    className={cn(
                       'bg-very-light-gray/60 text-very-dark-blue/80 text-base',
                       event.status !== 'Completed' && 'font-bold',
                     )}

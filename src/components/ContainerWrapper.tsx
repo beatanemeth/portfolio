@@ -1,4 +1,4 @@
-import clsx from 'clsx';
+import { cn } from '@/utils/cn';
 
 type Props = {
   children?: React.ReactNode;
@@ -20,7 +20,7 @@ export default function ContainerWrapper({
       {...props}
       id={id}
       /* We keep container logic first, then inject custom classes */
-      className={clsx('bg-strong-blue/90 w-full', className)}
+      className={cn('bg-strong-blue/90 w-full', className)}
     >
       {children}
     </Component>

@@ -1,7 +1,7 @@
 'use client';
 
+import { cn } from '@/utils/cn';
 import { Button } from '@heroui/react';
-import clsx from 'clsx';
 import { useEffect, useState } from 'react';
 import { SlArrowUp } from 'react-icons/sl';
 
@@ -38,7 +38,7 @@ export default function BackToTop() {
 
   return (
     <div
-      className={clsx(
+      className={cn(
         'fixed right-8 bottom-8 z-50 transition-opacity duration-300',
         isVisible ? 'opacity-100' : 'pointer-events-none opacity-0',
       )}

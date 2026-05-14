@@ -405,3 +405,28 @@ The [serve npm package](https://www.npmjs.com/package/serve) is a command-line t
 ```JavaScript
 clsx('bg-blue-500', active && 'text-white', error && 'border-red-500')
 ```
+
+### tailwind-merge npm package
+
+[tailwind-merge](https://www.npmjs.com/package/tailwind-merge) is a utility library that allows you to merge multiple Tailwind CSS classes without style conflicts. It intelligently resolves overlaps (e.g., merging `px-8` and `px-0` will correctly result in `px-0`) by understanding Tailwind's internal rules.
+
+#### The `cn` Utility (`src/utils/cn.ts`)
+
+In this project, we use a centralized `cn` utility that combines `clsx` and `tailwind-merge`. This is the industry-standard way to handle class names in React/Tailwind projects.
+
+- **Purpose:** To provide a single function that handles both **conditional logic** (via `clsx`) and **conflict resolution** (via `tailwind-merge`).
+- **Usage:**
+
+```tsx
+import { cn } from '@/utils/cn';
+
+// Example: Merging base styles with conditional overrides
+<div
+  className={cn(
+    'bg-blue-500 px-8 py-2',
+    active && 'text-white',
+    isError && 'bg-red-500',
+    className,
+  )}
+/>;
+```
