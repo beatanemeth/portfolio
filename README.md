@@ -357,3 +357,31 @@ Finally, tell GitHub to use your Action for deployment:
   - [Next.js GitHub Pages deployment guide](https://github.com/nextjs/deploy-github-pages)
 - [@use JSDoc](https://jsdoc.app/)
 - [Conventional Commits](https://gist.github.com/qoomon/5dfcdf8eec66a051ecd85625518cfd13)
+
+<br></br>
+
+## 5. Appendix
+
+### serve npm package
+
+The [serve npm package](https://www.npmjs.com/package/serve) is a command-line tool used to quickly host static websites, single-page applications (SPAs), or individual files on your local device or network. It essentially turns a directory on your computer into a virtual web server for testing and development purposes.
+
+```bash
+  "scripts": {
+    "preview": "serve dist",
+  }
+```
+
+- _Purpose:_ This tests the static build as if it were hosted on a custom domain (like www.yourname.com) where there is no subpath.
+- _Appearance:_ It looks like a "bone", because your code is currently hardcoded to look for assets at `/portfolio/...` (due to the `withBasePath` utility), but in this mode, the server is serving them at the `root /...`. The browser looks for `/portfolio/styles.css`, doesn't find it, and gives up.
+- _Use this:_ Only if you decide to buy a custom domain and stop using the `/portfolio` subfolder.
+
+```bash
+  "scripts": {
+     "preview:prod": "cd dist && ln -s . portfolio && cd .. && serve dist"
+  }
+```
+
+- _Purpose:_ This is your most important test. It simulates exactly how GitHub Pages hosts your site.
+- _Appearance:_ It works, because GitHub hosts you at `/portfolio/`, your code expects images to be at `/portfolio/image.png`. The symbolic link we created makes this work.
+- _Use this:_ Right before you commit and push to GitHub, to make sure nothing is broken.

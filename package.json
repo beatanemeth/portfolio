@@ -10,7 +10,9 @@
     "lint:check": "eslint-config-prettier eslint.config.mjs",
     "prettier": "prettier --check .",
     "prettier:format": "prettier --write .",
-    "prepare": "husky"
+    "prepare": "husky",
+    "preview": "serve dist",
+    "preview:prod": "cd dist && ln -s . portfolio && cd .. && serve dist"
   },
   "dependencies": {
     "@heroui/react": "^3.0.4",
@@ -36,6 +38,7 @@
     "prettier": "3.8.3",
     "prettier-plugin-organize-imports": "4.3.0",
     "prettier-plugin-tailwindcss": "0.8.0",
+    "serve": "^14.2.6",
     "tailwindcss": "^4",
     "typescript": "^5"
   },
