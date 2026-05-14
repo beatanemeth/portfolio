@@ -1,6 +1,8 @@
 ---
 title: 'Technical solutions that solve practical needs'
-description1: "My engineering process begins with **observation**. I identify 'manual chaos' within organizations and foundations, then architect bespoke technical solutions to solve practical needs and ensure long-term scalability."
+description1: |
+  My engineering process begins with **observation**. 
+  I identify 'manual chaos' within a given organization, then architect customized technical solutions to solve practical needs and ensure long-term scalability.
 explore: 'Explore the repo:'
 description2: |
   The goal is to **turn complexity into structure**, and **structure into a system**.  

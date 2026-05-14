@@ -20,7 +20,8 @@ This website is a static portfolio hosted via **GitHub Pages**.
 
 This portfolio is architected as a static application to ensure maximum performance and privacy.
 
-- **Framework:** Built with **Next.js** and **Tailwind CSS**.
+- **Framework:** Built with **Next.js**, **HeroUI**, and **Tailwind CSS**.
+- **Images:** Generated with **Gemini**.
 - **Deployment:** Hosted as a static site on **GitHub Pages**.
 - **No Cookies:** The application is architected to be entirely cookie-less.
 - **No Server-Side State:** As a static site, no user data is processed or stored on a backend server by the owner.

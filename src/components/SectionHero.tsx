@@ -2,7 +2,6 @@ import Container from '@/components/Container';
 import { PERSONAL_DATA } from '@/constants/general';
 import { getMarkdownContent } from '@/utils/mdContent';
 import { withBasePath } from '@/utils/path';
-import { Tooltip } from '@heroui/react';
 import Image from 'next/image';
 import Link from 'next/link';
 import { FaCircle } from 'react-icons/fa';
@@ -37,11 +36,13 @@ export default function SectionHero() {
     <Container
       as="section"
       id="heroSection"
-      className="flex min-h-screen flex-col items-start gap-6 py-10"
+      className="flex min-h-svh flex-col items-start gap-10 pt-14"
     >
       <div className="flex items-center gap-2">
         <FaCircle className="text-moderate-lime-green" />
-        <p className="text-very-light-gray/80 mb-0">{data.availability}</p>
+        <p className="text-very-light-gray/80 mb-0 text-sm sm:text-base lg:text-lg">
+          {data.availability}
+        </p>
       </div>
 
       <div className="flex flex-col items-center gap-6 lg:flex-row lg:gap-12">
@@ -72,35 +73,15 @@ export default function SectionHero() {
         </div>
 
         {/* Right Side: Image Container */}
-        <div className="relative flex w-full justify-center lg:w-1/2">
-          {/* Wrap image in a div to define the bounds for the absolute tooltip */}
-          <div className="relative h-fit w-fit">
-            <Image
-              src={withBasePath(data.image.src)}
-              alt={data.image.alt}
-              width={560}
-              height={560}
-              priority
-              className="object-contain"
-            />
-
-            {/* Tooltip anchored to the bottom right of the image */}
-            <div className="absolute right-20 bottom-0">
-              <Tooltip delay={600} closeDelay={0} trigger="hover">
-                <Tooltip.Trigger className="cursor-pointer">
-                  <small className="text-very-light-gray/80 text-sm">
-                    Gemini
-                  </small>
-                </Tooltip.Trigger>
-                <Tooltip.Content
-                  className="bg-slate-600 p-2 text-xs text-white italic"
-                  placement="top"
-                >
-                  {data.image.attributionText}
-                </Tooltip.Content>
-              </Tooltip>
-            </div>
-          </div>
+        <div className="flex w-full justify-center lg:w-1/2">
+          <Image
+            src={withBasePath(data.image.src)}
+            alt={data.image.alt}
+            width={560}
+            height={560}
+            priority
+            className="object-contain"
+          />
         </div>
       </div>
 

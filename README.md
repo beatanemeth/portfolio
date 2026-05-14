@@ -1,6 +1,14 @@
 # Portfolio Page
 
-The goal of the project is to create a Portfolio Page using Next.js with Tailwind CSS and Hero UI. It should be a statically generated page, because it will be hosted on GitHub Pages.
+Personal portfolio page.
+
+- **Framework:** Built with **Next.js**, **HeroUI**, and **Tailwind CSS**.
+- **Images:** Generated with **Gemini**.
+- **Deployment:** Hosted as a static site on **GitHub Pages**.
+
+### Public URL
+
+👉 [https://beatanemeth.github.io/portfolio/](https://beatanemeth.github.io/portfolio/)
 
 ### Disclaimer
 
@@ -12,6 +20,10 @@ The goal of the project is to create a Portfolio Page using Next.js with Tailwin
 ## 1. Technical Details
 
 This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+
+### **Operating System used**
+
+- Linux Mint 21.2
 
 ### **Node version used**
 
@@ -218,3 +230,158 @@ npm run lint:check
 ```
 
 It should output: _"No rules that are unnecessary or conflict with Prettier were found."_
+
+<br></br>
+
+## 3. Deployment to GitHub Pages
+
+To host a Next.js app on GitHub Pages, it is needed to be converted into a **fully static website**.  
+Instead of needing a Node.js server, we generate raw HTML, CSS, and JS files that any static host can serve.
+
+**Required Steps:**
+
+1. Enable Static Export: Update `next.config.js` and update `.gitignore`.
+2. Fix Image Handling: Configure the Next.js Image component for a static environment.
+3. Automate with GitHub Actions: Create a workflow to handle builds and deployments.
+4. Configure GitHub Settings: Point your repository to the correct deployment source.
+
+**Implementation Details:**
+
+### STEP_1: Update `next.config.js`
+
+Configure Next.js to output static files and handle sub-directory routing.
+
+Related documentation:
+
+- [How to create a static export of your Next.js application](https://nextjs.org/docs/app/guides/static-exports)
+- [basePath](https://nextjs.org/docs/app/api-reference/config/next-config-js/basePath)
+
+```JavaScript
+import type { NextConfig } from 'next';
+
+const isProd = process.env.NODE_ENV === 'production';
+
+const nextConfig: NextConfig = {
+  output: 'export',     // Enables the static export
+  distDir: 'dist',      // Changes output folder from 'out' to 'dist'
+  basePath: isProd ? '/portfolio' : '',   // Required for GitHub Project Pages
+};
+
+export default nextConfig;
+```
+
+NOTE:
+
+- GitHub Pages usually hosts projects at `https://<username>.github.io/<project-name>/`. It should be ensured that the asset paths (CSS/Images) are relative so they load correctly from a subdirectory.
+- Ensure you add `dist/` to your `.gitignore` file to avoid committing build artifacts.
+
+### STEP_2: Fix Image Handling
+
+Next.js's `next/image` component normally optimizes images on the fly via a Node.js server. Since GitHub Pages is static, we use `unoptimized: true` to serve original images directly.
+
+Related documentation:
+
+- [Image Component](https://nextjs.org/docs/app/api-reference/components/image)
+
+#### 1. Update `next.config.js`
+
+```JavaScript
+import type { NextConfig } from 'next';
+
+const nextConfig: NextConfig = {
+  // ...
+  images: {
+    unoptimized: true,
+  },
+};
+
+export default nextConfig;
+```
+
+_Why is this needed?_
+
+- Setting `unoptimized: true` tells Next.js to serve your original images directly without attempting to process them through a server. Without this, your build will fail because GitHub Pages cannot run the default Next.js Image Optimization API.
+
+#### 2. Create a Path Utility (`utils/path.ts`)
+
+```typescript
+const basePath = process.env.NODE_ENV === 'production' ? '/portfolio' : '';
+
+export const withBasePath = (path: string) => `${basePath}${path}`;
+```
+
+#### 3. Update Your Component
+
+Instead of using a hardcoded string, wrap your image sources with the utility:
+
+```tsx
+import { withBasePath } from '@/utils/path';
+// ...
+<Image
+  src={withBasePath(data.image.src)}
+  alt={data.image.alt}
+  // ...
+/>;
+```
+
+NOTE: Since images are unoptimized, ensure all assets in the `public/` folder are manually compressed (using tools like [TinyPNG](https://tinypng.com/) or [Squoosh.app](https://squoosh.app/)) before deployment to keep page load times fast.
+
+### STEP_3: Set up GitHub Actions
+
+Automate the deployment process so your site updates every time you push to the main branch.
+
+1. Create the directory `.github/workflows/` in your project root.
+2. Create a workflow file, e.g.: `your-file-workflow.yml`
+3. Use the official [Next.js GitHub Pages deployment guide](https://github.com/nextjs/deploy-github-pages), and update it to your needs.
+   - NOTE: Ensure the build step in your YAML matches your `distDir` (e.g., upload from `dist/` instead of `out/`).
+
+### STEP_4: Configure GitHub Repository
+
+Finally, tell GitHub to use your Action for deployment:
+
+1.  Navigate to your repository on **GitHub.com**.
+2.  Go to **Settings** > **Pages**.
+3.  Under **Build and deployment** > **Source**, change "Deploy from a branch" to **"GitHub Actions"**.
+    - Your site will now automatically build and deploy whenever you push changes!
+
+<br></br>
+
+## 4. Technical Stack Documentation
+
+- [Next.js](https://nextjs.org/docs)
+- [HeroUI](https://heroui.com/docs/react/components)
+- [Tailwind CSS](https://tailwindcss.com/docs/installation/using-vite)
+- [GitHub Pages](https://docs.github.com/en/pages)
+  - [How to create a static export of your Next.js application](https://nextjs.org/docs/app/guides/static-exports)
+- [GitHub Actions](https://github.com/features/actions)
+  - [Next.js GitHub Pages deployment guide](https://github.com/nextjs/deploy-github-pages)
+- [@use JSDoc](https://jsdoc.app/)
+- [Conventional Commits](https://gist.github.com/qoomon/5dfcdf8eec66a051ecd85625518cfd13)
+
+<br></br>
+
+## 5. Appendix
+
+### serve npm package
+
+The [serve npm package](https://www.npmjs.com/package/serve) is a command-line tool used to quickly host static websites, single-page applications (SPAs), or individual files on your local device or network. It essentially turns a directory on your computer into a virtual web server for testing and development purposes.
+
+```bash
+  "scripts": {
+    "preview": "serve dist",
+  }
+```
+
+- _Purpose:_ This tests the static build as if it were hosted on a custom domain (like www.yourname.com) where there is no subpath.
+- _Appearance:_ It looks like a "bone", because your code is currently hardcoded to look for assets at `/portfolio/...` (due to the `withBasePath` utility), but in this mode, the server is serving them at the `root /...`. The browser looks for `/portfolio/styles.css`, doesn't find it, and gives up.
+- _Use this:_ Only if you decide to buy a custom domain and stop using the `/portfolio` subfolder.
+
+```bash
+  "scripts": {
+     "preview:prod": "cd dist && ln -s . portfolio && cd .. && serve dist"
+  }
+```
+
+- _Purpose:_ This is your most important test. It simulates exactly how GitHub Pages hosts your site.
+- _Appearance:_ It works, because GitHub hosts you at `/portfolio/`, your code expects images to be at `/portfolio/image.png`. The symbolic link we created makes this work.
+- _Use this:_ Right before you commit and push to GitHub, to make sure nothing is broken.
