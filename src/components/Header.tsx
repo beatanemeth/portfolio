@@ -37,14 +37,19 @@ export default function Header() {
   const toggleMenu = () => setIsMenuOpen(!isMenuOpen);
 
   return (
-    <ContainerWrapper as="header" id="headerSection" className="relative z-50">
-      <Container className="flex items-end gap-2 py-2">
-        <div className="bg-very-light-gray rounded-2xl p-2">
+    <ContainerWrapper
+      as="header"
+      id="headerSection"
+      className="sticky top-0 z-50 backdrop-blur-md"
+    >
+      <Container className="flex items-center gap-2 py-2">
+        <div>
           <Image
-            src={withBasePath('/bn_logo_white.png')}
+            src={withBasePath('/bn_logo.png')}
             alt="Beata Nemeth initials"
             width={80}
-            height={80}
+            height={0}
+            style={{ width: '60px', height: 'auto' }}
             priority
           />
         </div>

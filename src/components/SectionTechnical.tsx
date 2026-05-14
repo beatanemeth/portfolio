@@ -34,7 +34,9 @@ export default function SectionTechnical() {
       <ReactMarkdown
         components={{
           p: ({ children }) => (
-            <p className="mx-auto w-full text-center lg:w-2/3">{children}</p>
+            <p className="mx-auto w-full text-center whitespace-pre-line lg:w-2/3">
+              {children}
+            </p>
           ),
         }}
       >
