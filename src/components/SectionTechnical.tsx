@@ -6,6 +6,7 @@ import { Button, Link as HeroUILink, Modal } from '@heroui/react';
 import Link from 'next/link';
 import ReactMarkdown from 'react-markdown';
 import ContainerWrapper from './ContainerWrapper';
+import Languages from './Languages';
 
 interface TechnicalSolution {
   title: string;
@@ -158,6 +159,9 @@ export default function SectionTechnical() {
         >
           Contact me
         </Link>
+        <hr className="border-very-soft-violet/30 mx-auto my-6 w-1/3" />
+
+        <Languages />
       </Container>
     </ContainerWrapper>
   );
