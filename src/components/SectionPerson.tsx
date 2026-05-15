@@ -1,5 +1,6 @@
 import Container from '@/components/Container';
 import ContainerWrapper from '@/components/ContainerWrapper';
+import { cn } from '@/utils/cn';
 import { getMarkdownContent } from '@/utils/mdContent';
 import { withBasePath } from '@/utils/path';
 import { Accordion } from '@heroui/react';
@@ -35,12 +36,39 @@ const getIcon = (title: string) => {
   return null;
 };
 
+const PersonAccordion = ({ actions }: { actions: string[] }) => (
+  <Accordion hideSeparator>
+    <Accordion.Item className="border-b-moderate-lime-green border-b-2 border-solid">
+      <Accordion.Heading>
+        <Accordion.Trigger>
+          Practices
+          <Accordion.Indicator className="text-very-light-gray">
+            <SlArrowDown />
+          </Accordion.Indicator>
+        </Accordion.Trigger>
+      </Accordion.Heading>
+      <Accordion.Panel className={cn('bg-very-light-gray/80 rounded-md')}>
+        <Accordion.Body>
+          <ul className="p-6">
+            {actions.map((action, aIndex) => (
+              <li key={aIndex} className="list-disc space-y-2 pl-2">
+                <ReactMarkdown>{action}</ReactMarkdown>
+              </li>
+            ))}
+          </ul>
+        </Accordion.Body>
+      </Accordion.Panel>
+    </Accordion.Item>
+  </Accordion>
+);
+
 export default function SectionPerson() {
   const { data } = getMarkdownContent<PersonData>('person.md');
 
   return (
-    <ContainerWrapper id="personSection" className="py-16">
-      <Container className="flex flex-col gap-8 pt-32 pb-16">
+    <ContainerWrapper id="personSection" variant="primary">
+      {/* Top Div */}
+      <Container className="flex flex-col gap-8">
         <h2 className="text-center">{data.title}</h2>
 
         <ReactMarkdown
@@ -54,15 +82,17 @@ export default function SectionPerson() {
         </ReactMarkdown>
       </Container>
 
+      {/* Parallax Div */}
       <div
         id="parallaxPerson"
-        className="h-96 w-full bg-cover bg-fixed bg-center bg-no-repeat"
+        className="my-16 h-64 w-full bg-cover bg-fixed bg-center bg-no-repeat lg:h-96"
         style={{
           backgroundImage: `url('${withBasePath('/system_architecture.png')}')`,
         }}
       />
 
-      <Container className="flex flex-col gap-8 pt-16">
+      {/* Bottom Div */}
+      <Container className="flex flex-col gap-8">
         <div className="flex flex-col justify-center gap-8 lg:flex-row">
           {data.sections.map((section, index) => (
             <div
@@ -84,35 +114,7 @@ export default function SectionPerson() {
                 {section.description}
               </ReactMarkdown>
 
-              <Accordion hideSeparator>
-                <Accordion.Item
-                  className={
-                    'border-b-moderate-lime-green border-b-2 border-solid'
-                  }
-                >
-                  <Accordion.Heading>
-                    <Accordion.Trigger>
-                      Practices
-                      <Accordion.Indicator className="text-very-light-gray">
-                        <SlArrowDown />
-                      </Accordion.Indicator>
-                    </Accordion.Trigger>
-                  </Accordion.Heading>
-                  <Accordion.Panel
-                    className={'bg-very-light-gray/80 rounded-md'}
-                  >
-                    <Accordion.Body>
-                      <ul className="p-6">
-                        {section.actions.map((action, aIndex) => (
-                          <li key={aIndex} className="list-disc space-y-2 pl-2">
-                            <ReactMarkdown>{action}</ReactMarkdown>
-                          </li>
-                        ))}
-                      </ul>
-                    </Accordion.Body>
-                  </Accordion.Panel>
-                </Accordion.Item>
-              </Accordion>
+              <PersonAccordion actions={section.actions} />
             </div>
           ))}
         </div>

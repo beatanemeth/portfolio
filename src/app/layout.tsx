@@ -1,6 +1,7 @@
 import BackToTop from '@/components/BackToTop';
 import Footer from '@/components/Footer';
 import Header from '@/components/Header';
+import { cn } from '@/utils/cn';
 import { siteMetadata } from '@/utils/metadata';
 import { montserrat, raleway } from '../utils/fonts';
 import './globals.css';
@@ -15,7 +16,7 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${montserrat.variable} ${raleway.variable} antialiased`}
+      className={cn(montserrat.variable, raleway.variable, 'antialiased')}
     >
       <body>
         <Header />

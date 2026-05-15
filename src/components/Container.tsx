@@ -1,9 +1,11 @@
-type Props = {
+import { cn } from '@/utils/cn';
+
+type ContainerProps = {
   children?: React.ReactNode;
   className?: string;
   id?: string;
-  // Define 'as' as an optional, valid HTML element tag and restrict it to ONLY these three strings
-  as?: 'div' | 'section' | 'main' | 'footer';
+  // Define 'as' as an optional, valid HTML element
+  as?: 'div';
 } & React.HTMLAttributes<HTMLDivElement>; // This allows all standard div props
 
 export default function Container({
@@ -12,13 +14,13 @@ export default function Container({
   id,
   as: Component = 'div', // Defaults to 'div' if not provided
   ...props
-}: Props) {
+}: ContainerProps) {
   return (
     <Component
       {...props}
       id={id}
       /* We keep container logic first, then inject custom classes */
-      className={`container mx-auto px-12 ${className}`}
+      className={cn('container mx-auto px-8', className)}
     >
       {children}
     </Component>
