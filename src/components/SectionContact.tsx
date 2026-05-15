@@ -5,6 +5,7 @@ import { Card, Link as HeroUILink } from '@heroui/react';
 import { FaGithub, FaLinkedinIn } from 'react-icons/fa';
 import { SiMedium } from 'react-icons/si';
 import ReactMarkdown from 'react-markdown';
+import ContainerWrapper from './ContainerWrapper';
 
 interface ContactMethod {
   platform: string;
@@ -56,37 +57,35 @@ export default function SectionContact() {
   const { data } = getMarkdownContent<ContactData>('contact.md');
 
   return (
-    <Container
-      as="section"
-      id="contactSection"
-      className="flex flex-col gap-8 py-32"
-    >
-      <h2 className="text-center">{data.title}</h2>
-      <ReactMarkdown
-        components={{
-          p: ({ children }) => (
-            <p className="mx-auto w-full text-center lg:w-2/3">{children}</p>
-          ),
-        }}
-      >
-        {data.intro}
-      </ReactMarkdown>
+    <ContainerWrapper id="contactSection" variant="ghost">
+      <Container className="flex flex-col gap-8">
+        <h2 className="text-center">{data.title}</h2>
+        <ReactMarkdown
+          components={{
+            p: ({ children }) => (
+              <p className="mx-auto w-full text-center lg:w-2/3">{children}</p>
+            ),
+          }}
+        >
+          {data.intro}
+        </ReactMarkdown>
 
-      <div className="my-8 flex flex-col justify-center gap-8 lg:flex-row">
-        {data.contactMethods.map((method, index) => (
-          <ContactItem key={index} {...method} />
-        ))}
-      </div>
+        <div className="my-8 flex flex-col justify-center gap-8 lg:flex-row">
+          {data.contactMethods.map((method, index) => (
+            <ContactItem key={index} {...method} />
+          ))}
+        </div>
 
-      <ReactMarkdown
-        components={{
-          p: ({ children }) => (
-            <p className="text-center whitespace-pre-line">{children}</p>
-          ),
-        }}
-      >
-        {data.closing}
-      </ReactMarkdown>
-    </Container>
+        <ReactMarkdown
+          components={{
+            p: ({ children }) => (
+              <p className="text-center whitespace-pre-line">{children}</p>
+            ),
+          }}
+        >
+          {data.closing}
+        </ReactMarkdown>
+      </Container>
+    </ContainerWrapper>
   );
 }

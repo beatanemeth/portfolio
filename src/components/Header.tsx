@@ -42,10 +42,12 @@ export default function Header() {
     <ContainerWrapper
       as="header"
       id="headerSection"
-      className="sticky top-0 z-50 backdrop-blur-md"
+      variant="primary"
+      className="shadow-very-dark-blue/60 sticky top-0 z-50 py-0 shadow-xl/60 backdrop-blur-md"
     >
-      <Container className="flex items-center gap-2 py-2">
-        <div>
+      <Container className="flex items-center gap-2 py-4">
+        {/* Logo */}
+        <div className="flex flex-col items-start gap-2 lg:flex-row lg:items-end">
           <Image
             src={withBasePath('/bn_logo.png')}
             alt="Beata Nemeth initials"
@@ -54,12 +56,11 @@ export default function Header() {
             style={{ width: '60px', height: 'auto' }}
             priority
           />
+          <h6 className="mb-0">{PERSONAL_DATA.NAME}</h6>
         </div>
 
-        <h6 className="mb-0">{PERSONAL_DATA.NAME}</h6>
-
         {/* Desktop Navigation */}
-        <nav className="ml-auto hidden items-center gap-4 md:flex lg:gap-8">
+        <nav className="ml-auto hidden items-center justify-end gap-4 md:flex lg:gap-8">
           {menuItems.map((item) => (
             <MenuItem
               key={item}

@@ -6,6 +6,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { FaCircle } from 'react-icons/fa';
 import ReactMarkdown from 'react-markdown';
+import ContainerWrapper from './ContainerWrapper';
 
 interface HeroData {
   availability: string;
@@ -33,66 +34,66 @@ export default function SectionHero() {
   const { data } = getMarkdownContent<HeroData>('hero.md');
 
   return (
-    <Container
-      as="section"
-      id="heroSection"
-      className="flex min-h-svh flex-col items-start gap-10 pt-14"
-    >
-      <div className="flex items-center gap-2">
-        <FaCircle className="text-moderate-lime-green" />
-        <p className="text-very-light-gray/80 mb-0 text-sm sm:text-base lg:text-lg">
-          {data.availability}
-        </p>
-      </div>
-
-      <div className="flex flex-col items-center gap-6 lg:flex-row lg:gap-12">
-        {/* Left Side: Text */}
-        <div className="flex w-full flex-col justify-center gap-2 lg:w-2/3">
-          <h1 className="mb-8 whitespace-pre-line">{data.title}</h1>
-          <h4>{PERSONAL_DATA.NAME}</h4>
-          <ReactMarkdown
-            components={{
-              p: ({ children }) => (
-                <p className="mb-4 w-full text-base sm:text-xl lg:w-3/4 lg:text-2xl">
-                  {children}
-                </p>
-              ),
-            }}
-          >
-            {data.bio}
-          </ReactMarkdown>
-
-          <Link
-            href="#technicalSection"
-            className={
-              'bg-very-soft-violet text-very-dark-blue w-fit rounded-4xl px-8 py-4 text-center text-2xl font-semibold transition-transform duration-300 hover:scale-105 active:scale-95'
-            }
-          >
-            {data.buttonText}
-          </Link>
+    <ContainerWrapper id="heroSection" variant="ghost" className="pt-0">
+      <Container className="flex min-h-svh flex-col items-start gap-8 pt-14">
+        <div className="flex items-center gap-2">
+          <FaCircle className="text-moderate-lime-green" />
+          <p className="text-very-light-gray/80 mb-0 text-sm sm:text-base lg:text-lg">
+            {data.availability}
+          </p>
         </div>
 
-        {/* Right Side: Image Container */}
-        <div className="flex w-full justify-center lg:w-1/2">
-          <Image
-            src={withBasePath(data.image.src)}
-            alt={data.image.alt}
-            width={560}
-            height={560}
-            priority
-            className="object-contain"
-          />
-        </div>
-      </div>
+        {/* Center Div */}
+        <div className="mb-12 flex flex-col items-center gap-16 lg:flex-row">
+          {/* Left Side: Text */}
+          <div className="flex w-full flex-col justify-center gap-2 lg:w-2/3">
+            <h1 className="mb-8 whitespace-pre-line">{data.title}</h1>
+            <h4>{PERSONAL_DATA.NAME}</h4>
+            <ReactMarkdown
+              components={{
+                p: ({ children }) => (
+                  <p className="mb-4 w-full text-base sm:text-xl lg:w-3/4 lg:text-2xl">
+                    {children}
+                  </p>
+                ),
+              }}
+            >
+              {data.bio}
+            </ReactMarkdown>
 
-      <div className="flex flex-col gap-6">
-        <h5 className="text-center">{data.coreStackTitle}</h5>
-        <div className="mx-auto flex w-full flex-wrap justify-center gap-4 lg:gap-8">
-          {data.coreStackItems.map((item, index) => (
-            <CoreStackItem key={index} title={item} />
-          ))}
+            <Link
+              href="#technicalSection"
+              className={
+                'bg-very-soft-violet text-very-dark-blue w-fit rounded-4xl px-8 py-4 text-center text-2xl font-semibold transition-transform duration-300 hover:scale-105 active:scale-95'
+              }
+            >
+              {data.buttonText}
+            </Link>
+          </div>
+
+          {/* Right Side: Image Container */}
+          <div className="flex w-full justify-center lg:w-1/2">
+            <Image
+              src={withBasePath(data.image.src)}
+              alt={data.image.alt}
+              width={560}
+              height={560}
+              priority
+              className="object-contain"
+            />
+          </div>
         </div>
-      </div>
-    </Container>
+
+        {/* Stack Div */}
+        <div className="flex flex-col gap-6">
+          <h4 className="text-center">{data.coreStackTitle}</h4>
+          <div className="mx-auto flex w-full flex-wrap justify-center gap-6 lg:gap-8">
+            {data.coreStackItems.map((item, index) => (
+              <CoreStackItem key={index} title={item} />
+            ))}
+          </div>
+        </div>
+      </Container>
+    </ContainerWrapper>
   );
 }
