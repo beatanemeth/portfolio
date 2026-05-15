@@ -5,7 +5,7 @@ description1: |
   I identify 'manual chaos' within a given organization, then architect customized technical solutions to solve practical needs and ensure long-term scalability.
 explore: 'Explore the repo:'
 description2: |
-  The goal is to **turn complexity into structure**, and **structure into a system**.  
+  The goal is to **turn complexity into structure**, and **structure into a system**.
   When we let the system reduce friction, we free people to focus on the work that actually matters.
 solutions:
   - title: 'Wix Content Intelligence Pipeline'

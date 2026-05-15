@@ -1,5 +1,6 @@
 import Container from '@/components/Container';
 import { EXTERNAL_LINKS } from '@/constants/links';
+import { cn } from '@/utils/cn';
 import { getMarkdownContent } from '@/utils/mdContent';
 import { Card, Link as HeroUILink } from '@heroui/react';
 import { FaGithub, FaLinkedinIn } from 'react-icons/fa';
@@ -38,14 +39,28 @@ const ContactItem = ({
   linkText,
   linkKey,
 }: ContactMethod) => (
-  <Card className="bg-very-light-gray flex w-full flex-col items-center gap-2 rounded-2xl p-8 lg:w-1/3">
-    {getIcon(platform)}
-    <p className="text-very-dark-blue text-center">{description}</p>
+  <Card
+    className={cn(
+      'flex w-full flex-col items-center gap-8 lg:w-1/3',
+      'bg-very-light-gray/10 backdrop-blur-sm',
+      'border-very-light-gray/5 rounded-2xl border p-10',
+    )}
+  >
+    {/* Contained Icon */}
+    <div className="bg-very-light-gray rounded-full p-4 shadow-inner">
+      {getIcon(platform)}
+    </div>
+
+    <p className="text-very-light-gray text-center">{description}</p>
 
     <HeroUILink
       href={EXTERNAL_LINKS[linkKey]}
       target="_blank"
-      className="text-hyperlink font-bold"
+      className={cn(
+        'bg-very-soft-violet text-very-dark-blue rounded-full px-8 py-2 font-semibold! no-underline',
+        'hover:bg-very-soft-violet/90 transition-all duration-300 hover:scale-105 active:scale-95',
+        'text-lg! sm:text-xl! lg:text-2xl!',
+      )}
     >
       {linkText}
       <HeroUILink.Icon />
@@ -79,7 +94,9 @@ export default function SectionContact() {
         <ReactMarkdown
           components={{
             p: ({ children }) => (
-              <p className="text-center whitespace-pre-line">{children}</p>
+              <p className="mx-auto text-center text-base leading-loose tracking-wide whitespace-pre-line lg:w-2/3 lg:text-2xl">
+                {children}
+              </p>
             ),
           }}
         >

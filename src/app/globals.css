@@ -9,12 +9,12 @@
   --strong-blue: #0a67d7;
   --very-soft-blue: #bad8f0;
   --moderate-lime-green: #4cba4c;
-  --dark-moderate-lime-green: #43af43;
   --very-soft-violet: #bf91ed;
   --very-light-gray: #f8f8f8;
   --hyperlink: #0000ee;
 
   --very-dark-violet: #2a0154;
+  --dark-moderate-lime-green: #43af43;
 }
 
 @theme inline {
@@ -34,11 +34,12 @@
   --color-strong-blue: var(--strong-blue);
   --color-very-soft-blue: var(--very-soft-blue);
   --color-moderate-lime-green: var(--moderate-lime-green);
-  --color-dark-moderate-lime-green: var(--dark-moderate-lime-green);
   --color-very-soft-violet: var(--very-soft-violet);
   --color-very-light-gray: var(--very-light-gray);
   --color-hyperlink: var(--hyperlink);
+
   --color-very-dark-violet: var(--very-dark-violet);
+  --color-dark-moderate-lime-green: var(--dark-moderate-lime-green);
 }
 
 /**

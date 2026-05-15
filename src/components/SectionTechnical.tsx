@@ -1,5 +1,6 @@
 import Container from '@/components/Container';
 import { EXTERNAL_LINKS } from '@/constants/links';
+import { cn } from '@/utils/cn';
 import { getMarkdownContent } from '@/utils/mdContent';
 import { Button, Link as HeroUILink, Modal, Surface } from '@heroui/react';
 import Link from 'next/link';
@@ -92,7 +93,11 @@ export default function SectionTechnical() {
           {data.solutions.map((item, index) => (
             <Surface
               key={index}
-              className="shadow-very-soft-blue/40 border-very-soft-blue/20 flex w-full flex-col gap-3 rounded-2xl border-2 border-solid px-6 py-10 shadow-xl/40 lg:w-1/4 lg:flex-1"
+              className={cn(
+                'border-very-soft-blue/20 flex w-full flex-col gap-3 rounded-2xl border-2 border-solid px-6 py-10',
+                'shadow-very-soft-blue/40 shadow-xl/40',
+                'lg:w-1/4 lg:flex-1',
+              )}
               variant="transparent"
             >
               <div className="flex flex-col items-center gap-4">
@@ -111,7 +116,7 @@ export default function SectionTechnical() {
         <ReactMarkdown
           components={{
             p: ({ children }) => (
-              <p className="mx-auto w-full text-center text-base sm:text-xl lg:w-2/3 lg:text-2xl">
+              <p className="mx-auto text-center text-base leading-loose tracking-wide whitespace-pre-line lg:w-2/3 lg:text-2xl">
                 {children}
               </p>
             ),
@@ -121,9 +126,11 @@ export default function SectionTechnical() {
         </ReactMarkdown>
         <Link
           href="#contactSection"
-          className={
-            'bg-very-soft-violet text-very-dark-blue mx-auto w-fit rounded-4xl px-8 py-4 text-center text-2xl font-semibold transition-transform duration-300 hover:scale-105 active:scale-95'
-          }
+          className={cn(
+            'bg-very-soft-violet text-very-dark-blue rounded-full px-8 py-2 font-semibold! no-underline',
+            'hover:bg-very-soft-violet/90 transition-all duration-300 hover:scale-105 active:scale-95',
+            'mx-auto w-fit text-lg sm:text-xl lg:text-2xl',
+          )}
         >
           Contact me
         </Link>

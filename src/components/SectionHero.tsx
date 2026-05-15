@@ -2,6 +2,7 @@ import Container from '@/components/Container';
 import { PERSONAL_DATA } from '@/constants/general';
 import { getMarkdownContent } from '@/utils/mdContent';
 import { withBasePath } from '@/utils/path';
+import { cn } from '@heroui/styles';
 import Image from 'next/image';
 import Link from 'next/link';
 import { FaCircle } from 'react-icons/fa';
@@ -25,7 +26,7 @@ interface HeroData {
 }
 
 const CoreStackItem = ({ title }: { title: string }) => (
-  <div className="shadow-very-soft-blue/40 w-60 rounded-xl pb-2 text-center leading-0 shadow-lg/40">
+  <div className="border-b-solid border-b-moderate-lime-green/40 w-60 border-b-2 pb-2 text-center leading-0">
     <p className="mb-0 text-center font-medium">{title}</p>
   </div>
 );
@@ -63,9 +64,11 @@ export default function SectionHero() {
 
             <Link
               href="#technicalSection"
-              className={
-                'bg-very-soft-violet text-very-dark-blue w-fit rounded-4xl px-8 py-4 text-center text-2xl font-semibold transition-transform duration-300 hover:scale-105 active:scale-95'
-              }
+              className={cn(
+                'bg-very-soft-violet text-very-dark-blue rounded-full px-8 py-2 font-semibold! no-underline',
+                'hover:bg-very-soft-violet/90 transition-all duration-300 hover:scale-105 active:scale-95',
+                'w-fit text-lg sm:text-xl lg:text-2xl',
+              )}
             >
               {data.buttonText}
             </Link>

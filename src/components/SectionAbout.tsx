@@ -1,4 +1,5 @@
 import { EXTERNAL_LINKS } from '@/constants/links';
+import { cn } from '@/utils/cn';
 import { getMarkdownContent } from '@/utils/mdContent';
 import { withBasePath } from '@/utils/path';
 import { Card, Link as HeroUILink } from '@heroui/react';
@@ -29,7 +30,7 @@ const CertificationCard = ({
   certification: AboutData['certification'];
 }) => {
   return (
-    <Card className="shadow-very-dark-blue/80 bg-very-soft-blue flex w-full flex-col items-stretch p-10 shadow-lg/40 lg:w-2/3 lg:flex-row">
+    <Card className="bg-very-soft-blue flex w-full flex-col items-stretch p-6 lg:w-2/4 lg:flex-row lg:p-14">
       <div className="w-full overflow-hidden lg:w-1/3">
         <Image
           src={withBasePath(certification.image)}
@@ -52,7 +53,10 @@ const CertificationCard = ({
           <HeroUILink
             href={EXTERNAL_LINKS[certification.linkKey]}
             target="_blank"
-            className="text-hyperlink"
+            className={cn(
+              'text-hyperlink! flex w-fit items-center gap-2 rounded-full px-4 py-2 font-semibold! no-underline',
+              'hover:bg-very-dark-blue/10 transition-all hover:scale-105 active:scale-95',
+            )}
           >
             View Badge
             <HeroUILink.Icon />
@@ -70,7 +74,7 @@ export default function SectionAbout() {
     <ContainerWrapper id="aboutSection" variant="primary">
       {/* Top Div */}
       <Container className="flex flex-col items-start gap-8">
-        <h2 className="text-center">{data.title}</h2>
+        <h2>{data.title}</h2>
         <div className="flex flex-col items-start gap-4 lg:flex-row lg:gap-12">
           {/* Left Side: Text */}
           <div className="flex w-full flex-col justify-center gap-2 lg:w-1/2">
@@ -84,11 +88,11 @@ export default function SectionAbout() {
           </div>
 
           {/* Right Side: Key Points */}
-          <div className="flex w-full justify-center lg:w-1/2">
+          <div className="flex w-full lg:w-1/2">
             <ul className="flex flex-col gap-2 pl-5">
               {data.keyPoints.map((kp, index) => (
                 <li key={index} className="list-disc space-y-2 pl-2">
-                  <span className="text-xl font-semibold">{kp.point}</span>:{' '}
+                  <span className="font-semibold">{kp.point}</span>:{' '}
                   {kp.description}
                 </li>
               ))}
@@ -100,14 +104,12 @@ export default function SectionAbout() {
       {/* Parallax Div with Certification Card */}
       <div
         id="parallaxAbout"
-        className="my-16 w-full bg-cover bg-fixed bg-center bg-no-repeat lg:h-132"
+        className="my-16 flex min-h-132 w-full items-center justify-center bg-cover bg-fixed bg-center bg-no-repeat px-4 py-16"
         style={{
           backgroundImage: `url('${withBasePath('/system_patterns.png')}')`,
         }}
       >
-        <Container className="flex items-center justify-center py-20">
-          <CertificationCard certification={data.certification} />
-        </Container>
+        <CertificationCard certification={data.certification} />
       </div>
 
       {/* Bottom Div with Timeline */}
