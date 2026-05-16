@@ -1,5 +1,5 @@
 ---
-intro: 'Even in different languages.'
+intro: 'You are welcome to reach out in the language most comfortable for you.'
 items:
   - language: 'English'
     level: 'Full working proficiency'

@@ -149,6 +149,9 @@ export default function SectionTechnical() {
         >
           {data.description2}
         </ReactMarkdown>
+        <div className="mx-auto w-full lg:w-2/3">
+          <Languages />
+        </div>
         <Link
           href="#contactSection"
           className={cn(
@@ -159,9 +162,6 @@ export default function SectionTechnical() {
         >
           Contact me
         </Link>
-        <hr className="border-very-soft-violet/30 mx-auto my-6 w-1/3" />
-
-        <Languages />
       </Container>
     </ContainerWrapper>
   );

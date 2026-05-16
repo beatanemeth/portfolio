@@ -25,7 +25,7 @@ solutions:
   - title: 'ContentNavigatorAI — The Knowledge-Based Browser'
     summary: 'Turning static, subject-heavy content into an interactive knowledge base with a conversational browser interface.'
     scenario: 'Teams struggle to find specific information within a vast, subject-heavy CMS.'
-    solution: "A specialized Knowledge Assistant that allows foundations to 'browse' their own internal knowledge base via a unified chat interface. It acts as a proficient subject-matter expert, turning static content into an interactive browser app."
+    solution: "A specialized Knowledge Assistant that allows organizations to 'browse' their own internal knowledge base via a unified chat interface. It acts as a proficient subject-matter expert, turning static content into an interactive browser app."
     keyStack: 'RAG, LangChain, Python'
     linkKey: 'CONTENT_NAVIGATOR_AI'
     linkText: 'LangChain RAG Project: Unified Custom Data Chat'

@@ -1,5 +1,5 @@
-import { cn } from '@/utils/cn';
 import { getMarkdownContent } from '@/utils/mdContent';
+import React from 'react';
 import ReactMarkdown from 'react-markdown';
 
 interface LanguageItem {
@@ -16,7 +16,7 @@ export default function Languages() {
   const { data } = getMarkdownContent<LanguageData>('language.md');
 
   return (
-    <div className="flex w-full flex-col items-center gap-8">
+    <div className="flex w-full flex-col items-center gap-1">
       <ReactMarkdown
         components={{
           p: ({ children }) => (
@@ -28,33 +28,26 @@ export default function Languages() {
       >
         {data.intro}
       </ReactMarkdown>
-      <div className="grid w-full grid-cols-2 md:grid-cols-4">
+
+      <hr className="border-very-soft-violet/30 mx-auto my-6 w-1/4" />
+
+      <div className="flex flex-wrap justify-center gap-x-2 gap-y-2">
         {data.items.map((lang, index) => (
-          <div
-            key={index}
-            className={cn(
-              'flex flex-col items-center gap-1 py-4',
-              'border-very-soft-violet/30 border-r border-b',
-              // Remove right border for the last item in each row (mobile)
-              index % 2 === 1 && 'border-r-0',
-              // Remove bottom border for the last items (mobile)
-              index >=
-                data.items.length - (data.items.length % 2 === 0 ? 2 : 1) &&
-                'border-b-0',
-              // Desktop overrides: Remove all borders
-              'md:border-r-0 md:border-b-0',
-              // Desktop: Add back right border except for the last item
-              index < data.items.length - 1 &&
-                'md:border-very-soft-violet/30 md:border-r',
+          <React.Fragment key={index}>
+            <div className="flex items-center gap-2">
+              <span className="text-moderate-lime-green font-raleway">
+                {lang.language}
+              </span>
+              <span className="text-very-light-gray/60 italic">
+                ({lang.level})
+              </span>
+            </div>
+            {index < data.items.length - 1 && (
+              <span className="text-very-light-gray/30 select-none">
+                &#8212;
+              </span>
             )}
-          >
-            <h6 className="text-moderate-lime-green text-sm sm:text-lg lg:text-xl">
-              {lang.language}
-            </h6>
-            <p className="text-very-light-gray/60 text-xs sm:text-sm lg:text-lg">
-              {lang.level}
-            </p>
-          </div>
+          </React.Fragment>
         ))}
       </div>
     </div>

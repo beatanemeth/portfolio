@@ -30,7 +30,7 @@ const CertificationCard = ({
   certification: AboutData['certification'];
 }) => {
   return (
-    <Card className="bg-very-soft-blue flex w-full flex-col items-stretch p-6 lg:w-2/4 lg:flex-row lg:p-14">
+    <Card className="bg-very-soft-blue flex w-5/6 flex-col items-stretch p-6 sm:w-2/4 lg:flex-row lg:p-14">
       <div className="w-full overflow-hidden lg:w-1/3">
         <Image
           src={withBasePath(certification.image)}
