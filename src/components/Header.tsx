@@ -52,7 +52,7 @@ export default function Header() {
         {/* Logo */}
         <div className="flex flex-col gap-2 lg:flex-row lg:items-end">
           <Image
-            src={withBasePath('/bn_logo.png')}
+            src={withBasePath('/bn_logo.webp')}
             alt="Beata Nemeth initials"
             width={80}
             height={0}

@@ -12,7 +12,7 @@ export const siteMetadata: Metadata = {
     siteName: 'Beata Nemeth Portfolio',
     images: [
       {
-        url: 'https://beatanemeth.github.io/portfolio/og-image.png', // Ensure this exists in public/
+        url: 'https://beatanemeth.github.io/portfolio/og-image.webp', // Ensure this exists in public/
         width: 1200,
         height: 630,
         alt: 'Beata Nemeth Portfolio',
@@ -26,6 +26,6 @@ export const siteMetadata: Metadata = {
     title: 'Beata Nemeth | Systems-First Architect & AI Engineer',
     description:
       'Architecting scalable digital backbones and AI-driven automation systems. Bridging biological precision with software scalability.',
-    images: ['https://beatanemeth.github.io/portfolio/og-image.png'],
+    images: ['https://beatanemeth.github.io/portfolio/og-image.webp'],
   },
 };

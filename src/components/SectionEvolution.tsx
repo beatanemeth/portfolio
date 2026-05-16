@@ -113,7 +113,7 @@ export default function SectionEvolution() {
       id="evolutionSection"
       variant="primary"
       className="bg-cover bg-fixed bg-center bg-no-repeat"
-      style={{ backgroundImage: `url('${withBasePath('/system_blue.png')}')` }}
+      style={{ backgroundImage: `url('${withBasePath('/system_blue.webp')}')` }}
     >
       {/* Intro Container */}
       <Container className="flex flex-col gap-8">

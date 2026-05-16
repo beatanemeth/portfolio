@@ -324,7 +324,7 @@ import { withBasePath } from '@/utils/path';
 />;
 ```
 
-NOTE: Since images are unoptimized, ensure all assets in the `public/` folder are manually compressed (using tools like [TinyPNG](https://tinypng.com/) or [Squoosh.app](https://squoosh.app/)) before deployment to keep page load times fast.
+NOTE: Since images are unoptimized, ensure all assets in the `public/` folder are manually compressed (using tools like [Tinywebp](https://tinywebp.com/) or [Squoosh.app](https://squoosh.app/)) before deployment to keep page load times fast.
 
 ### STEP_3: Set up GitHub Actions
 
@@ -387,7 +387,7 @@ The [serve npm package](https://www.npmjs.com/package/serve) is a command-line t
 ```
 
 - _Purpose:_ This is your most important test. It simulates exactly how GitHub Pages hosts your site.
-- _Appearance:_ It works, because GitHub hosts you at `/portfolio/`, your code expects images to be at `/portfolio/image.png`. The symbolic link we created makes this work.
+- _Appearance:_ It works, because GitHub hosts you at `/portfolio/`, your code expects images to be at `/portfolio/image.webp`. The symbolic link we created makes this work.
 - _Use this:_ Right before you commit and push to GitHub, to make sure nothing is broken.
 
 ### clsx npm package

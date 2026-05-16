@@ -89,7 +89,7 @@ export default function SectionPerson() {
         id="parallaxPerson"
         className="my-16 h-64 w-full bg-cover bg-fixed bg-center bg-no-repeat lg:h-96"
         style={{
-          backgroundImage: `url('${withBasePath('/system_architecture.png')}')`,
+          backgroundImage: `url('${withBasePath('/system_architecture.webp')}')`,
         }}
       />
 

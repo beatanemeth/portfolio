@@ -106,7 +106,7 @@ export default function SectionAbout() {
         id="parallaxAbout"
         className="my-16 flex min-h-132 w-full items-center justify-center bg-cover bg-fixed bg-center bg-no-repeat px-4 py-16"
         style={{
-          backgroundImage: `url('${withBasePath('/system_patterns.png')}')`,
+          backgroundImage: `url('${withBasePath('/system_patterns.webp')}')`,
         }}
       >
         <CertificationCard certification={data.certification} />
