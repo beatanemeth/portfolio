@@ -7,7 +7,3 @@
 .link {
   @apply text-sm leading-relaxed font-normal tracking-normal sm:text-base lg:text-xl;
 }
-
-.link__icon {
-  @apply size-6;
-}

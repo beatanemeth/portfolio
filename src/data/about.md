@@ -11,7 +11,7 @@ keyPoints:
   - point: 'Sustainability'
     description: 'How the system will survive without constant intervention.'
 certification:
-  image: '/google-cert-professional-data-engineer.png'
+  image: '/google-cert-professional-data-engineer.webp'
   title: 'A Curiosity-Led Challenge'
   description: 'I pursued the Google Professional Data Engineer certification as a personal challenge—not just for the badge, but to see how my architectural instincts measured up against the way Google solves data at scale.'
   linkKey: 'CREDENTIAL'

@@ -5,27 +5,35 @@ description1: |
   I identify 'manual chaos' within a given organization, then architect customized technical solutions to solve practical needs and ensure long-term scalability.
 explore: 'Explore the repo:'
 description2: |
-  The goal is to **turn complexity into structure**, and **structure into a system**.  
+  The goal is to **turn complexity into structure**, and **structure into a system**.
   When we let the system reduce friction, we free people to focus on the work that actually matters.
 solutions:
   - title: 'Wix Content Intelligence Pipeline'
+    summary: 'Transforming scattered CMS data into a structured intelligence pipeline for actionable insights.'
     scenario: 'Fragmented organizational data (events, blogs, CMS) that is difficult to analyze.'
     solution: 'A robust data ingestion pipeline that extracts real-world data via API and executes automated analysis to provide actionable insights.'
+    keyStack: 'ETL, Python, Jupyter, Docker'
     linkKey: 'WIX_CONTENT_PIPELINE'
     linkText: 'Wix Content Intelligence Pipeline'
   - title: 'InsightHubAI — The Archive Assistant'
+    summary: 'A digital memoir that preserves institutional memory, allowing anyone to query years of documentation instantly.'
     scenario: 'Institutional memory is often lost in old meeting notes and articles.'
     solution: "An 'Archive Assistant' (Digital Memoir) that preserves every event, meeting, and writing. It allows non-technical staff to generate complex weekly and yearly reports through a predefined set of AI tools (MCP), bypassing the need for manual data processing."
+    keyStack: 'MCP, Python, Jupyter'
     linkKey: 'INSIGHT_HUB_AI'
     linkText: 'Making AI Queries Work: From RAG’s Limits to MCP in Practice'
   - title: 'ContentNavigatorAI — The Knowledge-Based Browser'
+    summary: 'Turning static, subject-heavy content into an interactive knowledge base with a conversational browser interface.'
     scenario: 'Teams struggle to find specific information within a vast, subject-heavy CMS.'
-    solution: "A specialized Knowledge Assistant that allows foundations to 'browse' their own internal knowledge base via a unified chat interface. It acts as a proficient subject-matter expert, turning static content into an interactive browser app."
+    solution: "A specialized Knowledge Assistant that allows organizations to 'browse' their own internal knowledge base via a unified chat interface. It acts as a proficient subject-matter expert, turning static content into an interactive browser app."
+    keyStack: 'RAG, LangChain, Python'
     linkKey: 'CONTENT_NAVIGATOR_AI'
     linkText: 'LangChain RAG Project: Unified Custom Data Chat'
   - title: 'From Manual Chaos to Modular Automation'
+    summary: 'Replacing fragile manual event workflows with event-driven automation that serves as a scalable operating system.'
     scenario: 'Fragile, manual workflows for event management and member communication.'
     solution: "An event-driven automation architecture bridging Wix with external ecosystems (Google Sheets, Gmail, Stripe). I replaced manual tracking with robust, error-tolerant n8n workflows that handle the organizational 'operating system' automatically."
+    keyStack: 'n8n, Python, Wix API, Docker'
     linkKey: 'N8N_WIX_WORKFLOW'
     linkText: 'From Manual Chaos to Modular Automation: Building a Scalable n8n Workflow for a Foundation'
 ---

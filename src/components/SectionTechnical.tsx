@@ -1,16 +1,19 @@
 import Container from '@/components/Container';
 import { EXTERNAL_LINKS } from '@/constants/links';
+import { cn } from '@/utils/cn';
 import { getMarkdownContent } from '@/utils/mdContent';
-import { Button, Link as HeroUILink, Modal, Surface } from '@heroui/react';
+import { Button, Link as HeroUILink, Modal } from '@heroui/react';
 import Link from 'next/link';
 import ReactMarkdown from 'react-markdown';
 import ContainerWrapper from './ContainerWrapper';
+import Languages from './Languages';
 
 interface TechnicalSolution {
   title: string;
   summary: string;
   scenario: string;
   solution: string;
+  keyStack: string;
   linkKey: keyof typeof EXTERNAL_LINKS;
   linkText: string;
 }
@@ -28,7 +31,11 @@ const SolutionModal = ({ item }: { item: TechnicalSolution }) => (
     <Modal.Trigger>
       <Button
         variant="ghost"
-        className="border-moderate-lime-green text-very-light-gray hover:text-very-dark-blue border-2 border-solid px-10 py-6 text-lg hover:border-0 sm:text-xl lg:text-2xl"
+        className={cn(
+          'hover:bg-moderate-lime-green/90 hover:text-very-light-gray transition-all duration-300 hover:scale-105 active:scale-95',
+          'text-lg sm:text-xl lg:text-2xl',
+          'border-moderate-lime-green text-very-light-gray border-2 border-solid px-8 py-5',
+        )}
       >
         View Details
       </Button>
@@ -37,32 +44,49 @@ const SolutionModal = ({ item }: { item: TechnicalSolution }) => (
       <Modal.Container placement="center">
         <Modal.Dialog className="bg-very-light-gray w-full lg:max-w-2/4">
           <Modal.CloseTrigger />
-          <Modal.Header>
-            <Modal.Heading className="text-very-dark-blue text-xl leading-[1.4] font-medium tracking-wide sm:text-2xl lg:text-3xl">
+          <Modal.Header className="border-b-solid border-b-very-soft-violet border-b-2">
+            <Modal.Heading className="text-very-dark-blue text-2xl leading-[1.3] font-semibold tracking-wide sm:text-3xl lg:text-4xl">
               {item.title}
             </Modal.Heading>
           </Modal.Header>
-          <Modal.Body>
-            <div className="text-very-dark-blue flex flex-col">
-              <h6 className="text-moderate-lime-green mb-0">The Scenario</h6>
-              <ReactMarkdown>{item.scenario}</ReactMarkdown>
-            </div>
-            <div className="text-very-dark-blue my-8 flex flex-col">
-              <h6 className="text-moderate-lime-green mb-0">The Solution</h6>
-              <ReactMarkdown>{item.solution}</ReactMarkdown>
+          <Modal.Body className="my-4 max-w-none overflow-y-auto px-4 lg:px-10">
+            <div className="text-very-dark-blue flex flex-col gap-8">
+              {/* Scenario Section */}
+              <div className="bg-very-dark-blue/5 rounded-xl p-6">
+                <h6 className="text-moderate-lime-green mb-2 uppercase">
+                  The Scenario
+                </h6>
+                <div className="leading-relaxed">
+                  <ReactMarkdown>{item.scenario}</ReactMarkdown>
+                </div>
+              </div>
+
+              {/* Solution Section */}
+              <div className="bg-very-dark-blue/5 rounded-xl p-6">
+                <h6 className="text-moderate-lime-green mb-2 uppercase">
+                  The Solution
+                </h6>
+                <div className="leading-relaxed">
+                  <ReactMarkdown>{item.solution}</ReactMarkdown>
+                </div>
+              </div>
+
+              {/* Link Section */}
+              <div className="bg-very-dark-blue/5 rounded-xl p-6">
+                <h6 className="text-moderate-lime-green mb-2 uppercase">
+                  Explore the repo
+                </h6>
+                <HeroUILink
+                  href={EXTERNAL_LINKS[item.linkKey]}
+                  target="_blank"
+                  className="text-hyperlink font-bold no-underline hover:underline"
+                >
+                  <p>{item.linkText}</p>
+                  <HeroUILink.Icon />
+                </HeroUILink>
+              </div>
             </div>
           </Modal.Body>
-          <Modal.Footer className="flex flex-col items-start">
-            <h6 className="text-moderate-lime-green mb-0">Explore the repo</h6>
-            <HeroUILink
-              href={EXTERNAL_LINKS[item.linkKey]}
-              target="_blank"
-              className="text-hyperlink font-bold"
-            >
-              <p>{item.linkText}</p>
-              <HeroUILink.Icon />
-            </HeroUILink>
-          </Modal.Footer>
         </Modal.Dialog>
       </Modal.Container>
     </Modal.Backdrop>
@@ -88,30 +112,36 @@ export default function SectionTechnical() {
           {data.description1}
         </ReactMarkdown>
 
-        <div className="mb-18 flex flex-col justify-center gap-8 lg:flex-row">
+        <div className="mb-18 grid w-full grid-cols-1 gap-8 md:grid-cols-2">
           {data.solutions.map((item, index) => (
-            <Surface
+            <div
               key={index}
-              className="shadow-very-soft-blue/40 border-very-soft-blue/20 flex w-full flex-col gap-3 rounded-2xl border-2 border-solid px-6 py-10 shadow-xl/40 lg:w-1/4 lg:flex-1"
-              variant="transparent"
+              className={cn(
+                'flex w-full flex-col items-center gap-3 rounded-2xl px-12 py-16',
+                'bg-very-light-gray/10 backdrop-blur-sm',
+                'border-very-light-gray/5 rounded-2xl border',
+              )}
             >
-              <div className="flex flex-col items-center gap-4">
-                <h5 className="text-moderate-lime-green text-center font-semibold">
-                  {item.title}
-                </h5>
-                <p className="text-very-light-gray/80 text-center italic">
-                  {item.summary}
-                </p>
-                <SolutionModal item={item} />
-              </div>
-            </Surface>
+              <h4 className="text-moderate-lime-green text-center font-semibold">
+                {item.title}
+              </h4>
+              <p className="text-very-light-gray/80 text-center italic">
+                {item.summary}
+              </p>
+              <hr className="border-very-soft-violet mt-8 mb-4 w-2/4" />
+
+              <p className="text-very-light-gray/80 mb-8 text-center font-semibold">
+                {item.keyStack}
+              </p>
+              <SolutionModal item={item} />
+            </div>
           ))}
         </div>
 
         <ReactMarkdown
           components={{
             p: ({ children }) => (
-              <p className="mx-auto w-full text-center text-base sm:text-xl lg:w-2/3 lg:text-2xl">
+              <p className="mx-auto text-center text-base leading-loose tracking-wide whitespace-pre-line lg:w-2/3 lg:text-2xl">
                 {children}
               </p>
             ),
@@ -119,11 +149,16 @@ export default function SectionTechnical() {
         >
           {data.description2}
         </ReactMarkdown>
+        <div className="mx-auto w-full lg:w-2/3">
+          <Languages />
+        </div>
         <Link
           href="#contactSection"
-          className={
-            'bg-very-soft-violet text-very-dark-blue mx-auto w-fit rounded-4xl px-8 py-4 text-center text-2xl font-semibold transition-transform duration-300 hover:scale-105 active:scale-95'
-          }
+          className={cn(
+            'bg-very-soft-violet text-very-dark-blue rounded-full px-8 py-2 font-semibold! no-underline',
+            'hover:bg-very-soft-violet/90 transition-all duration-300 hover:scale-105 active:scale-95',
+            'mx-auto w-fit text-lg sm:text-xl lg:text-2xl',
+          )}
         >
           Contact me
         </Link>

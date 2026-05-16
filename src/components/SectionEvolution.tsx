@@ -25,23 +25,37 @@ interface EvolutionData {
   analogies: Analogy[];
 }
 
+const ExampleItem = ({
+  icon: Icon,
+  content,
+}: {
+  icon: React.ElementType;
+  content: string;
+}) => (
+  <div className="flex flex-col gap-4">
+    <div className="bg-moderate-lime-green w-fit rounded-full p-4">
+      <Icon className="text-very-light-gray text-3xl" />
+    </div>
+    <div className="text-very-light-gray">
+      <ReactMarkdown>{content}</ReactMarkdown>
+    </div>
+  </div>
+);
+
 const AnalogyItem = ({ title, biology, architecture }: Analogy) => (
-  <Accordion
-    allowsMultipleExpanded
-    className="text-very-dark-blue bg-very-soft-blue w-full rounded-md"
-  >
+  <Accordion allowsMultipleExpanded className="text-very-dark-blue">
     <Accordion.Item>
-      <Accordion.Heading>
+      <Accordion.Heading className="bg-very-soft-blue rounded-lg">
         <Accordion.Trigger>
           {title}
           <Accordion.Indicator className="text-very-dark-blue">
-            <SlArrowDown />
+            <SlArrowDown strokeWidth={96} />
           </Accordion.Indicator>
         </Accordion.Trigger>
       </Accordion.Heading>
       <Accordion.Panel>
-        <Accordion.Body>
-          <div className="px-6">
+        <Accordion.Body className="bg-very-light-gray mx-4 rounded-b-2xl">
+          <div className="px-6 py-6 text-justify">
             <ReactMarkdown
               components={{
                 p: ({ children }) => <p className="mb-4">{children}</p>,
@@ -59,8 +73,11 @@ const AnalogyItem = ({ title, biology, architecture }: Analogy) => (
               {biology}
             </ReactMarkdown>
             <div className="mt-10 flex items-center gap-4">
-              <p className="mb-0 font-semibold">The Architecture Analogy</p>
-              <GiCrane className="text-dark-moderate-lime-green text-3xl" />
+              <GiCrane className="text-dark-moderate-lime-green text-4xl" />
+              <div className="bg-dark-moderate-lime-green/30 h-0.5 flex-1" />
+              <p className="text-very-dark-blue font-semibold">
+                The Architecture Analogy
+              </p>
             </div>
             <ReactMarkdown
               components={{
@@ -96,7 +113,7 @@ export default function SectionEvolution() {
       id="evolutionSection"
       variant="primary"
       className="bg-cover bg-fixed bg-center bg-no-repeat"
-      style={{ backgroundImage: `url('${withBasePath('/system_blue.png')}')` }}
+      style={{ backgroundImage: `url('${withBasePath('/system_blue.webp')}')` }}
     >
       {/* Intro Container */}
       <Container className="flex flex-col gap-8">
@@ -113,10 +130,10 @@ export default function SectionEvolution() {
       </Container>
 
       {/* Evolution Content */}
-      <div className="bg-strong-blue my-20 flex w-full max-w-none flex-col gap-8 py-16">
-        <Container className="flex flex-col items-start justify-center gap-8 lg:flex-row lg:gap-18">
+      <div className="bg-strong-blue my-20 max-w-none py-16">
+        <Container className="flex flex-col gap-8 lg:flex-row lg:gap-16">
           {/* Left Side: Text */}
-          <div className="flex w-full flex-col gap-2 lg:w-1/2">
+          <div className="flex w-full flex-col lg:w-1/3">
             <ReactMarkdown
               components={{
                 ol: ({ children }) => (
@@ -135,11 +152,13 @@ export default function SectionEvolution() {
           </div>
 
           {/* Right Side: Text */}
-          <div className="shadow-very-dark-blue/80 flex w-full flex-col justify-center rounded-2xl p-6 shadow-lg/40 lg:w-1/2">
-            <GiTestTubes className="text-moderate-lime-green mb-2 text-5xl" />
-            <ReactMarkdown>{evolutionData.example1}</ReactMarkdown>
-            <AiOutlinePartition className="text-moderate-lime-green mt-10 text-5xl" />
-            <ReactMarkdown>{evolutionData.example2}</ReactMarkdown>
+          <div className="bg-very-light-gray/10 border-very-light-gray/10 flex w-full flex-col justify-center rounded-2xl border p-8 backdrop-blur-xs lg:w-2/3 lg:p-12">
+            <ExampleItem icon={GiTestTubes} content={evolutionData.example1} />
+            <hr className="border-moderate-lime-green my-8" />
+            <ExampleItem
+              icon={AiOutlinePartition}
+              content={evolutionData.example2}
+            />
           </div>
         </Container>
       </div>
@@ -157,26 +176,12 @@ export default function SectionEvolution() {
           </ReactMarkdown>
         </div>
 
-        <div className="flex flex-col items-start gap-2 lg:flex-row lg:gap-12">
-          {/* Left Side */}
-          <div className="flex w-full flex-col justify-center gap-2 lg:w-1/2">
-            {/*map the first three analogies */}
-            {evolutionData.analogies
-              .slice(0, 3)
-              .map((analogy: Analogy, index: number) => (
-                <AnalogyItem key={index} {...analogy} />
-              ))}
-          </div>
-
-          {/* Right Side */}
-          <div className="flex w-full flex-col justify-center gap-2 lg:w-1/2">
-            {/*map the last three analogies */}
-            {evolutionData.analogies
-              .slice(3, 6)
-              .map((analogy: Analogy, index: number) => (
-                <AnalogyItem key={index} {...analogy} />
-              ))}
-          </div>
+        <div className="columns-1 gap-12 lg:columns-2">
+          {evolutionData.analogies.map((analogy: Analogy, index: number) => (
+            <div key={index} className="mb-4 break-inside-avoid">
+              <AnalogyItem {...analogy} />
+            </div>
+          ))}
         </div>
       </Container>
     </ContainerWrapper>

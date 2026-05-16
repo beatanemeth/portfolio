@@ -22,17 +22,19 @@ interface PersonData {
   sections: PersonSection[];
 }
 
-const ICON_MAP = {
-  manual: <HiOutlineHandRaised className="text-moderate-lime-green text-5xl" />,
-  movement: <TbYoga className="text-moderate-lime-green text-5xl" />,
-  connection: <LuBookOpenCheck className="text-moderate-lime-green text-5xl" />,
-};
+const SectionIcon = ({ icon: Icon }: { icon: React.ElementType }) => (
+  <div className="bg-moderate-lime-green w-fit rounded-full p-4">
+    <Icon className="text-very-light-gray text-3xl" />
+  </div>
+);
 
 const getIcon = (title: string) => {
   const lowerTitle = title.toLowerCase();
-  if (lowerTitle.includes('manual')) return ICON_MAP.manual;
-  if (lowerTitle.includes('movement')) return ICON_MAP.movement;
-  if (lowerTitle.includes('connection')) return ICON_MAP.connection;
+  if (lowerTitle.includes('manual'))
+    return <SectionIcon icon={HiOutlineHandRaised} />;
+  if (lowerTitle.includes('movement')) return <SectionIcon icon={TbYoga} />;
+  if (lowerTitle.includes('connection'))
+    return <SectionIcon icon={LuBookOpenCheck} />;
   return null;
 };
 
@@ -43,11 +45,11 @@ const PersonAccordion = ({ actions }: { actions: string[] }) => (
         <Accordion.Trigger>
           Practices
           <Accordion.Indicator className="text-very-light-gray">
-            <SlArrowDown />
+            <SlArrowDown strokeWidth={96} />
           </Accordion.Indicator>
         </Accordion.Trigger>
       </Accordion.Heading>
-      <Accordion.Panel className={cn('bg-very-light-gray/80 rounded-md')}>
+      <Accordion.Panel className={cn('bg-very-light-gray/80 rounded-b-md')}>
         <Accordion.Body>
           <ul className="p-6">
             {actions.map((action, aIndex) => (
@@ -87,7 +89,7 @@ export default function SectionPerson() {
         id="parallaxPerson"
         className="my-16 h-64 w-full bg-cover bg-fixed bg-center bg-no-repeat lg:h-96"
         style={{
-          backgroundImage: `url('${withBasePath('/system_architecture.png')}')`,
+          backgroundImage: `url('${withBasePath('/system_architecture.webp')}')`,
         }}
       />
 
@@ -100,9 +102,7 @@ export default function SectionPerson() {
               className="flex flex-col items-center gap-4 p-6 lg:w-1/3"
             >
               {getIcon(section.title)}
-              <h5 className="text-very-dark-blue font-semibold">
-                {section.title}
-              </h5>
+              <h5 className="text-very-dark-blue">{section.title}</h5>
 
               <ReactMarkdown
                 components={{

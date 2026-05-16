@@ -324,7 +324,7 @@ import { withBasePath } from '@/utils/path';
 />;
 ```
 
-NOTE: Since images are unoptimized, ensure all assets in the `public/` folder are manually compressed (using tools like [TinyPNG](https://tinypng.com/) or [Squoosh.app](https://squoosh.app/)) before deployment to keep page load times fast.
+NOTE: Since images are unoptimized, ensure all assets in the `public/` folder are manually compressed (using tools like [Tinywebp](https://tinywebp.com/) or [Squoosh.app](https://squoosh.app/)) before deployment to keep page load times fast.
 
 ### STEP_3: Set up GitHub Actions
 
@@ -387,7 +387,7 @@ The [serve npm package](https://www.npmjs.com/package/serve) is a command-line t
 ```
 
 - _Purpose:_ This is your most important test. It simulates exactly how GitHub Pages hosts your site.
-- _Appearance:_ It works, because GitHub hosts you at `/portfolio/`, your code expects images to be at `/portfolio/image.png`. The symbolic link we created makes this work.
+- _Appearance:_ It works, because GitHub hosts you at `/portfolio/`, your code expects images to be at `/portfolio/image.webp`. The symbolic link we created makes this work.
 - _Use this:_ Right before you commit and push to GitHub, to make sure nothing is broken.
 
 ### clsx npm package
@@ -415,12 +415,14 @@ clsx('bg-blue-500', active && 'text-white', error && 'border-red-500')
 In this project, we use a centralized `cn` utility that combines `clsx` and `tailwind-merge`. This is the industry-standard way to handle class names in React/Tailwind projects.
 
 - **Purpose:** To provide a single function that handles both **conditional logic** (via `clsx`) and **conflict resolution** (via `tailwind-merge`).
-- **Usage:**
+- **Benefits:**
+  1. **_Readability:_** It allows you to break a long string of classes into a cleaner, multi-line array-like format without dealing with messy string concatenation.
+  2. **_Conflict Resolution:_** If you ever wanted to pass additional `className` props, e.g., to `<ContainerWrapper />` and merge them with the base styles, `cn` uses tailwind-merge under the hood to intelligently override conflicting classes (e.g., if you had` px-8` and someone passed `px-10`, tailwind-merge ensures the latter takes precedence without conflict).
+  3. **_Conditional Logic:_** It makes it trivial to add classes conditionally later on, which is much cleaner than using template literals with ternary operators.
 
 ```tsx
 import { cn } from '@/utils/cn';
 
-// Example: Merging base styles with conditional overrides
 <div
   className={cn(
     'bg-blue-500 px-8 py-2',

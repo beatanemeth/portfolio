@@ -19,9 +19,9 @@ interface TimelineData {
 }
 
 const ICON_MAP = {
-  science: <FaMicroscope className="text-very-dark-blue text-2xl" />,
-  web: <FaCode className="text-very-dark-blue text-2xl" />,
-  engineering: <FaCogs className="text-very-dark-blue text-2xl" />,
+  science: <FaMicroscope className="text-very-dark-blue/80 text-2xl" />,
+  web: <FaCode className="text-very-dark-blue/80 text-2xl" />,
+  engineering: <FaCogs className="text-very-dark-blue/80 text-2xl" />,
 };
 
 const getIcon = (iconName: keyof typeof ICON_MAP) => {
@@ -50,31 +50,38 @@ export default function Timeline() {
             />
 
             {/* Timeline Marker */}
-            <div className="bg-very-soft-violet shadow-very-dark-blue relative z-10 flex h-12 w-12 shrink-0 items-center justify-center rounded-full shadow-lg">
+            <div
+              className={cn(
+                'bg-very-soft-violet relative z-10 flex shrink-0 items-center justify-center rounded-full',
+                'h-12 w-12',
+                'shadow-very-dark-blue/80 shadow-lg',
+              )}
+            >
               {getIcon(event.icon)}
             </div>
 
             <div className="flex flex-1 flex-col">
-              <div className="mb-2 flex flex-wrap items-center justify-between gap-4">
+              <div className="mb-2 flex flex-col lg:flex-row lg:items-center lg:justify-between lg:gap-2">
                 <h5 className="text-very-dark-blue">{event.title}</h5>
-                <div className="flex gap-2">
-                  <span className="text-very-light-gray/70 text-base font-medium">
+                <div className="flex items-center gap-3">
+                  <span className="text-very-light-gray/80 text-xs font-medium sm:text-sm lg:text-base">
                     {event.date}
                   </span>
-                  <Chip
-                    size="md"
-                    variant="secondary"
+                  <div className="border-r-solid border-r-very-soft-violet h-6 border-r-2"></div>
+                  <span
                     className={cn(
-                      'bg-very-light-gray/60 text-very-dark-blue/80 text-base',
-                      event.status !== 'Completed' && 'font-bold',
+                      'text-very-light-gray/80',
+                      event.status === 'COMPLETED'
+                        ? 'font-normal'
+                        : 'font-bold',
                     )}
                   >
                     {event.status}
-                  </Chip>
+                  </span>
                 </div>
               </div>
 
-              <div className="mb-4">
+              <div className="my-4">
                 <ReactMarkdown
                   components={{
                     p: ({ children }) => <p className="italic">{children}</p>,
@@ -89,8 +96,12 @@ export default function Timeline() {
                   <Chip
                     key={tIndex}
                     size="lg"
-                    variant="primary"
-                    className="bg-moderate-lime-green/80 text-bold text-very-light-gray text-xl"
+                    variant="tertiary"
+                    className={cn(
+                      'bg-moderate-lime-green text-very-dark-blue',
+                      'text-semibold text-sm sm:text-base lg:text-xl',
+                      'shadow-very-dark-blue/80 shadow-lg/40',
+                    )}
                   >
                     {tech}
                   </Chip>

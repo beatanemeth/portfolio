@@ -25,8 +25,11 @@ const MenuItem = ({ linkText, linkKey, onClick, isMobile = false }: Item) => (
     href={INTERNAL_LINKS[linkKey]}
     onClick={onClick}
     className={cn(
-      'hover:text-moderate-lime-green w-fit px-8 py-4 text-xs font-semibold transition-transform duration-300 hover:scale-105 active:scale-95 sm:text-sm lg:text-lg',
+      'w-fit px-4 py-2 text-sm font-semibold transition-all duration-300',
+      'hover:text-moderate-lime-green hover:scale-105 active:scale-95',
+      'after:bg-moderate-lime-green relative after:absolute after:bottom-0 after:left-1/2 after:h-0.5 after:w-0 after:transition-all after:duration-300 hover:after:left-0 hover:after:w-full', // subtle underline flourish
       isMobile ? 'text-very-dark-blue' : 'text-very-light-gray',
+      'sm:text-lg lg:text-lg',
     )}
   >
     {linkText}
@@ -43,24 +46,24 @@ export default function Header() {
       as="header"
       id="headerSection"
       variant="primary"
-      className="shadow-very-dark-blue/60 sticky top-0 z-50 py-0 shadow-xl/60 backdrop-blur-md"
+      className="shadow-very-dark-blue/80 sticky top-0 z-50 py-0 shadow-xl/40 backdrop-blur-md"
     >
-      <Container className="flex items-center gap-2 py-4">
+      <Container className="flex items-center gap-2 py-5 lg:py-8">
         {/* Logo */}
-        <div className="flex flex-col items-start gap-2 lg:flex-row lg:items-end">
+        <div className="flex flex-col gap-2 lg:flex-row lg:items-end">
           <Image
-            src={withBasePath('/bn_logo.png')}
+            src={withBasePath('/bn_logo.webp')}
             alt="Beata Nemeth initials"
             width={80}
             height={0}
             style={{ width: '60px', height: 'auto' }}
             priority
           />
-          <h6 className="mb-0">{PERSONAL_DATA.NAME}</h6>
+          <h6 className="mb-0 leading-none">{PERSONAL_DATA.NAME}</h6>
         </div>
 
         {/* Desktop Navigation */}
-        <nav className="ml-auto hidden items-center justify-end gap-4 md:flex lg:gap-8">
+        <nav className="ml-auto hidden gap-4 md:flex lg:gap-8">
           {menuItems.map((item) => (
             <MenuItem
               key={item}
