@@ -4,7 +4,7 @@ date: '2026-05-12'
 excerpt: 'Transforming manual, Excel-driven processes into a scalable automation system using n8n, Google Sheets, FastAPI, and Docker.'
 ---
 
-![Beyond Excel](/blog/beyond-excel.webp)
+![Flowchart showing n8n workflow connecting manual Excel processes to automated system](/blog/beyond-excel.webp)
 
 &nbsp;
 

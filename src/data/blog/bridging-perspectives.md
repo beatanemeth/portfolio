@@ -4,7 +4,7 @@ date: '2026-05-10'
 excerpt: "A collaboration between a developer and a psychiatrist to modernize a nonprofit's operations."
 ---
 
-![Bridging Perspectives](/blog/bridging-perspectives.webp)
+![Digital transformation dashboard and collaborative team workspace](/blog/bridging-perspectives.webp)
 
 &nbsp;
 

@@ -1,6 +1,8 @@
 import Container from '@/components/Container';
 import ContainerWrapper from '@/components/ContainerWrapper';
 import { getAllBlogPosts, getMarkdownContent } from '@/utils/mdContent';
+import { withBasePath } from '@/utils/path';
+import Image from 'next/image';
 import Link from 'next/link';
 import ReactMarkdown from 'react-markdown';
 
@@ -21,8 +23,10 @@ export default async function BlogPost({ params }: PostParams) {
 
   const allPosts = getAllBlogPosts();
   const currentIndex = allPosts.findIndex((p) => p.slug === slug);
-  const prevPost = allPosts[currentIndex + 1] || null;
+  // Newer post has a lower index (currentIndex - 1)
   const nextPost = allPosts[currentIndex - 1] || null;
+  // Older post has a higher index (currentIndex + 1)
+  const prevPost = allPosts[currentIndex + 1] || null;
 
   return (
     <ContainerWrapper id="blogItemSection" variant="ghost">
@@ -32,14 +36,29 @@ export default async function BlogPost({ params }: PostParams) {
           <time className="text-very-light-gray/60">{post.data.date}</time>
         </header>
         <div className="prose-gray">
-          <ReactMarkdown>{post.content}</ReactMarkdown>
+          <ReactMarkdown
+            components={{
+              img: ({ node, src, alt, ...props }) => (
+                <Image
+                  {...props}
+                  src={typeof src === 'string' ? withBasePath(src) : ''}
+                  alt={alt || ''}
+                  width={800}
+                  height={450}
+                  className="rounded-lg object-cover"
+                />
+              ),
+            }}
+          >
+            {post.content}
+          </ReactMarkdown>
         </div>
 
         {/* Pagination */}
         <nav className="border-very-soft-violet mt-12 flex flex-col justify-between gap-6 border-t pt-8 sm:flex-row">
           {prevPost ? (
             <Link
-              href={`/blog/${prevPost.slug}`}
+              href={withBasePath(`/blog/${prevPost.slug}`)}
               className="hover:text-moderate-lime-green group flex flex-col transition-colors"
             >
               <span className="text-very-light-gray/60 block text-sm">
@@ -54,7 +73,7 @@ export default async function BlogPost({ params }: PostParams) {
           )}
           {nextPost ? (
             <Link
-              href={`/blog/${nextPost.slug}`}
+              href={withBasePath(`/blog/${nextPost.slug}`)}
               className="hover:text-moderate-lime-green group flex flex-col items-end text-right transition-colors"
             >
               <span className="text-very-light-gray/60 block text-sm">
