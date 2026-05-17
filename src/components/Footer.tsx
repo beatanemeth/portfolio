@@ -45,6 +45,16 @@ const LegalModal = ({ legalContent }: { legalContent: string }) => (
                   </ul>
                 ),
                 li: ({ children }) => <li>{children}</li>,
+                a: ({ children, href }) => (
+                  <a
+                    href={href}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="hover:text-very-dark-blue/80 hover:underline"
+                  >
+                    {children}
+                  </a>
+                ),
                 hr: () => <hr className="my-6 border-white/10" />,
               }}
             >

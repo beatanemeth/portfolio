@@ -4,6 +4,7 @@ import { cn } from '@/utils/cn';
 import { getMarkdownContent } from '@/utils/mdContent';
 import { Card, Link as HeroUILink } from '@heroui/react';
 import { FaGithub, FaLinkedinIn } from 'react-icons/fa';
+import { MdEmail } from 'react-icons/md';
 import { SiMedium } from 'react-icons/si';
 import ReactMarkdown from 'react-markdown';
 import ContainerWrapper from './ContainerWrapper';
@@ -24,8 +25,9 @@ interface ContactData {
 
 const ICON_MAP = {
   github: <FaGithub className="text-very-dark-blue text-5xl" />,
-  linkedin: <FaLinkedinIn className="text-very-dark-blue text-5xl" />,
   medium: <SiMedium className="text-very-dark-blue text-5xl" />,
+  linkedin: <FaLinkedinIn className="text-very-dark-blue text-5xl" />,
+  'contact form': <MdEmail className="text-very-dark-blue text-5xl" />,
 };
 
 const getIcon = (iconName: string) => {
@@ -41,7 +43,7 @@ const ContactItem = ({
 }: ContactMethod) => (
   <Card
     className={cn(
-      'flex w-full flex-col items-center gap-8 lg:w-1/3',
+      'flex w-full flex-col items-center gap-6 lg:gap-10',
       'bg-very-light-gray/10 backdrop-blur-sm',
       'border-very-light-gray/5 rounded-2xl border p-10',
     )}
@@ -87,7 +89,7 @@ export default function SectionContact() {
         </ReactMarkdown>
 
         {/* Methods Block */}
-        <div className="my-8 flex flex-col justify-center gap-8 lg:flex-row">
+        <div className="my-8 grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-4">
           {data.contactMethods.map((method, index) => (
             <ContactItem key={index} {...method} />
           ))}
