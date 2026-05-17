@@ -37,6 +37,7 @@ export default function SectionHero() {
   return (
     <ContainerWrapper id="heroSection" variant="ghost" className="pt-0">
       <Container className="flex min-h-svh flex-col items-start gap-8 pt-14">
+        {/* Availability Block */}
         <div className="flex items-center gap-2">
           <FaCircle className="text-moderate-lime-green" />
           <p className="text-very-light-gray/80 mb-0 text-sm sm:text-base lg:text-lg">
@@ -44,9 +45,9 @@ export default function SectionHero() {
           </p>
         </div>
 
-        {/* Center Div */}
+        {/* Main Content Block */}
         <div className="mb-12 flex flex-col items-center gap-16 lg:flex-row">
-          {/* Left Side: Text */}
+          {/* Left Side Content: Text */}
           <div className="flex w-full flex-col justify-center gap-2 lg:w-2/3">
             <h1 className="mb-8 whitespace-pre-line">{data.title}</h1>
             <h4>{PERSONAL_DATA.NAME}</h4>
@@ -74,8 +75,8 @@ export default function SectionHero() {
             </Link>
           </div>
 
-          {/* Right Side: Image Container */}
-          <div className="flex w-full justify-center lg:w-1/2">
+          {/* Right Side Content: Image */}
+          <div className="flex w-3/4 justify-center sm:w-2/3 lg:w-1/2">
             <Image
               src={withBasePath(data.image.src)}
               alt={data.image.alt}
@@ -87,7 +88,7 @@ export default function SectionHero() {
           </div>
         </div>
 
-        {/* Stack Div */}
+        {/* Tech Stack Block */}
         <div className="flex flex-col gap-6">
           <h4 className="text-center">{data.coreStackTitle}</h4>
           <div className="mx-auto flex w-full flex-wrap justify-center gap-6 lg:gap-8">

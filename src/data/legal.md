@@ -12,6 +12,10 @@ This website is a static portfolio hosted via **GitHub Pages**.
 
 - **Logs:** GitHub may collect system logs (IP addresses) for security purposes. Please refer to the [GitHub Privacy Statement](https://docs.github.com/en/site-policy/privacy-policies/github-privacy-statement) for more information.
 - **Tracking:** I do not use cookies, analytics, or third-party tracking (e.g., _Google Analytics_).
+- **Inquiry & Communication:** If you choose to contact me via the **Google Form** (linked in the Contact section), you will be providing personal data (Name, Email, and Message content).
+- **Purpose:** This data is collected solely to respond to your inquiry and facilitate professional collaboration.
+- **Service Provider:** The form is hosted by **Google**. By submitting the form, your data will be processed by Google in accordance with the [Google Privacy Policy](https://policies.google.com/privacy).
+- **Data Retention:** I will only store your inquiry for as long as necessary to fulfill the purpose of our communication.
 - **External Links:** This site contains links to external platforms (e.g., _LinkedIn_, _GitHub_, _Medium_). I am not responsible for the content or privacy practices of these external sites.
 
 ---

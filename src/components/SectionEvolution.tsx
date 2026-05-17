@@ -1,14 +1,13 @@
 import Container from '@/components/Container';
 import ContainerWrapper from '@/components/ContainerWrapper';
+import { getMarkdownContent } from '@/utils/mdContent';
 import { withBasePath } from '@/utils/path';
 import { Accordion } from '@heroui/react';
-import fs from 'fs';
-import matter from 'gray-matter';
-import path from 'path';
+import React from 'react';
 import { AiOutlinePartition } from 'react-icons/ai';
 import { GiCrane, GiTestTubes } from 'react-icons/gi';
 import { SlArrowDown } from 'react-icons/sl';
-import ReactMarkdown from 'react-markdown';
+import ReactMarkdown, { type Components } from 'react-markdown';
 
 interface Analogy {
   title: string;
@@ -24,6 +23,17 @@ interface EvolutionData {
   closing: string;
   analogies: Analogy[];
 }
+
+const MARKDOWN_LIST_COMPONENTS: Components = {
+  p: ({ children }) => <p className="mb-4">{children}</p>,
+  ol: ({ children }) => (
+    <ol className="mb-4 list-decimal space-y-2 pl-6">{children}</ol>
+  ),
+  ul: ({ children }) => (
+    <ul className="mb-4 list-disc space-y-2 pl-6">{children}</ul>
+  ),
+  li: ({ children }) => <li className="pl-1">{children}</li>,
+};
 
 const ExampleItem = ({
   icon: Icon,
@@ -56,20 +66,7 @@ const AnalogyItem = ({ title, biology, architecture }: Analogy) => (
       <Accordion.Panel>
         <Accordion.Body className="bg-very-light-gray mx-4 rounded-b-2xl">
           <div className="px-6 py-6 text-justify">
-            <ReactMarkdown
-              components={{
-                p: ({ children }) => <p className="mb-4">{children}</p>,
-                ol: ({ children }) => (
-                  <ol className="mb-4 list-decimal space-y-2 pl-6">
-                    {children}
-                  </ol>
-                ),
-                ul: ({ children }) => (
-                  <ul className="mb-4 list-disc space-y-2 pl-6">{children}</ul>
-                ),
-                li: ({ children }) => <li className="pl-1">{children}</li>,
-              }}
-            >
+            <ReactMarkdown components={MARKDOWN_LIST_COMPONENTS}>
               {biology}
             </ReactMarkdown>
             <div className="mt-10 flex items-center gap-4">
@@ -79,20 +76,7 @@ const AnalogyItem = ({ title, biology, architecture }: Analogy) => (
                 The Architecture Analogy
               </p>
             </div>
-            <ReactMarkdown
-              components={{
-                p: ({ children }) => <p className="mb-4">{children}</p>,
-                ol: ({ children }) => (
-                  <ol className="mb-4 list-decimal space-y-2 pl-6">
-                    {children}
-                  </ol>
-                ),
-                ul: ({ children }) => (
-                  <ul className="mb-4 list-disc space-y-2 pl-6">{children}</ul>
-                ),
-                li: ({ children }) => <li className="pl-1">{children}</li>,
-              }}
-            >
+            <ReactMarkdown components={MARKDOWN_LIST_COMPONENTS}>
               {architecture}
             </ReactMarkdown>
           </div>
@@ -103,10 +87,8 @@ const AnalogyItem = ({ title, biology, architecture }: Analogy) => (
 );
 
 export default function SectionEvolution() {
-  const filePath = path.join(process.cwd(), 'src/data/evolution.md');
-  const fileContent = fs.readFileSync(filePath, 'utf8');
-  const { data, content } = matter(fileContent);
-  const evolutionData = data as unknown as EvolutionData;
+  const { data: evolutionData, content } =
+    getMarkdownContent<EvolutionData>('evolution.md');
 
   return (
     <ContainerWrapper
@@ -115,7 +97,7 @@ export default function SectionEvolution() {
       className="bg-cover bg-fixed bg-center bg-no-repeat"
       style={{ backgroundImage: `url('${withBasePath('/system_blue.webp')}')` }}
     >
-      {/* Intro Container */}
+      {/* Intro Block */}
       <Container className="flex flex-col gap-8">
         <h2 className="text-center">{evolutionData.title}</h2>
         <ReactMarkdown
@@ -129,29 +111,17 @@ export default function SectionEvolution() {
         </ReactMarkdown>
       </Container>
 
-      {/* Evolution Content */}
+      {/* Core Concept Block */}
       <div className="bg-strong-blue my-20 max-w-none py-16">
         <Container className="flex flex-col gap-8 lg:flex-row lg:gap-16">
-          {/* Left Side: Text */}
+          {/* Left Side Content: Text */}
           <div className="flex w-full flex-col lg:w-1/3">
-            <ReactMarkdown
-              components={{
-                ol: ({ children }) => (
-                  <ol className="mb-4 list-decimal space-y-2 pl-6">
-                    {children}
-                  </ol>
-                ),
-                ul: ({ children }) => (
-                  <ul className="mb-4 list-disc space-y-2 pl-6">{children}</ul>
-                ),
-                li: ({ children }) => <li>{children}</li>,
-              }}
-            >
+            <ReactMarkdown components={MARKDOWN_LIST_COMPONENTS}>
               {content}
             </ReactMarkdown>
           </div>
 
-          {/* Right Side: Text */}
+          {/* Right Side Content: Text */}
           <div className="bg-very-light-gray/10 border-very-light-gray/10 flex w-full flex-col justify-center rounded-2xl border p-8 backdrop-blur-xs lg:w-2/3 lg:p-12">
             <ExampleItem icon={GiTestTubes} content={evolutionData.example1} />
             <hr className="border-moderate-lime-green my-8" />
@@ -163,7 +133,7 @@ export default function SectionEvolution() {
         </Container>
       </div>
 
-      {/* Analogies Container */}
+      {/* Analogies Block */}
       <Container className="flex flex-col gap-8">
         <div className="flex flex-col justify-center gap-4">
           <h3 className="text-center">Analogies: Biology vs Tech</h3>

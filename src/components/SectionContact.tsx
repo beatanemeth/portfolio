@@ -4,8 +4,9 @@ import { cn } from '@/utils/cn';
 import { getMarkdownContent } from '@/utils/mdContent';
 import { Card, Link as HeroUILink } from '@heroui/react';
 import { FaGithub, FaLinkedinIn } from 'react-icons/fa';
+import { MdEmail } from 'react-icons/md';
 import { SiMedium } from 'react-icons/si';
-import ReactMarkdown from 'react-markdown';
+import ReactMarkdown, { type Components } from 'react-markdown';
 import ContainerWrapper from './ContainerWrapper';
 
 interface ContactMethod {
@@ -23,14 +24,16 @@ interface ContactData {
 }
 
 const ICON_MAP = {
-  github: <FaGithub className="text-very-dark-blue text-5xl" />,
-  linkedin: <FaLinkedinIn className="text-very-dark-blue text-5xl" />,
-  medium: <SiMedium className="text-very-dark-blue text-5xl" />,
+  github: FaGithub,
+  medium: SiMedium,
+  linkedin: FaLinkedinIn,
+  'contact form': MdEmail,
 };
 
 const getIcon = (iconName: string) => {
   const key = iconName.toLowerCase() as keyof typeof ICON_MAP;
-  return ICON_MAP[key] || null;
+  const Icon = ICON_MAP[key];
+  return Icon ? <Icon className="text-very-dark-blue text-5xl" /> : null;
 };
 
 const ContactItem = ({
@@ -41,7 +44,7 @@ const ContactItem = ({
 }: ContactMethod) => (
   <Card
     className={cn(
-      'flex w-full flex-col items-center gap-8 lg:w-1/3',
+      'flex w-full flex-col items-center gap-6 lg:gap-10',
       'bg-very-light-gray/10 backdrop-blur-sm',
       'border-very-light-gray/5 rounded-2xl border p-10',
     )}
@@ -74,31 +77,40 @@ export default function SectionContact() {
   return (
     <ContainerWrapper id="contactSection" variant="ghost">
       <Container className="flex flex-col gap-8">
+        {/* Intro Block */}
         <h2 className="text-center">{data.title}</h2>
         <ReactMarkdown
-          components={{
-            p: ({ children }) => (
-              <p className="mx-auto w-full text-center lg:w-2/3">{children}</p>
-            ),
-          }}
+          components={
+            {
+              p: ({ children }) => (
+                <p className="mx-auto w-full text-center lg:w-2/3">
+                  {children}
+                </p>
+              ),
+            } as Components
+          }
         >
           {data.intro}
         </ReactMarkdown>
 
-        <div className="my-8 flex flex-col justify-center gap-8 lg:flex-row">
+        {/* Methods Block */}
+        <div className="my-8 grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-4">
           {data.contactMethods.map((method, index) => (
             <ContactItem key={index} {...method} />
           ))}
         </div>
 
+        {/* Closing Block */}
         <ReactMarkdown
-          components={{
-            p: ({ children }) => (
-              <p className="mx-auto text-center text-base leading-loose tracking-wide whitespace-pre-line lg:w-2/3 lg:text-2xl">
-                {children}
-              </p>
-            ),
-          }}
+          components={
+            {
+              p: ({ children }) => (
+                <p className="mx-auto text-center text-base leading-loose tracking-wide whitespace-pre-line lg:w-2/3 lg:text-2xl">
+                  {children}
+                </p>
+              ),
+            } as Components
+          }
         >
           {data.closing}
         </ReactMarkdown>
