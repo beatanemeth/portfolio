@@ -64,8 +64,8 @@ const AnalogyItem = ({ title, biology, architecture }: Analogy) => (
         </Accordion.Trigger>
       </Accordion.Heading>
       <Accordion.Panel>
-        <Accordion.Body className="bg-very-light-gray mx-4 rounded-b-2xl">
-          <div className="px-6 py-6 text-justify">
+        <Accordion.Body className="bg-very-light-gray mx-2 rounded-b-2xl lg:mx-4">
+          <div className="px-2 py-6 text-justify lg:px-4 lg:py-8">
             <ReactMarkdown components={MARKDOWN_LIST_COMPONENTS}>
               {biology}
             </ReactMarkdown>
@@ -122,7 +122,7 @@ export default function SectionEvolution() {
           </div>
 
           {/* Right Side Content: Text */}
-          <div className="bg-very-light-gray/10 border-very-light-gray/10 flex w-full flex-col justify-center rounded-2xl border p-8 backdrop-blur-xs lg:w-2/3 lg:p-12">
+          <div className="bg-very-light-gray/10 border-very-light-gray/10 flex w-full flex-col justify-center rounded-2xl border p-6 backdrop-blur-xs lg:w-2/3 lg:p-12">
             <ExampleItem icon={GiTestTubes} content={evolutionData.example1} />
             <hr className="border-moderate-lime-green my-8" />
             <ExampleItem

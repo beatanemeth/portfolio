@@ -105,32 +105,30 @@ export default function SectionPerson() {
       />
 
       {/* Details Block */}
-      <Container>
-        <div className="flex flex-col justify-center gap-8 px-2 sm:px-6 lg:flex-row lg:px-0">
-          {data.sections.map((section, index) => (
-            <div
-              key={index}
-              className="flex flex-col items-center gap-4 p-6 lg:w-1/3"
+      <Container className="flex flex-col justify-center gap-12 sm:gap-8 lg:flex-row lg:gap-6 lg:px-0">
+        {data.sections.map((section, index) => (
+          <div
+            key={index}
+            className="-400 flex flex-col items-center gap-6 px-4 lg:w-1/3"
+          >
+            {getIcon(section.title)}
+            <h5 className="text-very-dark-blue text-center">{section.title}</h5>
+
+            <ReactMarkdown
+              components={
+                {
+                  p: ({ children }) => (
+                    <p className="mb-2 text-center italic">{children}</p>
+                  ),
+                } as Components
+              }
             >
-              {getIcon(section.title)}
-              <h5 className="text-very-dark-blue">{section.title}</h5>
+              {section.description}
+            </ReactMarkdown>
 
-              <ReactMarkdown
-                components={
-                  {
-                    p: ({ children }) => (
-                      <p className="mb-2 text-center italic">{children}</p>
-                    ),
-                  } as Components
-                }
-              >
-                {section.description}
-              </ReactMarkdown>
-
-              <PersonAccordion actions={section.actions} />
-            </div>
-          ))}
-        </div>
+            <PersonAccordion actions={section.actions} />
+          </div>
+        ))}
       </Container>
     </ContainerWrapper>
   );

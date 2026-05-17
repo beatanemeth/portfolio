@@ -5,7 +5,7 @@ type ContainerProps = {
   className?: string;
   id?: string;
   // Define 'as' as an optional, valid HTML element
-  as?: 'div';
+  as?: 'div' | 'article';
 } & React.HTMLAttributes<HTMLDivElement>; // This allows all standard div props
 
 export default function Container({
