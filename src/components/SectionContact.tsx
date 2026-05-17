@@ -74,6 +74,7 @@ export default function SectionContact() {
   return (
     <ContainerWrapper id="contactSection" variant="ghost">
       <Container className="flex flex-col gap-8">
+        {/* Intro Block */}
         <h2 className="text-center">{data.title}</h2>
         <ReactMarkdown
           components={{
@@ -85,12 +86,14 @@ export default function SectionContact() {
           {data.intro}
         </ReactMarkdown>
 
+        {/* Methods Block */}
         <div className="my-8 flex flex-col justify-center gap-8 lg:flex-row">
           {data.contactMethods.map((method, index) => (
             <ContactItem key={index} {...method} />
           ))}
         </div>
 
+        {/* Closing Block */}
         <ReactMarkdown
           components={{
             p: ({ children }) => (

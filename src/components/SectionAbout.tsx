@@ -30,7 +30,13 @@ const CertificationCard = ({
   certification: AboutData['certification'];
 }) => {
   return (
-    <Card className="bg-very-soft-blue flex w-5/6 flex-col items-stretch p-6 sm:w-2/4 lg:flex-row lg:p-14">
+    <Card
+      className={cn(
+        'bg-very-soft-blue flex flex-col items-stretch lg:flex-row',
+        'w-5/6 sm:w-3/4 lg:w-2/4',
+        'p-6 sm:p-10 lg:p-14',
+      )}
+    >
       <div className="w-full overflow-hidden lg:w-1/3">
         <Image
           src={withBasePath(certification.image)}
@@ -72,11 +78,11 @@ export default function SectionAbout() {
 
   return (
     <ContainerWrapper id="aboutSection" variant="primary">
-      {/* Top Div */}
+      {/* Intro Block */}
       <Container className="flex flex-col items-start gap-8">
         <h2>{data.title}</h2>
         <div className="flex flex-col items-start gap-4 lg:flex-row lg:gap-12">
-          {/* Left Side: Text */}
+          {/* Left Side Content: Text */}
           <div className="flex w-full flex-col justify-center gap-2 lg:w-1/2">
             <ReactMarkdown
               components={{
@@ -87,7 +93,7 @@ export default function SectionAbout() {
             </ReactMarkdown>
           </div>
 
-          {/* Right Side: Key Points */}
+          {/* Right Side Content: Key Points */}
           <div className="flex w-full lg:w-1/2">
             <ul className="flex flex-col gap-2 pl-5">
               {data.keyPoints.map((kp, index) => (
@@ -101,7 +107,7 @@ export default function SectionAbout() {
         </div>
       </Container>
 
-      {/* Parallax Div with Certification Card */}
+      {/* Certification Block */}
       <div
         id="parallaxAbout"
         className="my-16 flex min-h-132 w-full items-center justify-center bg-cover bg-fixed bg-center bg-no-repeat px-4 py-16"
@@ -112,7 +118,7 @@ export default function SectionAbout() {
         <CertificationCard certification={data.certification} />
       </div>
 
-      {/* Bottom Div with Timeline */}
+      {/* Timeline Block */}
       <Container className="mx-auto w-full lg:w-3/4">
         <Timeline />
       </Container>

@@ -22,14 +22,14 @@ const LegalModal = ({ legalContent }: { legalContent: string }) => (
     </Modal.Trigger>
     <Modal.Backdrop isDismissable={true}>
       <Modal.Container>
-        <Modal.Dialog className="bg-very-light-gray max-w-90 lg:max-w-2/3">
+        <Modal.Dialog className="bg-very-light-gray max-w-full sm:max-w-7/8 lg:max-w-2/3">
           <Modal.CloseTrigger />
           <Modal.Header className="border-b-solid border-b-moderate-lime-green border-b-2">
             <Modal.Heading className="text-very-dark-blue text-2xl leading-[1.3] font-semibold tracking-wide sm:text-3xl lg:text-4xl">
               Legal Notice & Privacy Policy
             </Modal.Heading>
           </Modal.Header>
-          <Modal.Body className="my-4 max-w-none overflow-y-auto px-2 lg:px-10">
+          <Modal.Body className="my-4 max-w-none overflow-y-auto px-2 sm:px-6 lg:px-10">
             <ReactMarkdown
               components={{
                 h1: () => null, // Hide the H1 since it's in the Header

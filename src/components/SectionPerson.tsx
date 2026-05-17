@@ -69,7 +69,7 @@ export default function SectionPerson() {
 
   return (
     <ContainerWrapper id="personSection" variant="primary">
-      {/* Top Div */}
+      {/* Intro Block */}
       <Container className="flex flex-col gap-8">
         <h2 className="text-center">{data.title}</h2>
 
@@ -84,7 +84,7 @@ export default function SectionPerson() {
         </ReactMarkdown>
       </Container>
 
-      {/* Parallax Div */}
+      {/* Visual Block */}
       <div
         id="parallaxPerson"
         className="my-16 h-64 w-full bg-cover bg-fixed bg-center bg-no-repeat lg:h-96"
@@ -93,9 +93,9 @@ export default function SectionPerson() {
         }}
       />
 
-      {/* Bottom Div */}
-      <Container className="flex flex-col gap-8">
-        <div className="flex flex-col justify-center gap-8 lg:flex-row">
+      {/* Details Block */}
+      <Container>
+        <div className="flex flex-col justify-center gap-8 px-2 sm:px-6 lg:flex-row lg:px-0">
           {data.sections.map((section, index) => (
             <div
               key={index}

@@ -5,7 +5,7 @@ intro: |
   When I'm not architecting data pipelines, I'm usually exploring the limits of focus, physical discipline, and neuroplasticity.
 sections:
   - title: 'Manual Mastery'
-    description: 'I have a fascination with the **manual** side of life. I enjoy the process of training my brain and body to perform precise, difficult tasks:'
+    description: 'I have a fascination with the manual side of life. I enjoy the process of training my brain and body to perform precise, difficult tasks:'
     actions:
       - 'I taught myself to write with my non-dominant hand and mastered touch-typing with all ten fingers.'
       - 'I taught myself to juggle three balls—a meditative exercise in timing and rhythm.'

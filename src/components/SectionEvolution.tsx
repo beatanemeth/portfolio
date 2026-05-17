@@ -115,7 +115,7 @@ export default function SectionEvolution() {
       className="bg-cover bg-fixed bg-center bg-no-repeat"
       style={{ backgroundImage: `url('${withBasePath('/system_blue.webp')}')` }}
     >
-      {/* Intro Container */}
+      {/* Intro Block */}
       <Container className="flex flex-col gap-8">
         <h2 className="text-center">{evolutionData.title}</h2>
         <ReactMarkdown
@@ -129,10 +129,10 @@ export default function SectionEvolution() {
         </ReactMarkdown>
       </Container>
 
-      {/* Evolution Content */}
+      {/* Core Concept Block */}
       <div className="bg-strong-blue my-20 max-w-none py-16">
         <Container className="flex flex-col gap-8 lg:flex-row lg:gap-16">
-          {/* Left Side: Text */}
+          {/* Left Side Content: Text */}
           <div className="flex w-full flex-col lg:w-1/3">
             <ReactMarkdown
               components={{
@@ -151,7 +151,7 @@ export default function SectionEvolution() {
             </ReactMarkdown>
           </div>
 
-          {/* Right Side: Text */}
+          {/* Right Side Content: Text */}
           <div className="bg-very-light-gray/10 border-very-light-gray/10 flex w-full flex-col justify-center rounded-2xl border p-8 backdrop-blur-xs lg:w-2/3 lg:p-12">
             <ExampleItem icon={GiTestTubes} content={evolutionData.example1} />
             <hr className="border-moderate-lime-green my-8" />
@@ -163,7 +163,7 @@ export default function SectionEvolution() {
         </Container>
       </div>
 
-      {/* Analogies Container */}
+      {/* Analogies Block */}
       <Container className="flex flex-col gap-8">
         <div className="flex flex-col justify-center gap-4">
           <h3 className="text-center">Analogies: Biology vs Tech</h3>

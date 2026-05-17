@@ -26,6 +26,21 @@ interface TechnicalData {
   solutions: TechnicalSolution[];
 }
 
+const ModalBodySection = ({
+  title,
+  children,
+}: {
+  title: string;
+  children: React.ReactNode;
+}) => (
+  <div className="bg-very-soft-violet/15 rounded-xl p-6">
+    <h6 className="text-moderate-lime-green font-semibold uppercase">
+      {title}
+    </h6>
+    <div className="leading-relaxed">{children}</div>
+  </div>
+);
+
 const SolutionModal = ({ item }: { item: TechnicalSolution }) => (
   <Modal>
     <Modal.Trigger>
@@ -42,40 +57,24 @@ const SolutionModal = ({ item }: { item: TechnicalSolution }) => (
     </Modal.Trigger>
     <Modal.Backdrop isDismissable={true}>
       <Modal.Container placement="center">
-        <Modal.Dialog className="bg-very-light-gray w-full lg:max-w-2/4">
+        <Modal.Dialog className="bg-very-light-gray max-w-full sm:max-w-7/8 lg:max-w-2/3">
           <Modal.CloseTrigger />
           <Modal.Header className="border-b-solid border-b-very-soft-violet border-b-2">
             <Modal.Heading className="text-very-dark-blue text-2xl leading-[1.3] font-semibold tracking-wide sm:text-3xl lg:text-4xl">
               {item.title}
             </Modal.Heading>
           </Modal.Header>
-          <Modal.Body className="my-4 max-w-none overflow-y-auto px-4 lg:px-10">
+          <Modal.Body className="my-4 max-w-none overflow-y-auto px-2 sm:px-6 lg:px-10">
             <div className="text-very-dark-blue flex flex-col gap-8">
-              {/* Scenario Section */}
-              <div className="bg-very-dark-blue/5 rounded-xl p-6">
-                <h6 className="text-moderate-lime-green mb-2 uppercase">
-                  The Scenario
-                </h6>
-                <div className="leading-relaxed">
-                  <ReactMarkdown>{item.scenario}</ReactMarkdown>
-                </div>
-              </div>
+              <ModalBodySection title="The Scenario">
+                <ReactMarkdown>{item.scenario}</ReactMarkdown>
+              </ModalBodySection>
 
-              {/* Solution Section */}
-              <div className="bg-very-dark-blue/5 rounded-xl p-6">
-                <h6 className="text-moderate-lime-green mb-2 uppercase">
-                  The Solution
-                </h6>
-                <div className="leading-relaxed">
-                  <ReactMarkdown>{item.solution}</ReactMarkdown>
-                </div>
-              </div>
+              <ModalBodySection title="The Solution">
+                <ReactMarkdown>{item.solution}</ReactMarkdown>
+              </ModalBodySection>
 
-              {/* Link Section */}
-              <div className="bg-very-dark-blue/5 rounded-xl p-6">
-                <h6 className="text-moderate-lime-green mb-2 uppercase">
-                  Explore the repo
-                </h6>
+              <ModalBodySection title="Explore the repo">
                 <HeroUILink
                   href={EXTERNAL_LINKS[item.linkKey]}
                   target="_blank"
@@ -84,7 +83,7 @@ const SolutionModal = ({ item }: { item: TechnicalSolution }) => (
                   <p>{item.linkText}</p>
                   <HeroUILink.Icon />
                 </HeroUILink>
-              </div>
+              </ModalBodySection>
             </div>
           </Modal.Body>
         </Modal.Dialog>
@@ -99,6 +98,7 @@ export default function SectionTechnical() {
   return (
     <ContainerWrapper id="technicalSection" variant="ghost">
       <Container className="flex flex-col gap-8">
+        {/* Intro Block */}
         <h2 className="text-center">{data.title}</h2>
         <ReactMarkdown
           components={{
@@ -112,17 +112,19 @@ export default function SectionTechnical() {
           {data.description1}
         </ReactMarkdown>
 
-        <div className="mb-18 grid w-full grid-cols-1 gap-8 md:grid-cols-2">
+        {/* Solutions Block */}
+        <div className="my-4 grid w-full grid-cols-1 gap-8 lg:my-8 lg:grid-cols-2">
           {data.solutions.map((item, index) => (
             <div
               key={index}
               className={cn(
-                'flex w-full flex-col items-center gap-3 rounded-2xl px-12 py-16',
+                'flex w-full flex-col items-center gap-3 rounded-2xl',
+                'p-10 sm:p-16 lg:px-16 lg:py-12',
                 'bg-very-light-gray/10 backdrop-blur-sm',
                 'border-very-light-gray/5 rounded-2xl border',
               )}
             >
-              <h4 className="text-moderate-lime-green text-center font-semibold">
+              <h4 className="text-moderate-lime-green text-center">
                 {item.title}
               </h4>
               <p className="text-very-light-gray/80 text-center italic">
@@ -138,6 +140,7 @@ export default function SectionTechnical() {
           ))}
         </div>
 
+        {/* Summary Block */}
         <ReactMarkdown
           components={{
             p: ({ children }) => (
@@ -149,9 +152,12 @@ export default function SectionTechnical() {
         >
           {data.description2}
         </ReactMarkdown>
+
         <div className="mx-auto w-full lg:w-2/3">
           <Languages />
         </div>
+
+        {/* CTA Block */}
         <Link
           href="#contactSection"
           className={cn(
