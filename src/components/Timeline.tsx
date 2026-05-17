@@ -19,13 +19,15 @@ interface TimelineData {
 }
 
 const ICON_MAP = {
-  science: <FaMicroscope className="text-very-dark-blue/80 text-2xl" />,
-  web: <FaCode className="text-very-dark-blue/80 text-2xl" />,
-  engineering: <FaCogs className="text-very-dark-blue/80 text-2xl" />,
+  science: FaMicroscope,
+  web: FaCode,
+  engineering: FaCogs,
 };
 
 const getIcon = (iconName: keyof typeof ICON_MAP) => {
-  return ICON_MAP[iconName] || null;
+  const key = iconName.toLowerCase() as keyof typeof ICON_MAP;
+  const Icon = ICON_MAP[key];
+  return Icon ? <Icon className="text-very-dark-blue/80 text-2xl" /> : null;
 };
 
 export default function Timeline() {

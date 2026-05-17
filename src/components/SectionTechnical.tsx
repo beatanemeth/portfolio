@@ -4,7 +4,8 @@ import { cn } from '@/utils/cn';
 import { getMarkdownContent } from '@/utils/mdContent';
 import { Button, Link as HeroUILink, Modal } from '@heroui/react';
 import Link from 'next/link';
-import ReactMarkdown from 'react-markdown';
+import React from 'react';
+import ReactMarkdown, { type Components } from 'react-markdown';
 import ContainerWrapper from './ContainerWrapper';
 import Languages from './Languages';
 
@@ -67,11 +68,23 @@ const SolutionModal = ({ item }: { item: TechnicalSolution }) => (
           <Modal.Body className="my-4 max-w-none overflow-y-auto px-2 sm:px-6 lg:px-10">
             <div className="text-very-dark-blue flex flex-col gap-8">
               <ModalBodySection title="The Scenario">
-                <ReactMarkdown>{item.scenario}</ReactMarkdown>
+                <ReactMarkdown
+                  components={
+                    { p: ({ children }) => <p>{children}</p> } as Components
+                  }
+                >
+                  {item.scenario}
+                </ReactMarkdown>
               </ModalBodySection>
 
               <ModalBodySection title="The Solution">
-                <ReactMarkdown>{item.solution}</ReactMarkdown>
+                <ReactMarkdown
+                  components={
+                    { p: ({ children }) => <p>{children}</p> } as Components
+                  }
+                >
+                  {item.solution}
+                </ReactMarkdown>
               </ModalBodySection>
 
               <ModalBodySection title="Explore the repo">
@@ -101,13 +114,15 @@ export default function SectionTechnical() {
         {/* Intro Block */}
         <h2 className="text-center">{data.title}</h2>
         <ReactMarkdown
-          components={{
-            p: ({ children }) => (
-              <p className="mx-auto w-full text-center whitespace-pre-line lg:w-2/3">
-                {children}
-              </p>
-            ),
-          }}
+          components={
+            {
+              p: ({ children }) => (
+                <p className="mx-auto w-full text-center whitespace-pre-line lg:w-2/3">
+                  {children}
+                </p>
+              ),
+            } as Components
+          }
         >
           {data.description1}
         </ReactMarkdown>
@@ -118,7 +133,7 @@ export default function SectionTechnical() {
             <div
               key={index}
               className={cn(
-                'flex w-full flex-col items-center gap-3 rounded-2xl',
+                'flex w-full flex-col items-center gap-3',
                 'p-10 sm:p-16 lg:px-16 lg:py-12',
                 'bg-very-light-gray/10 backdrop-blur-sm',
                 'border-very-light-gray/5 rounded-2xl border',
@@ -142,13 +157,15 @@ export default function SectionTechnical() {
 
         {/* Summary Block */}
         <ReactMarkdown
-          components={{
-            p: ({ children }) => (
-              <p className="mx-auto text-center text-base leading-loose tracking-wide whitespace-pre-line lg:w-2/3 lg:text-2xl">
-                {children}
-              </p>
-            ),
-          }}
+          components={
+            {
+              p: ({ children }) => (
+                <p className="mx-auto text-center text-base leading-loose tracking-wide whitespace-pre-line lg:w-2/3 lg:text-2xl">
+                  {children}
+                </p>
+              ),
+            } as Components
+          }
         >
           {data.description2}
         </ReactMarkdown>

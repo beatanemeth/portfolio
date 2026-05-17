@@ -6,7 +6,7 @@ import { Card, Link as HeroUILink } from '@heroui/react';
 import { FaGithub, FaLinkedinIn } from 'react-icons/fa';
 import { MdEmail } from 'react-icons/md';
 import { SiMedium } from 'react-icons/si';
-import ReactMarkdown from 'react-markdown';
+import ReactMarkdown, { type Components } from 'react-markdown';
 import ContainerWrapper from './ContainerWrapper';
 
 interface ContactMethod {
@@ -24,15 +24,16 @@ interface ContactData {
 }
 
 const ICON_MAP = {
-  github: <FaGithub className="text-very-dark-blue text-5xl" />,
-  medium: <SiMedium className="text-very-dark-blue text-5xl" />,
-  linkedin: <FaLinkedinIn className="text-very-dark-blue text-5xl" />,
-  'contact form': <MdEmail className="text-very-dark-blue text-5xl" />,
+  github: FaGithub,
+  medium: SiMedium,
+  linkedin: FaLinkedinIn,
+  'contact form': MdEmail,
 };
 
 const getIcon = (iconName: string) => {
   const key = iconName.toLowerCase() as keyof typeof ICON_MAP;
-  return ICON_MAP[key] || null;
+  const Icon = ICON_MAP[key];
+  return Icon ? <Icon className="text-very-dark-blue text-5xl" /> : null;
 };
 
 const ContactItem = ({
@@ -79,11 +80,15 @@ export default function SectionContact() {
         {/* Intro Block */}
         <h2 className="text-center">{data.title}</h2>
         <ReactMarkdown
-          components={{
-            p: ({ children }) => (
-              <p className="mx-auto w-full text-center lg:w-2/3">{children}</p>
-            ),
-          }}
+          components={
+            {
+              p: ({ children }) => (
+                <p className="mx-auto w-full text-center lg:w-2/3">
+                  {children}
+                </p>
+              ),
+            } as Components
+          }
         >
           {data.intro}
         </ReactMarkdown>
@@ -97,13 +102,15 @@ export default function SectionContact() {
 
         {/* Closing Block */}
         <ReactMarkdown
-          components={{
-            p: ({ children }) => (
-              <p className="mx-auto text-center text-base leading-loose tracking-wide whitespace-pre-line lg:w-2/3 lg:text-2xl">
-                {children}
-              </p>
-            ),
-          }}
+          components={
+            {
+              p: ({ children }) => (
+                <p className="mx-auto text-center text-base leading-loose tracking-wide whitespace-pre-line lg:w-2/3 lg:text-2xl">
+                  {children}
+                </p>
+              ),
+            } as Components
+          }
         >
           {data.closing}
         </ReactMarkdown>
