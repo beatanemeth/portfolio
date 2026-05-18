@@ -48,6 +48,16 @@ export default async function BlogPost({ params }: PostParams) {
                   className="rounded-lg object-cover"
                 />
               ),
+              a: ({ children, href }) => (
+                <a
+                  href={href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-very-soft-blue decoration-very-soft-blue/50 hover:text-very-light-gray hover:decoration-very-light-gray underline underline-offset-4 transition-colors"
+                >
+                  {children}
+                </a>
+              ),
             }}
           >
             {post.content}
