@@ -17,7 +17,7 @@ export default function PostCard({ post }: PostCardProps) {
       className="group border-moderate-lime-green flex flex-col gap-8 border-b px-0 py-6 sm:items-start lg:flex-row lg:px-8"
     >
       <Link
-        href={withBasePath(`/blog/${post.slug}`)}
+        href={`/blog/${post.slug}`}
         className="border-moderate-lime-green/30 relative block h-48 w-full shrink-0 overflow-hidden rounded-lg border shadow-md sm:h-40 sm:w-64 lg:h-32 lg:w-48"
       >
         <Image
@@ -28,7 +28,7 @@ export default function PostCard({ post }: PostCardProps) {
         />
       </Link>
       <div className="flex flex-col gap-2">
-        <Link href={withBasePath(`/blog/${post.slug}`)} className="block">
+        <Link href={`/blog/${post.slug}`} className="block">
           <h5 className="text-moderate-lime-green group-hover:text-very-light-gray transition-colors">
             {post.title}
           </h5>

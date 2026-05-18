@@ -38,7 +38,7 @@ export default async function BlogPost({ params }: PostParams) {
         <div className="prose-gray">
           <ReactMarkdown
             components={{
-              img: ({ node, src, alt, ...props }) => (
+              img: ({ node: _node, src, alt, ...props }) => (
                 <Image
                   {...props}
                   src={typeof src === 'string' ? withBasePath(src) : ''}
@@ -68,7 +68,7 @@ export default async function BlogPost({ params }: PostParams) {
         <nav className="border-very-soft-violet mt-12 flex flex-col justify-between gap-6 border-t pt-8 sm:flex-row">
           {prevPost ? (
             <Link
-              href={withBasePath(`/blog/${prevPost.slug}`)}
+              href={`/blog/${prevPost.slug}`}
               className="hover:text-moderate-lime-green group flex flex-col transition-colors"
             >
               <span className="text-very-light-gray/60 block text-sm">
@@ -83,7 +83,7 @@ export default async function BlogPost({ params }: PostParams) {
           )}
           {nextPost ? (
             <Link
-              href={withBasePath(`/blog/${nextPost.slug}`)}
+              href={`/blog/${nextPost.slug}`}
               className="hover:text-moderate-lime-green group flex flex-col items-end text-right transition-colors"
             >
               <span className="text-very-light-gray/60 block text-sm">
