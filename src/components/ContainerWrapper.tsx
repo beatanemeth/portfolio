@@ -29,7 +29,12 @@ export default function ContainerWrapper({
       {...props}
       id={id}
       /* We keep container logic first, then inject custom classes */
-      className={cn(sectionBg, 'w-full py-24', className)}
+      className={cn(
+        sectionBg,
+        'w-full',
+        Component === 'section' && 'py-16 sm:py-20 lg:py-24', // Only pad sections
+        className,
+      )}
     >
       {children}
     </Component>

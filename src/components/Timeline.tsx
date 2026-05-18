@@ -34,7 +34,7 @@ export default function Timeline() {
   const { data } = getMarkdownContent<TimelineData>('timeline.md');
 
   return (
-    <div className="flex flex-col gap-12 py-12">
+    <div className="flex flex-col gap-12 py-6 lg:py-12">
       <h3 className="text-center">{data.title}</h3>
       <div className="relative">
         {data.events.map((event, index) => (

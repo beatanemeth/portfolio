@@ -69,9 +69,9 @@ const AnalogyItem = ({ title, biology, architecture }: Analogy) => (
             <ReactMarkdown components={MARKDOWN_LIST_COMPONENTS}>
               {biology}
             </ReactMarkdown>
-            <div className="mt-10 flex items-center gap-4">
+            <div className="mt-10 flex flex-col items-start gap-1 sm:flex-row sm:items-center sm:gap-4">
               <GiCrane className="text-dark-moderate-lime-green text-4xl" />
-              <div className="bg-dark-moderate-lime-green/30 h-0.5 flex-1" />
+              <div className="bg-dark-moderate-lime-green/30 h-0.5 w-full sm:w-auto sm:flex-1" />{' '}
               <p className="text-very-dark-blue font-semibold">
                 The Architecture Analogy
               </p>

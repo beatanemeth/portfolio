@@ -35,7 +35,11 @@ export default function SectionHero() {
   const { data } = getMarkdownContent<HeroData>('hero.md');
 
   return (
-    <ContainerWrapper id="heroSection" variant="ghost" className="pt-0">
+    <ContainerWrapper
+      id="heroSection"
+      variant="ghost"
+      className="pt-0 sm:pt-0 lg:pt-0"
+    >
       <Container className="flex min-h-svh flex-col items-start gap-8 pt-14">
         {/* Availability Block */}
         <div className="flex items-center gap-2">

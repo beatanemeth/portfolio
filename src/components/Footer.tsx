@@ -84,7 +84,7 @@ export default function Footer() {
       as="footer"
       id="footerSection"
       variant="primary"
-      className="border-t-solid border-t-very-dark-blue/20 border-t-2 py-0"
+      className="border-t-solid border-t-very-dark-blue/20 border-t-2"
     >
       <Container className="flex flex-col items-center justify-between gap-4 py-8 lg:flex-row">
         <p className="text-very-light-gray/80 mb-0 text-xs sm:text-sm lg:text-base">
