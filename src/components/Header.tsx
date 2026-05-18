@@ -56,7 +56,7 @@ export default function Header() {
       as="header"
       id="headerSection"
       variant="primary"
-      className="shadow-very-dark-blue/80 sticky top-0 z-50 py-0 shadow-xl/40 backdrop-blur-md"
+      className="shadow-very-dark-blue/80 sticky top-0 z-50 shadow-xl/40 backdrop-blur-md"
     >
       <Container className="flex items-center gap-2 py-5 lg:py-8">
         {/* Logo */}

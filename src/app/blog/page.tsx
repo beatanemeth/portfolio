@@ -7,7 +7,11 @@ export default function BlogPage() {
   const posts = getAllBlogPosts();
 
   return (
-    <ContainerWrapper id="blogListingSection" variant="ghost">
+    <ContainerWrapper
+      id="blogListingSection"
+      variant="ghost"
+      className="pt-10 sm:pt-12 lg:pt-14"
+    >
       <Container>
         <h1>Blog</h1>
         <div className="space-y-4">

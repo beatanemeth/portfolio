@@ -29,8 +29,12 @@ export default async function BlogPost({ params }: PostParams) {
   const prevPost = allPosts[currentIndex + 1] || null;
 
   return (
-    <ContainerWrapper id="blogItemSection" variant="ghost">
-      <Container className="prose prose-lg max-w-3xl lg:max-w-5xl">
+    <ContainerWrapper
+      id="blogItemSection"
+      variant="ghost"
+      className="pt-10 sm:pt-12 lg:pt-14"
+    >
+      <Container as="article" className="prose prose-lg max-w-3xl lg:max-w-5xl">
         <header className="mb-8">
           <h1 className="mb-2">{post.data.title}</h1>
           <time className="text-very-light-gray/60">{post.data.date}</time>

@@ -52,7 +52,8 @@ A → B → C → D → E
 
 Even if most reactions are quick, the entire process is constrained by that one slow link. It sets the bottleneck and defines how fast the whole pathway can operate.
 
-I realized the same pattern shows up in data engineering. Consider a Dataflow pipeline:
+I realized the same pattern shows up in data engineering.  
+Consider a Dataflow pipeline:  
 Click event → Pub/Sub topic → Subscription backlog → Dataflow → Advertising Pub/Sub topic
 
 Suppose the team needs events within 30 seconds, but the actual freshness is closer to 40 seconds. The transformations inside Dataflow may be fast — just like the quick biochemical reactions — but if there’s a growing Pub/Sub subscription backlog, Dataflow receives events late. That backlog becomes the rate-limiting step, adding extra delay before the job even starts processing the messages.
