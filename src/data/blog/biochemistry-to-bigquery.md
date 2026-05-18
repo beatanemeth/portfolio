@@ -4,7 +4,7 @@ date: '2026-05-18'
 excerpt: "Everything is an analogy: why comparing a Dataflow pipeline bottleneck to a biochemical rate-limiting step helped me finally 'click' with data engineering."
 ---
 
-![From Biochemistry to BigQuery](/blog/biochemistry-to-bigquery.webp)
+![Abstract conceptual illustration bridging biochemical pathway symbols and cloud data architecture](/blog/biochemistry-to-bigquery.webp)
 
 &nbsp;
 

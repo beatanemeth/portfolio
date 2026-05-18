@@ -4,7 +4,7 @@ date: '2026-05-10'
 excerpt: "A collaboration between a developer and a psychiatrist to modernize a nonprofit's operations."
 ---
 
-![Bridging Perspectives](/blog/bridging-perspectives.webp)
+![Digital transformation dashboard and collaborative team workspace](/blog/bridging-perspectives.webp)
 
 &nbsp;
 
@@ -31,8 +31,8 @@ For a psychotherapist client, it felt much like preparing for a minor corrective
 
 These two articles tell the story of the same digital journey – just in different voices:
 
-🔹 From a developer’s side: [Building a Scalable Digital Backbone for a Nonprofit Team](https://lnkd.in/eYjpqRJ7)  
-🔹 From the client’s point of view: [A Practicing Psychiatrist’s Case with IT](https://lnkd.in/eSjRw5Jn) (It’s written in Hungarian, but LinkedIn’s built-in translation can help you follow the story.)
+🔹 From a developer’s side: 🔗 [Building a Scalable Digital Backbone for a Nonprofit Team](https://lnkd.in/eYjpqRJ7)  
+🔹 From the client’s point of view: 🔗 [A Practicing Psychiatrist’s Case with IT](https://lnkd.in/eSjRw5Jn) _(It’s written in Hungarian, but LinkedIn’s built-in translation can help you follow the story.)_
 
 &nbsp;
 

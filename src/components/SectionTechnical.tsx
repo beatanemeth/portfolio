@@ -91,7 +91,7 @@ const SolutionModal = ({ item }: { item: TechnicalSolution }) => (
                 <HeroUILink
                   href={EXTERNAL_LINKS[item.linkKey]}
                   target="_blank"
-                  className="text-hyperlink font-bold no-underline hover:underline"
+                  className="text-hyperlink hover:text-very-dark-blue/80 hover:decoration-very-dark-blue/80 font-bold no-underline hover:underline"
                 >
                   <p>{item.linkText}</p>
                   <HeroUILink.Icon />

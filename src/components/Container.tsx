@@ -20,7 +20,7 @@ export default function Container({
       {...props}
       id={id}
       /* We keep container logic first, then inject custom classes */
-      className={cn('container mx-auto px-8', className)}
+      className={cn('container mx-auto px-6 sm:px-8', className)}
     >
       {children}
     </Component>
