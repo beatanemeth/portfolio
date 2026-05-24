@@ -1,6 +1,6 @@
 import Container from '@/components/Container';
 import ContainerWrapper from '@/components/ContainerWrapper';
-import { getAllBlogPosts, getMarkdownContent } from '@/utils/mdContent';
+import { getAllBlogPosts, getBlogPostBySlug } from '@/utils/mdContent';
 import { withBasePath } from '@/utils/path';
 import Image from 'next/image';
 import Link from 'next/link';
@@ -17,9 +17,7 @@ export async function generateStaticParams() {
 
 export default async function BlogPost({ params }: PostParams) {
   const { slug } = await params;
-  const post = getMarkdownContent<{ title: string; date: string }>(
-    `blog/${slug}.md`,
-  );
+  const post = getBlogPostBySlug<{ title: string; date: string }>(slug);
 
   const allPosts = getAllBlogPosts();
   const currentIndex = allPosts.findIndex((p) => p.slug === slug);
@@ -37,7 +35,15 @@ export default async function BlogPost({ params }: PostParams) {
       <Container as="article" className="prose prose-lg max-w-3xl lg:max-w-5xl">
         <header className="mb-8">
           <h1 className="mb-2">{post.data.title}</h1>
-          <time className="text-very-light-gray/60">{post.data.date}</time>
+          <div className="text-very-light-gray/60 flex items-center gap-2">
+            <span className="text-moderate-lime-green capitalize">
+              {post.category}
+            </span>
+            <span>•</span>
+            <time>{post.data.date}</time>
+            <span>•</span>
+            <span>{post.readingTime}</span>
+          </div>
         </header>
         <div className="prose-gray">
           <ReactMarkdown
