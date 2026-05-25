@@ -26,7 +26,7 @@ export default function PostCard({ post }: PostCardProps) {
       )}
     >
       <Link
-        href={`/blog/${post.slug}`}
+        href={`/blog/${post.category}/${post.slug}`}
         className={cn(
           'border-moderate-lime-green/30 relative block shrink-0 overflow-hidden rounded-lg border shadow-md transition-all duration-500',
           post.featured
@@ -43,7 +43,7 @@ export default function PostCard({ post }: PostCardProps) {
       </Link>
 
       <div className="flex flex-col justify-center gap-4">
-        <Link href={`/blog/${post.slug}`} className="block">
+        <Link href={`/blog/${post.category}/${post.slug}`} className="block">
           <HeadingTag
             className={cn(
               'text-moderate-lime-green group-hover:text-very-light-gray transition-colors',

@@ -7,16 +7,16 @@ import Link from 'next/link';
 import ReactMarkdown from 'react-markdown';
 
 interface PostParams {
-  params: Promise<{ slug: string }>;
+  params: Promise<{ category: string; slug: string }>;
 }
 
 export async function generateStaticParams() {
   const posts = getAllBlogPosts();
-  return posts.map((post) => ({ slug: post.slug }));
+  return posts.map((post) => ({ category: post.category, slug: post.slug }));
 }
 
 export default async function BlogPost({ params }: PostParams) {
-  const { slug } = await params;
+  const { category, slug } = await params;
   const post = getBlogPostBySlug<{ title: string; date: string }>(slug);
 
   const allPosts = getAllBlogPosts();
@@ -90,7 +90,7 @@ export default async function BlogPost({ params }: PostParams) {
         <nav className="border-very-soft-violet mt-12 flex flex-col justify-between gap-6 border-t pt-8 sm:flex-row">
           {prevPost ? (
             <Link
-              href={`/blog/${prevPost.slug}`}
+              href={`/blog/${prevPost.category}/${prevPost.slug}`}
               className="hover:text-moderate-lime-green group flex flex-col transition-colors"
             >
               <span className="text-very-light-gray/60 block text-sm">
@@ -105,7 +105,7 @@ export default async function BlogPost({ params }: PostParams) {
           )}
           {nextPost ? (
             <Link
-              href={`/blog/${nextPost.slug}`}
+              href={`/blog/${nextPost.category}/${nextPost.slug}`}
               className="hover:text-moderate-lime-green group flex flex-col items-end text-right transition-colors"
             >
               <span className="text-very-light-gray/60 block text-sm">
