@@ -18,4 +18,5 @@ export const INTERNAL_LINKS = {
   SOLUTIONS: '#technicalSection',
   CONTACT: '#contactSection',
   BLOG: '/blog',
+  BUSINESS: '/business',
 };

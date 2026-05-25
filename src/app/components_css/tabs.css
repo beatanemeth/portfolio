@@ -6,12 +6,12 @@
  */
 
 .tabs__list {
-  @apply border-very-soft-violet/20 flex w-full flex-col items-start gap-2 border-b sm:flex-row sm:items-center sm:gap-8;
+  @apply border-very-soft-violet/20 flex h-auto w-full flex-col items-start gap-2 border-b lg:flex-row lg:items-center lg:gap-8;
 }
 
 .tabs__tab {
   @apply text-very-light-gray/60 hover:text-very-soft-violet transition-all duration-300;
-  @apply py-3 text-lg font-medium sm:pt-4 sm:pb-8 sm:text-xl lg:text-2xl;
+  @apply h-auto text-lg font-medium whitespace-normal lg:pt-4 lg:pb-8 lg:text-xl xl:text-2xl;
   @apply px-0; /* Align with left edge/gap-based spacing */
 }
 
@@ -21,4 +21,21 @@
 
 .tabs__indicator {
   @apply bg-very-soft-violet bottom-0 h-0.5;
+}
+
+/* Business Impact Scoped Overrides */
+.business-tabs .tabs__list {
+  @apply border-very-soft-blue/30 h-auto;
+}
+
+.business-tabs .tabs__tab {
+  @apply text-very-soft-blue/70 hover:text-very-light-gray h-auto text-xl font-semibold lg:text-2xl;
+}
+
+.business-tabs .tabs__tab[data-selected='true'] {
+  @apply text-very-light-gray;
+}
+
+.business-tabs .tabs__indicator {
+  @apply bg-very-soft-violet h-1;
 }
