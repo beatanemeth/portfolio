@@ -2,4 +2,4 @@ node_modules
 .next
 build
 dist
-src/data/blog/signals/signals.md
+src/data/blog/shorts/shorts.md

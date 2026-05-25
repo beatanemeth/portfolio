@@ -1,5 +1,5 @@
 ---
-signals:
+shorts:
   - headline: 'Is the agent in your IDE, or is your IDE now inside the agent?'
     content: |
       Recently, the shift from Gemini CLI to **Antigravity 2.0** brought a new level of recognition to my workflow. It made me think of the ancient story of _Zhuangzi_:
@@ -7,16 +7,17 @@ signals:
       > Zhuangzi dreamed he was a butterfly, happy and unaware he was a human. He awoke and found himself unmistakably a man. But then he wondered: was he a man who had dreamed he was a butterfly, or was he a butterfly currently dreaming he was a man?
 
       With modern agents, I find myself asking a similar question:
+      
       > Is the agent inside my IDE, or is the IDE now inside the agent’s ecosystem?
 
   - headline: 'From brain slices to bytes: The universal pipeline'
     content: |
-      I was looking at a standard data pipeline architecture recently—fetching raw content via APIs, processing it through microservices, and cleaning it in *Jupyter notebooks*. It struck me how much this digital workflow mirrors the exact choreography of a biological laboratory.
+      I was looking at a standard data pipeline architecture recently—fetching raw content via APIs, processing it through microservices, and cleaning it in _Jupyter notebooks_. It struck me how much this digital workflow mirrors the exact choreography of a biological laboratory.
 
       Think of a neuroscience experiment:
       - **The Source:** A living tissue matrix, like a rodent brain slice or cellular extract.
       - **The Extraction:** High-precision rigs (like patch-clamp amplifiers or imaging systems) capture raw electrical signals, saving them as massive, unformatted proprietary files to a local workstation.
-      - **The ETL Layer:** Scientists pull these raw files into *MATLAB*, *Python*, or even legacy *Excel* scripts to filter out background noise, normalize baseline drift, and convert voltage into structured arrays, saving the cleaned data to institutional servers.
+      - **The ETL Layer:** Scientists pull these raw files into _MATLAB_, _Python_, or even legacy _Excel_ scripts to filter out background noise, normalize baseline drift, and convert voltage into structured arrays, saving the cleaned data to institutional servers.
       - **Analysis & Presentation:** Statistical models run across the processed datasets to isolate true synaptic responses, culminating in the final figures of a research paper or PowerPoint deck.
       
       Whether you are handling digital CMS content or tracking cellular metabolism, the fundamental challenge remains identical: how to elegantly isolate raw reality → strip away the noise → and distill it into human comprehension.
@@ -47,3 +48,4 @@ signals:
   - headline: 'The "universal table" hypothesis'
     content: |
       We often worry about the _format_ of our information—JSON, Markdown, SQL tables, columns, or cells. But perhaps we are overthinking the container. Everything we share on the internet, at its core, is just data points waiting to be structured. The true skill isn't choosing the format; it's understanding how to organize the relationships within them. Perhaps "content strategy" is just high-level database design for humans.
+---

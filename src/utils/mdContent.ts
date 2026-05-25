@@ -19,7 +19,7 @@ export const getMarkdownContent = <T>(fileName: string) => {
   return { data: data as T, content };
 };
 
-export type BlogCategory = 'engineering' | 'insights' | 'signals';
+export type BlogCategory = 'engineering' | 'insights' | 'shorts';
 
 export interface PostMetadata {
   title: string;
@@ -85,14 +85,14 @@ export const getBlogPostBySlug = <T>(slug: string) => {
   throw new Error(`Post with slug ${slug} not found`);
 };
 
-export interface Signal {
+export interface Short {
   headline: string;
   content: string;
 }
 
-export const getSignals = (): Signal[] => {
-  const filePath = path.join(process.cwd(), 'src/data/blog/signals/signals.md');
+export const getShorts = (): Short[] => {
+  const filePath = path.join(process.cwd(), 'src/data/blog/shorts/shorts.md');
   if (!fs.existsSync(filePath)) return [];
   const { data } = readMarkdownFile(filePath);
-  return (data.signals || []) as Signal[];
+  return (data.shorts || []) as Short[];
 };

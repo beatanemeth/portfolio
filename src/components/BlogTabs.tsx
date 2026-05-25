@@ -1,7 +1,7 @@
 'use client';
 
 import { cn } from '@/utils/cn';
-import { BlogCategory, PostMetadata, Signal } from '@/utils/mdContent';
+import { BlogCategory, PostMetadata, Short } from '@/utils/mdContent';
 import { Accordion, Tabs } from '@heroui/react';
 import { SlArrowDown } from 'react-icons/sl';
 import ReactMarkdown from 'react-markdown';
@@ -10,7 +10,7 @@ import PostCard from './PostCard';
 
 interface BlogTabsProps {
   posts: PostMetadata[];
-  signals: Signal[];
+  shorts: Short[];
 }
 
 interface TabItem {
@@ -21,12 +21,12 @@ interface TabItem {
 const TAB_LIST: TabItem[] = [
   { id: 'engineering', label: 'Engineering' },
   { id: 'insights', label: 'Insights' },
-  { id: 'signals', label: 'Signals' },
+  { id: 'shorts', label: 'Shorts' },
 ];
 
-const SignalsAccordion = ({ signals }: { signals: Signal[] }) => (
+const ShortsAccordion = ({ shorts }: { shorts: Short[] }) => (
   <Accordion hideSeparator>
-    {signals.map((signal, index) => (
+    {shorts.map((short, index) => (
       <Accordion.Item
         id={index.toString()}
         key={index.toString()}
@@ -38,7 +38,7 @@ const SignalsAccordion = ({ signals }: { signals: Signal[] }) => (
               <SlArrowDown strokeWidth={96} />
             </Accordion.Indicator>
             <span className="text-very-soft-violet flex-1 text-left text-sm leading-relaxed font-medium tracking-normal sm:text-base lg:text-xl">
-              {signal.headline.replace(/\*\*/g, '')}
+              {short.headline.replace(/\*\*/g, '')}
             </span>
           </Accordion.Trigger>
         </Accordion.Heading>
@@ -78,7 +78,7 @@ const SignalsAccordion = ({ signals }: { signals: Signal[] }) => (
                   ),
                 }}
               >
-                {signal.content}
+                {short.content}
               </ReactMarkdown>
             </div>
           </Accordion.Body>
@@ -88,7 +88,7 @@ const SignalsAccordion = ({ signals }: { signals: Signal[] }) => (
   </Accordion>
 );
 
-export default function BlogTabs({ posts, signals }: BlogTabsProps) {
+export default function BlogTabs({ posts, shorts }: BlogTabsProps) {
   const engineeringPosts = posts.filter((p) => p.category === 'engineering');
   const insightsPosts = posts.filter((p) => p.category === 'insights');
 
@@ -120,8 +120,8 @@ export default function BlogTabs({ posts, signals }: BlogTabsProps) {
             ))}
           </div>
         </Tabs.Panel>
-        <Tabs.Panel id="signals" className="pt-8">
-          <SignalsAccordion signals={signals} />
+        <Tabs.Panel id="shorts" className="pt-8">
+          <ShortsAccordion shorts={shorts} />
         </Tabs.Panel>
       </Tabs>
     </Container>

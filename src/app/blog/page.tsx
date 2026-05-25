@@ -2,11 +2,11 @@ import BlogTabs from '@/components/BlogTabs';
 import Container from '@/components/Container';
 import ContainerWrapper from '@/components/ContainerWrapper';
 import PostCard from '@/components/PostCard';
-import { getAllBlogPosts, getSignals } from '@/utils/mdContent';
+import { getAllBlogPosts, getShorts } from '@/utils/mdContent';
 
 export default function BlogPage() {
   const posts = getAllBlogPosts();
-  const signals = getSignals();
+  const shorts = getShorts();
 
   // Find the featured post (or default to the first one)
   const featuredPost = posts.find((p) => p.featured) || posts[0];
@@ -33,8 +33,7 @@ export default function BlogPage() {
 
         {/* Categories / Tabs Section */}
         <div className="w-full">
-          <h6 className="text-very-light-gray mb-12">Posts by Category</h6>
-          <BlogTabs posts={otherPosts} signals={signals} />
+          <BlogTabs posts={otherPosts} shorts={shorts} />
         </div>
       </Container>
     </ContainerWrapper>
