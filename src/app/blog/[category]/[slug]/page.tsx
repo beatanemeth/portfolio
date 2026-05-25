@@ -16,7 +16,7 @@ export async function generateStaticParams() {
 }
 
 export default async function BlogPost({ params }: PostParams) {
-  const { category, slug } = await params;
+  const { slug } = await params;
   const post = getBlogPostBySlug<{ title: string; date: string }>(slug);
 
   const allPosts = getAllBlogPosts();
@@ -36,9 +36,12 @@ export default async function BlogPost({ params }: PostParams) {
         <header className="mb-8">
           <h1 className="mb-2">{post.data.title}</h1>
           <div className="text-very-light-gray/60 flex items-center gap-2">
-            <span className="text-moderate-lime-green capitalize">
+            <Link
+              href={`/blog/${post.category}`}
+              className="text-moderate-lime-green hover:text-very-light-gray capitalize transition-colors"
+            >
               {post.category}
-            </span>
+            </Link>
             <span>•</span>
             <time>{post.data.date}</time>
             <span>•</span>
