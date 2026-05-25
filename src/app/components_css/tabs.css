@@ -6,12 +6,12 @@
  */
 
 .tabs__list {
-  @apply border-very-soft-violet/20 w-full gap-4 border-b sm:gap-8;
+  @apply border-very-soft-violet/20 flex w-full flex-col items-start gap-2 border-b sm:flex-row sm:items-center sm:gap-8;
 }
 
 .tabs__tab {
   @apply text-very-light-gray/60 hover:text-very-soft-violet transition-all duration-300;
-  @apply pt-4 pb-8 text-lg font-medium sm:text-xl lg:text-2xl;
+  @apply py-3 text-lg font-medium sm:pt-4 sm:pb-8 sm:text-xl lg:text-2xl;
   @apply px-0; /* Align with left edge/gap-based spacing */
 }
 
