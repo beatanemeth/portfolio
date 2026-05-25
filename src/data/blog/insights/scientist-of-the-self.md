@@ -28,40 +28,50 @@ I have great respect for Andrew Huberman’s work with this podcast. Communicati
 
 &nbsp;
 
----
-
-### Impactful Episodes
+#### Impactful Episodes
 
 While I now listen more selectively based on the topic, the episodes listed below have left a lasting impact on me:
 
 **1. Unlearn Negative Thoughts & Behavior Patterns | Dr. Alok Kanojia**  
-🔗 [Link](https://www.hubermanlab.com/episode/unlearn-negative-thoughts-and-behaviors-patterns-alok-kanojia)  
+🔗 [Podcast Episode](https://www.hubermanlab.com/episode/unlearn-negative-thoughts-and-behaviors-patterns-alok-kanojia)  
 Dynamic, fast-paced, and truly mind-blowing. It felt less like a therapy session and more like "debugging" the mind—identifying the recursive loops of negative thought and finding the logic to break them.
 
+&nbsp;
+
 **2. Science-Based Meditation Tools | Dr. Richard Davidson**  
-🔗 [Link](https://www.hubermanlab.com/episode/science-based-meditation-tools-to-improve-your-brain-and-health-richard-davidson)  
+🔗 [Podcast Episode](https://www.hubermanlab.com/episode/science-based-meditation-tools-to-improve-your-brain-and-health-richard-davidson)  
 This episode feels like a "gentle flow." It moved meditation away from the "mystical" and into the realm of hard data, showing how we can literally rewire our brain's response to stress.
 
+&nbsp;
+
 **3. Finding Your True Purpose | Dr. James Hollis**  
-🔗 [Link](https://www.hubermanlab.com/episode/dr-james-hollis-how-to-find-your-true-purpose-create-your-best-life)  
+🔗 [Podcast Episode](https://www.hubermanlab.com/episode/dr-james-hollis-how-to-find-your-true-purpose-create-your-best-life)  
 This episode asks the ultimate philosophical question: _"What is wanting to live in this world through me, rather than what do I want or what do my complexes want?"_ It’s a powerful reminder that we are here to live our own journey. As Hollis says:
 
 > "I am not what happened to me, I am what is wanting to be expressed in my life through me."
 
+&nbsp;
+
 **4. Healthy Romantic Relationships | Esther Perel**  
-🔗 [Link](https://www.hubermanlab.com/episode/esther-perel-how-to-find-build-maintain-healthy-romantic-relationships)  
+🔗 [Podcast Episode](https://www.hubermanlab.com/episode/esther-perel-how-to-find-build-maintain-healthy-romantic-relationships)  
 I simply appreciate her perspective on the "human system." She understands that relationships, like any complex system, require constant maintenance and an understanding of the underlying "code" of our emotions.
 
+&nbsp;
+
 **5. Machines, Creativity & Love | Dr. Lex Fridman**  
-🔗 [Link](https://www.hubermanlab.com/episode/dr-lex-fridman-machines-creativity-and-love)  
+🔗 [Podcast Episode](https://www.hubermanlab.com/episode/dr-lex-fridman-machines-creativity-and-love)  
 As a conversation between a neurobiologist and an AI researcher, this episode is a fascinating time capsule. Looking back, it’s remarkable to hear Andrew asking Lex about the future of AI—a technology that has since moved from a research curiosity into the fabric of our everyday lives.
 
+&nbsp;
+
 **6. Science & Health Benefits of Belief | Dr. David DeSteno**  
-🔗 [Link](https://www.hubermanlab.com/episode/science-and-health-benefits-of-belief-in-god-and-religion-dr-david-desteno)  
+🔗 [Podcast Episode](https://www.hubermanlab.com/episode/science-and-health-benefits-of-belief-in-god-and-religion-dr-david-desteno)  
 This is a fascinating look at the "social architecture" of religion. It explores how ancient rituals often mirror modern psychological protocols for community and resilience.
 
+&nbsp;
+
 **7. Overcoming Inner Resistance | Steven Pressfield**  
-🔗 [Link](https://www.hubermanlab.com/episode/overcome-inner-resistance-steven-pressfield)  
+🔗 [Podcast Episode](https://www.hubermanlab.com/episode/overcome-inner-resistance-steven-pressfield)  
 I was surprised to learn that Pressfield is the author of _The Legend of Bagger Vance_. I saw the movie many years ago, and a specific sentence from it stayed with me:
 
 > _"Just you... that ball... that flag... and all you are..."_
