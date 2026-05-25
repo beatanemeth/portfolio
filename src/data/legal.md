@@ -25,6 +25,7 @@ This website is a static portfolio hosted via **GitHub Pages**.
 This portfolio is architected as a static application to ensure maximum performance and privacy.
 
 - **Framework:** Built with **Next.js**, **HeroUI**, and **Tailwind CSS**.
+- **Workflow:** Developed via **Gemini CLI** and the **Antigravity 2.0** ecosystem.
 - **Images:** Generated with **Gemini**.
 - **Deployment:** Hosted as a static site on **GitHub Pages**.
 - **No Cookies:** The application is architected to be entirely cookie-less.

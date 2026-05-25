@@ -26,4 +26,4 @@ Thank you, Chenan Wang!
 &nbsp;
 
 🔗 [Medium’s N8n List](https://medium.com/@chenanwang1/list/85ebd4bae9fa)  
-🔗 [The 3-part automation series articles](https://medium.com/@beataspace)
+🔗 [The 3-part automation series articles](https://medium.com/@beataspace/from-manual-chaos-to-modular-automation-building-a-scalable-n8n-workflow-for-a-foundation-f4d9f959e00f)

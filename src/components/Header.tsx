@@ -18,8 +18,7 @@ interface Item {
   onClick?: () => void;
   isMobile?: boolean;
 }
-
-const menuItems = ['About', 'Solutions', 'Blog', 'Contact'];
+const menuItems = ['About', 'Solutions', 'Business', 'Blog', 'Contact'];
 
 const MenuItem = ({ linkText, linkKey, onClick, isMobile = false }: Item) => {
   const pathname = usePathname();

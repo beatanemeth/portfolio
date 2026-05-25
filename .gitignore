@@ -43,6 +43,7 @@ next-env.d.ts
 
 # project specific files
 .gemini/
+.agents/
 GEMINI.md
 AGENTS.md
 brainstorming/

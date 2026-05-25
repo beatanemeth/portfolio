@@ -2,3 +2,4 @@ node_modules
 .next
 build
 dist
+src/data/blog/shorts/shorts.md

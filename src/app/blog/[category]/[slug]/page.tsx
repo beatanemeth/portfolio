@@ -1,25 +1,23 @@
 import Container from '@/components/Container';
 import ContainerWrapper from '@/components/ContainerWrapper';
-import { getAllBlogPosts, getMarkdownContent } from '@/utils/mdContent';
+import { getAllBlogPosts, getBlogPostBySlug } from '@/utils/mdContent';
 import { withBasePath } from '@/utils/path';
 import Image from 'next/image';
 import Link from 'next/link';
 import ReactMarkdown from 'react-markdown';
 
 interface PostParams {
-  params: Promise<{ slug: string }>;
+  params: Promise<{ category: string; slug: string }>;
 }
 
 export async function generateStaticParams() {
   const posts = getAllBlogPosts();
-  return posts.map((post) => ({ slug: post.slug }));
+  return posts.map((post) => ({ category: post.category, slug: post.slug }));
 }
 
 export default async function BlogPost({ params }: PostParams) {
   const { slug } = await params;
-  const post = getMarkdownContent<{ title: string; date: string }>(
-    `blog/${slug}.md`,
-  );
+  const post = getBlogPostBySlug<{ title: string; date: string }>(slug);
 
   const allPosts = getAllBlogPosts();
   const currentIndex = allPosts.findIndex((p) => p.slug === slug);
@@ -37,7 +35,18 @@ export default async function BlogPost({ params }: PostParams) {
       <Container as="article" className="prose prose-lg max-w-3xl lg:max-w-5xl">
         <header className="mb-8">
           <h1 className="mb-2">{post.data.title}</h1>
-          <time className="text-very-light-gray/60">{post.data.date}</time>
+          <div className="text-very-light-gray/60 flex items-center gap-2">
+            <Link
+              href={`/blog/${post.category}`}
+              className="text-moderate-lime-green hover:text-very-light-gray capitalize transition-colors"
+            >
+              {post.category}
+            </Link>
+            <span>•</span>
+            <time>{post.data.date}</time>
+            <span>•</span>
+            <span>{post.readingTime}</span>
+          </div>
         </header>
         <div className="prose-gray">
           <ReactMarkdown
@@ -62,6 +71,18 @@ export default async function BlogPost({ params }: PostParams) {
                   {children}
                 </a>
               ),
+              ul: ({ children }) => (
+                <ul className="mb-4 list-disc space-y-2 pl-6">{children}</ul>
+              ),
+              ol: ({ children }) => (
+                <ol className="mb-4 list-decimal space-y-2 pl-6">{children}</ol>
+              ),
+              li: ({ children }) => <li>{children}</li>,
+              blockquote: ({ children }) => (
+                <blockquote className="border-moderate-lime-green text-very-light-gray/80 my-4 border-l-4 pl-4 italic">
+                  {children}
+                </blockquote>
+              ),
             }}
           >
             {post.content}
@@ -72,7 +93,7 @@ export default async function BlogPost({ params }: PostParams) {
         <nav className="border-very-soft-violet mt-12 flex flex-col justify-between gap-6 border-t pt-8 sm:flex-row">
           {prevPost ? (
             <Link
-              href={`/blog/${prevPost.slug}`}
+              href={`/blog/${prevPost.category}/${prevPost.slug}`}
               className="hover:text-moderate-lime-green group flex flex-col transition-colors"
             >
               <span className="text-very-light-gray/60 block text-sm">
@@ -87,7 +108,7 @@ export default async function BlogPost({ params }: PostParams) {
           )}
           {nextPost ? (
             <Link
-              href={`/blog/${nextPost.slug}`}
+              href={`/blog/${nextPost.category}/${nextPost.slug}`}
               className="hover:text-moderate-lime-green group flex flex-col items-end text-right transition-colors"
             >
               <span className="text-very-light-gray/60 block text-sm">

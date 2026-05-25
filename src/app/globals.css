@@ -3,6 +3,7 @@
 @import './components_css/accordion.css';
 @import './components_css/card.css';
 @import './components_css/link.css';
+@import './components_css/tabs.css';
 
 :root {
   --very-dark-blue: #011167;

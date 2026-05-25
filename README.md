@@ -3,6 +3,7 @@
 Personal portfolio page.
 
 - **Framework:** Built with **Next.js**, **HeroUI**, and **Tailwind CSS**.
+- **Workflow:** Developed via **Gemini CLI** and the **Antigravity 2.0** ecosystem.
 - **Images:** Generated with **Gemini**.
 - **Deployment:** Hosted as a static site on **GitHub Pages**.
 
@@ -148,7 +149,7 @@ const eslintConfig = defineConfig([
 export default eslintConfig;
 ```
 
-_Notes:_
+NOTE:
 
 - `organizeImportsSkipDestructiveCodeActions` option is enabled to prevent destructive code actions (like removing unused imports). — see: `.prettierrc.json` file.
 
@@ -346,7 +347,21 @@ Finally, tell GitHub to use your Action for deployment:
 
 <br></br>
 
-## 4. Technical Stack Documentation
+## 4. AI-Assisted Development
+
+This project serves as a showcase for modern **agent-first engineering** workflows.
+
+- **Foundations:** The project was bootstrapped using **Gemini CLI**, with project-specific context managed via `GEMINI.md` later `AGENTS.md`.
+- **Ecosystem Evolution:** It has since been refactored to leverage the **Google Antigravity Ecosystem 2.0**. This involves:
+  - **Modular Rules:** Specialized instructions for development, blogging, and documentation located in `.agents/rules/`.
+  - **Automated Workflows:** Custom agentic workflows (e.g., `polish-blog`, `update-docs`) in `.agents/workflows/`.
+  - **Orchestration:** Utilizing the Antigravity "Command Center" for parallel task execution and high-speed reasoning.
+
+NOTE: The Agent specific configurations and `.md` filer are `.gitingored` and are considered as my intellectual property.
+
+<br></br>
+
+## 5. Technical Stack Documentation
 
 - [Next.js](https://nextjs.org/docs)
 - [HeroUI](https://heroui.com/docs/react/components)
@@ -357,18 +372,25 @@ Finally, tell GitHub to use your Action for deployment:
   - [Next.js GitHub Pages deployment guide](https://github.com/nextjs/deploy-github-pages)
 - [@use JSDoc](https://jsdoc.app/)
 - [Conventional Commits](https://gist.github.com/qoomon/5dfcdf8eec66a051ecd85625518cfd13)
+- [Gemini CLI](https://geminicli.com/docs/)
+- [Google Antigravity Ecosystem 2.0](https://antigravity.google/docs/getting-started)
 
 <br></br>
 
-## 5. Specific Packages
+## 6. Specific npm Packages
 
-### gray-matter npm package
+### gray-matter & react-markdown
 
-[gray-matter](https://www.npmjs.com/package/gray-matter) is a Node.js library used to parse front-matter from strings or files, typically for extracting YAML, JSON, or JavaScript data from Markdown files. It returns an object containing the parsed data (front-matter), the content, and additional metadata.
+[gray-matter](https://www.npmjs.com/package/gray-matter) and [react-markdown](https://www.npmjs.com/package/react-markdown) are used together as a core content processing pipeline:
 
-### serve npm package
+1. **gray-matter (The Extractor):** Parses the Markdown file's front-matter (metadata like titles, dates, or tags) into a JavaScript object for use in your layouts.
+2. **react-markdown (The Renderer):** Takes the remaining raw body content and transforms it into safe, valid React components for the browser. Unlike many other renderers, it avoids the risky `dangerouslySetInnerHTML` prop by building a virtual DOM from a syntax tree, which protects your application from cross-site scripting (XSS) attacks.
 
-The [serve npm package](https://www.npmjs.com/package/serve) is a command-line tool used to quickly host static websites, single-page applications (SPAs), or individual files on your local device or network. It essentially turns a directory on your computer into a virtual web server for testing and development purposes.
+By combining them, you can store structured data and blog content in single `.md` files, keeping your site data-driven and easy to manage.
+
+### serve
+
+[serve](https://www.npmjs.com/package/serve) is a command-line tool used to quickly host static websites, single-page applications (SPAs), or individual files on your local device or network. It essentially turns a directory on your computer into a virtual web server for testing and development purposes.
 
 ```bash
   "scripts": {
@@ -390,7 +412,7 @@ The [serve npm package](https://www.npmjs.com/package/serve) is a command-line t
 - _Appearance:_ It works, because GitHub hosts you at `/portfolio/`, your code expects images to be at `/portfolio/image.webp`. The symbolic link we created makes this work.
 - _Use this:_ Right before you commit and push to GitHub, to make sure nothing is broken.
 
-### clsx npm package
+### clsx
 
 [clsx](https://www.npmjs.com/package/clsx) is a utility library for JavaScript and React applications used to construct `className` strings conditionally. It allows developers to toggle CSS classes based on boolean conditions, objects, or arrays. Crucially, it handles "falsy" values (like `null`, `undefined`, or `false`) so they are ignored rather than appearing as literal strings in your HTML output.
 
@@ -406,7 +428,7 @@ The [serve npm package](https://www.npmjs.com/package/serve) is a command-line t
 clsx('bg-blue-500', active && 'text-white', error && 'border-red-500')
 ```
 
-### tailwind-merge npm package
+### tailwind-merge
 
 [tailwind-merge](https://www.npmjs.com/package/tailwind-merge) is a utility library that allows you to merge multiple Tailwind CSS classes without style conflicts. It intelligently resolves overlaps (e.g., merging `px-8` and `px-0` will correctly result in `px-0`) by understanding Tailwind's internal rules.
 
@@ -432,3 +454,22 @@ import { cn } from '@/utils/cn';
   )}
 />;
 ```
+
+## 7. Some Special Notes on Tailwind CSS Classes
+
+### `antialiased`
+
+In Tailwind CSS, the `antialiased` utility is used for font smoothing. It applies specific CSS properties to make text appear cleaner and more refined, particularly on macOS and other systems that support these rendering modes.
+
+### `whitespace-pre-line`
+
+It is a CSS property value (available as a **Tailwind utility class**) that **_controls how white space and newlines are handled inside an element_**.
+
+What it does:
+
+1.  Preserves Newlines: If there is a manual line break (\n or "Enter") in your text data, it will actually render as a new line on the screen.
+2.  Collapses Spaces: Multiple consecutive spaces are collapsed into a single space (unlike `whitespace-pre` which keeps every single space).
+3.  Wraps Automatically: The text will still wrap to the next line if it hits the edge of its container (unlike `whitespace-pre` which will overflow).
+
+When to use it:  
+Use it when you are pulling dynamic content (like from your `.md` files) that might contain deliberate line breaks that you want the browser to honor, without having to use `<br />` tags everywhere.
