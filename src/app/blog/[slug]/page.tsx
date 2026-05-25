@@ -68,6 +68,18 @@ export default async function BlogPost({ params }: PostParams) {
                   {children}
                 </a>
               ),
+              ul: ({ children }) => (
+                <ul className="mb-4 list-disc space-y-2 pl-6">{children}</ul>
+              ),
+              ol: ({ children }) => (
+                <ol className="mb-4 list-decimal space-y-2 pl-6">{children}</ol>
+              ),
+              li: ({ children }) => <li>{children}</li>,
+              blockquote: ({ children }) => (
+                <blockquote className="border-moderate-lime-green text-very-light-gray/80 my-4 border-l-4 pl-4 italic">
+                  {children}
+                </blockquote>
+              ),
             }}
           >
             {post.content}

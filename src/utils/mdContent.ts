@@ -84,3 +84,15 @@ export const getBlogPostBySlug = <T>(slug: string) => {
 
   throw new Error(`Post with slug ${slug} not found`);
 };
+
+export interface Signal {
+  headline: string;
+  content: string;
+}
+
+export const getSignals = (): Signal[] => {
+  const filePath = path.join(process.cwd(), 'src/data/blog/signals/signals.md');
+  if (!fs.existsSync(filePath)) return [];
+  const { data } = readMarkdownFile(filePath);
+  return (data.signals || []) as Signal[];
+};

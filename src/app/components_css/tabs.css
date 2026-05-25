@@ -1,0 +1,24 @@
+@import 'tailwindcss';
+
+/* 
+ * HeroUI v3 Tabs Global Overrides
+ * https://github.com/heroui-inc/heroui/blob/v3/packages/styles/components/tabs.css
+ */
+
+.tabs__list {
+  @apply border-very-soft-violet/20 w-full gap-4 border-b sm:gap-8;
+}
+
+.tabs__tab {
+  @apply text-very-light-gray/60 hover:text-very-soft-violet transition-all duration-300;
+  @apply pt-4 pb-8 text-lg font-medium sm:text-xl lg:text-2xl;
+  @apply px-0; /* Align with left edge/gap-based spacing */
+}
+
+.tabs__tab[data-selected='true'] {
+  @apply text-very-soft-violet;
+}
+
+.tabs__indicator {
+  @apply bg-very-soft-violet bottom-0 h-0.5;
+}
