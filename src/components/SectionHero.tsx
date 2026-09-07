@@ -1,5 +1,4 @@
 import Container from '@/components/Container';
-import { PERSONAL_DATA } from '@/constants/general';
 import { getMarkdownContent } from '@/utils/mdContent';
 import { withBasePath } from '@/utils/path';
 import { cn } from '@heroui/styles';
@@ -12,7 +11,7 @@ import ContainerWrapper from './ContainerWrapper';
 interface HeroData {
   availability: string;
   title: string;
-  name: string;
+  subtitle: string;
   bio: string;
   buttonText: string;
   image: {
@@ -54,7 +53,7 @@ export default function SectionHero() {
           {/* Left Side Content: Text */}
           <div className="flex w-full flex-col justify-center gap-2 lg:w-2/3">
             <h1 className="mb-8 whitespace-pre-line">{data.title}</h1>
-            <h4>{PERSONAL_DATA.NAME}</h4>
+            <h3>{data.subtitle}</h3>
             <ReactMarkdown
               components={{
                 p: ({ children }) => (

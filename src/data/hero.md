@@ -3,8 +3,8 @@ availability: 'Open for new projects'
 title: |
   Systems
   Engineer & Architect
-name: 'NAME'
-bio: 'I am designing and building systems that allow problems to keep solving themselves tomorrow.'
+subtitle: 'Data & AI Integration'
+bio: 'I am designing and building reliable backend systems, data workflows, and AI integrations that allow problems to keep solving themselves tomorrow.'
 buttonText: 'Find out more'
 image:
   src: '/system_line_drawing_green.webp'

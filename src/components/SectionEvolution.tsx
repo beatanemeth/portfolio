@@ -58,8 +58,8 @@ const AnalogyItem = ({ title, biology, architecture }: Analogy) => (
       <Accordion.Heading className="bg-very-soft-blue rounded-lg">
         <Accordion.Trigger>
           {title}
-          <Accordion.Indicator className="text-very-dark-blue">
-            <SlArrowDown strokeWidth={96} />
+          <Accordion.Indicator className="text-very-dark-blue shrink-0">
+            <SlArrowDown strokeWidth={96} className="h-4 w-4 shrink-0" />
           </Accordion.Indicator>
         </Accordion.Trigger>
       </Accordion.Heading>
