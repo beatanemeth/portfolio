@@ -12,7 +12,7 @@ It’s interesting how revisiting your own work can spark a completely new direc
 
 In early May, I found myself re-reading a LinkedIn article I’d written back in March this year. At the same time, I was exploring **GitHub Pages** for a separate project. Then, something clicked.
 
-My article wasn’t just a post — it was a reflection of my growth and thinking. It deserved a dedicated space. I decided to get my hands dirty and transform those ideas into a living, statically generated site using **Next.js** and **GitHub Pages**.
+My article wasn’t just a post—it was a reflection of my growth and thinking. It deserved a dedicated space. I decided to get my hands dirty and transform those ideas into a living, statically generated site using **Next.js** and **GitHub Pages**.
 
 The result? A digital home for my projects and thoughts.
 
@@ -20,7 +20,7 @@ The result? A digital home for my projects and thoughts.
 
 ### The creative spark
 
-My primary strength has always been in **systems thinking**. It’s where I truly flourish. While I enjoy _backend_ tasks, I’ve always had a soft spot for _frontend_ work — not as a pure designer, but as a builder who uses code as a creative outlet.
+My primary strength has always been in **systems thinking**. It’s where I truly flourish. While I enjoy _backend_ tasks, I’ve always had a soft spot for _frontend_ work—not as a pure designer, but as a builder who uses code as a creative outlet.
 
 Over the years, I’ve occasionally stepped into the world of frontend development, building web apps and sites with frameworks like _WordPress_, _Wix_, and _HubSpot_. Usually, I was creating for others, guiding them through the labyrinth of arranging information, or even colour palettes and layout choices.
 
@@ -32,7 +32,7 @@ When I re-read that article, the vision for the site appeared almost instantly:
 
 - **Simplicity first**: Clean, functional, and fast.
 - **Design inspiration**: The structured, alternating layout of the official _React documentation_ served as my primary blueprint for readability.
-- **A Colour palette**: Deep blues, harmonised with violet and green accents.
+- **A colour palette**: Deep blues, harmonised with violet and green accents.
 - **Typography**: Take two of my long-standing favourites for readability and character.
 
 &nbsp;
@@ -41,7 +41,7 @@ When I re-read that article, the vision for the site appeared almost instantly:
 
 The challenge was refreshing my knowledge of **Next.js**. It had been a while since my last deep dive, and the ecosystem moves fast. _Tailwind CSS_ v4 and _HeroUI_ v3 had arrived, bringing new configuration paradigms that differed from earlier versions.
 
-I treated the **setup** as a "warm-up". I manually initialised the project and configured the coding guidelines (_ESLint_, _Prettier_, _Husky_) to shift my mindset from _Python_ and _Data Engineering_ back into the world of frontend development.
+I treated the **setup** as a "warm-up". I manually initialised the project and configured the coding guidelines (_ESLint, Prettier, Husky_) to shift my mindset from _Python_ and _Data Engineering_ back into the world of frontend development.
 
 Once the foundation was laid, I decided to lean into the future of development. I integrated **Gemini CLI** into my workflow.
 
@@ -57,10 +57,10 @@ In frontend development, the sheer volume of `div` tags and CSS classes can ofte
 
 There were several **"aha" moments** with **Gemini CLI**:
 
-1.  **Markdown integration**: I wanted to use _Markdown_ files for content — a first for me. The **AI** explained the pros and cons of `react-markdown` versus `remark-html`, then handled the heavy lifting of the implementation.
+1.  **Markdown integration**: I wanted to use _Markdown_ files for content—a first for me. The **AI** explained the pros and cons of `react-markdown` versus `remark-html`, then handled the heavy lifting of the implementation.
 2.  **Custom components**: When _HeroUI_ lacked a ready-made timeline component, I instructed the **AI** to build one using existing primitives. Within seconds, I had a responsive, readable component that I only needed to polish for my specific styles.
 3.  **Responsive refactoring**: After I finished the desktop navigation, I simply asked the **AI** to handle the mobile version. It reorganised the code and implemented the responsive logic in a second, maintaining the clean structure I’d established.
-4.  **The blog functionality**: Perhaps the most memorable experience was adding the blog at the very end of the project. The site was already functional and responsive, but out of curiosity, I prompted the **AI** to scaffold the blog listing and item pages using three sample posts. I blinked, and the components were there — fully functional. The design was surprisingly "cool" right out of the box, though it required some manual polish to align with my specific colours and fonts, as I hadn't included those in the initial prompt.
+4.  **The blog functionality**: Perhaps the most memorable experience was adding the blog at the very end of the project. The site was already functional and responsive, but out of curiosity, I prompted the **AI** to scaffold the blog listing and item pages using three sample posts. I blinked, and the components were there—fully functional. The design was surprisingly "cool" right out of the box, though it required some manual polish to align with my specific colours and fonts, as I hadn't included those in the initial prompt.
 
 It wasn’t just about speed; it was about the **flow**. Even when the **AI** suggested more traditional logic like a `switch()` statement, I could quickly steer it towards a more idiomatic React `map()`. We were partners in the process, with the **AI handling the repetitive scaffolding** while **I focused on the architectural intent**.
 

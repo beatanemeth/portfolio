@@ -21,14 +21,14 @@ solutions:
     keyStack: 'n8n, Python, Wix API, Docker'
     linkKey: 'N8N_WIX_WORKFLOW'
     linkText: 'From manual chaos to modular automation: Building a scalable n8n workflow for a foundation'
-  - title: 'InsightHubAI — The archive assistant'
+  - title: 'InsightHubAI – The archive assistant'
     summary: 'A digital memoir that preserves institutional memory, allowing anyone to query years of documentation instantly.'
     scenario: 'Institutional memory is often lost in old meeting notes and articles.'
     solution: "An 'Archive Assistant' (Digital Memoir) that preserves every event, meeting, and writing. It allows non-technical staff to generate complex weekly and yearly reports through a predefined set of AI tools (MCP), bypassing the need for manual data processing."
     keyStack: 'MCP, Python, Jupyter'
     linkKey: 'INSIGHT_HUB_AI'
     linkText: 'Making AI queries work: From RAG’s limits to MCP in practice'
-  - title: 'ContentNavigatorAI — The knowledge-based browser'
+  - title: 'ContentNavigatorAI – The knowledge-based browser'
     summary: 'Turning static, subject-heavy content into an interactive knowledge base with a conversational browser interface.'
     scenario: 'Teams struggle to find specific information within a vast, subject-heavy CMS.'
     solution: "A specialized Knowledge Assistant that allows organizations to 'browse' their own internal knowledge base via a unified chat interface. It acts as a proficient subject-matter expert, turning static content into an interactive browser app."
