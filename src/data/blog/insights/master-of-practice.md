@@ -1,5 +1,5 @@
 ---
-title: 'The Master of Practice: Finding Discipline in the Face of Chaos'
+title: 'The master of practice: Finding discipline in the face of chaos'
 date: '2026-05-23'
 excerpt: 'Reflecting on the philosophy of Shi Heng Yi and the transformative power of daily physical and mental discipline during times of personal turbulence.'
 ---
@@ -20,7 +20,7 @@ Shi Heng Yi’s thoughts seemed to silence the noise in my mind and relax my bod
 
 &nbsp;
 
-#### The Message of Practice
+#### The message of practice
 
 The core of Shi Heng Yi’s message is constant: **Train the mind and the body. Practice, practice, and practice again.**
 
@@ -28,17 +28,17 @@ In a world filled with "hacks" and "masterclasses," his philosophy is refreshing
 
 &nbsp;
 
-#### Navigating the Noise
+#### Navigating the noise
 
 If you search for Shi Heng Yi today, you must be careful. Perhaps 80% of the content featuring him on the internet is now AI-generated. To find his true voice, I recommend looking for his long-form interviews and TED talks.
 
-**_Recommended English Resources:_**  
+**_Recommended English resources:_**  
 The _Mulligan Brothers_ have produced several remarkable interviews over the years. I suggest starting with the most recent and moving backward in time to see how his thoughts have evolved.
 
 - 🔗 [The Darkest Time of My Life (Mulligan Brothers)](https://www.youtube.com/watch?v=-U7en3s0PWQ)
 - 🔗 [TEDxVitosha - 2020](https://www.youtube.com/watch?v=4-079YIasck)
 
-**_Recommended German Conversations:_**  
+**_Recommended German conversations:_**  
 For those who speak German, these two conversations are particularly insightful:
 
 - 🔗 [Wie schafft man es, loszulassen?](https://www.youtube.com/watch?v=ow57EMimOoI)

@@ -57,7 +57,13 @@ const AnalogyItem = ({ title, biology, architecture }: Analogy) => (
     <Accordion.Item>
       <Accordion.Heading className="bg-very-soft-blue rounded-lg">
         <Accordion.Trigger>
-          {title}
+          <ReactMarkdown
+            components={{
+              p: ({ children }) => <p>{children}</p>,
+            }}
+          >
+            {title}
+          </ReactMarkdown>
           <Accordion.Indicator className="text-very-dark-blue shrink-0">
             <SlArrowDown strokeWidth={96} className="h-4 w-4 shrink-0" />
           </Accordion.Indicator>
@@ -73,7 +79,7 @@ const AnalogyItem = ({ title, biology, architecture }: Analogy) => (
               <GiCrane className="text-dark-moderate-lime-green text-4xl" />
               <div className="bg-dark-moderate-lime-green/30 h-0.5 w-full sm:w-auto sm:flex-1" />{' '}
               <p className="text-very-dark-blue font-semibold">
-                The Architecture Analogy
+                The architecture analogy
               </p>
             </div>
             <ReactMarkdown components={MARKDOWN_LIST_COMPONENTS}>

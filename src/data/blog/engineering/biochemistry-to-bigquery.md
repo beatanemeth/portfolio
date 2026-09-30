@@ -1,5 +1,5 @@
 ---
-title: 'From Biochemistry to BigQuery: Building a Mental Model of Data Systems'
+title: 'From biochemistry to BigQuery: Building a mental model of Data Systems'
 date: '2026-05-18'
 excerpt: "Everything is an analogy: why comparing a Dataflow pipeline bottleneck to a biochemical rate-limiting step helped me finally 'click' with data engineering."
 ---
@@ -8,7 +8,7 @@ excerpt: "Everything is an analogy: why comparing a Dataflow pipeline bottleneck
 
 &nbsp;
 
-Have you ever learned something so deeply that you suddenly started noticing it everywhere? 👀
+Have you ever learned something so deeply that you suddenly started noticing it everywhere?
 
 When I learn new technologies or programming concepts, I often start seeing them everywhere — even in simple everyday situations.
 
@@ -18,7 +18,7 @@ When I learn new technologies or programming concepts, I often start seeing them
 
 &nbsp;
 
-The same thing happened while preparing for the **Google Cloud Professional Data Engineer** certification. ☁️
+The same thing happened while preparing for the **Google Cloud Professional Data Engineer** certification.
 
 I was monitoring some **automations**, and notifications kept arriving with two different subject lines — **_grouped by day_** in my inbox. On heavy days, 2–3 messages stacked up for each automation.
 
@@ -33,7 +33,7 @@ Grouped for easier querying — or in this case, easier browsing. A similar mome
 _Me:_ "I realized that Dagster is basically Cloud Composer."  
 _Him:_ "Guten Morgen."  
 _Me:_ "And Jupyter Notebook is like a low-cost version of Dagster or Dataflow."  
-_Him:_ "Well, not everyone has the budget for a Ferrari." 🏎️
+_Him:_ "Well, not everyone has the budget for a Ferrari."
 
 &nbsp;
 
@@ -44,7 +44,7 @@ In biochemistry, a metabolic pathway is only as fast as its slowest reaction —
 A → B → C → D → E
 
 - A→B: fast
-- B→C: slow 🐌
+- B→C: _slow_
 - C→D: fast
 - D→E: fast
 
@@ -60,4 +60,4 @@ The transformations inside **Dataflow** may be fast — just like the quick bioc
 
 &nbsp;
 
-✨ These are the moments of joy – when I realize I'm not just memorizing, but truly understanding.
+> These are the moments of joy – when I realize I'm not just memorizing, but truly understanding.

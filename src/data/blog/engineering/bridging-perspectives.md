@@ -1,5 +1,5 @@
 ---
-title: 'Bridging Perspectives: Digital Transformation for the Nonprofit Sector'
+title: 'Bridging perspectives: Digital transformation for the nonprofit sector'
 date: '2026-05-10'
 excerpt: "A collaboration between a developer and a psychiatrist to modernize a nonprofit's operations."
 ---
@@ -12,9 +12,9 @@ A collaboration – and two very different perspectives on the same story.
 
 &nbsp;
 
-🔹 On one side: a full-stack developer who thinks in structured systems.  
-🔹 On the other side: a psychiatrist who represents the human world.  
-🎯 Our shared goal: making the nonprofit’s digitized operations sustainable and transparent.
+- On one side: a full-stack developer who thinks in structured systems.
+- On the other side: a psychiatrist who represents the human world.  
+  Our shared goal: making the nonprofit’s digitized operations sustainable and transparent.
 
 &nbsp;
 
@@ -31,8 +31,8 @@ For a psychotherapist client, it felt much like preparing for a minor corrective
 
 These two articles tell the story of the same digital journey – just in different voices:
 
-🔹 From a developer’s side: 🔗 [Building a Scalable Digital Backbone for a Nonprofit Team](https://lnkd.in/eYjpqRJ7)  
-🔹 From the client’s point of view: 🔗 [A Practicing Psychiatrist’s Case with IT](https://lnkd.in/eSjRw5Jn) _(It’s written in Hungarian, but LinkedIn’s built-in translation can help you follow the story.)_
+- From a developer’s side: 🔗 [Building a Scalable Digital Backbone for a Nonprofit Team](https://lnkd.in/eYjpqRJ7)
+- From the client’s point of view: 🔗 [A Practicing Psychiatrist’s Case with IT](https://lnkd.in/eSjRw5Jn) _(It’s written in Hungarian, but LinkedIn’s built-in translation can help you follow the story.)_
 
 &nbsp;
 

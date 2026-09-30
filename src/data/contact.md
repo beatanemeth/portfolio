@@ -1,5 +1,5 @@
 ---
-title: 'Contact Me'
+title: 'Contact me'
 intro: "I don't just write code; I architect ecosystems."
 closing: |
   The real challenge is not writing the code.
@@ -18,7 +18,7 @@ contactMethods:
     description: 'Connect for networking and professional growth.'
     linkText: 'LinkedIn'
     linkKey: 'LINKEDIN'
-  - platform: 'Contact Form'
+  - platform: 'Contact form'
     description: 'Reach out for strategic collaboration.'
     linkText: 'Form'
     linkKey: 'GOOGLE_FORM'

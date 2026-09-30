@@ -52,7 +52,13 @@ const CertificationCard = ({
             {certification.title}
           </Card.Title>
           <Card.Description className="text-very-dark-blue">
-            {certification.description}
+            <ReactMarkdown
+              components={{
+                p: ({ children }) => <p>{children}</p>,
+              }}
+            >
+              {certification.description}
+            </ReactMarkdown>
           </Card.Description>
         </Card.Header>
         <Card.Footer className="mt-auto">

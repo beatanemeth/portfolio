@@ -1,5 +1,5 @@
 ---
-title: 'Beyond Excel: Architecting a Modern Automation Workflow'
+title: 'Beyond Excel: Architecting a modern automation workflow'
 date: '2026-05-12'
 excerpt: 'Transforming manual, Excel-driven processes into a scalable automation system using n8n, Google Sheets, FastAPI, and Docker.'
 ---
