@@ -26,11 +26,31 @@ interface TechnicalData {
   solutions: TechnicalSolution[];
 }
 
-const ModalBodySectionTitles = {
+interface SolutionsSectionProps {
+  title: string;
+  description: string;
+  items: TechnicalSolution[];
+  className?: string;
+}
+
+const MODAL_BODY_SECTION_TITLES = {
   scenario: 'The scenario',
   solution: 'The solution',
   exploreRepo: 'Explore the repo',
-};
+} as const;
+
+const SOLUTIONS_SECTION = [
+  {
+    title: 'Data pipelines & automation',
+    description: 'Getting scattered data into shape and keeping it moving.',
+    items: [],
+  },
+  {
+    title: 'AI applications on organizational data',
+    description: 'Making that data searchable and useful with RAG and MCP.',
+    items: [],
+  },
+] as const;
 
 const ModalBodySection = ({
   title,
@@ -72,7 +92,7 @@ const SolutionModal = ({ item }: { item: TechnicalSolution }) => (
           </Modal.Header>
           <Modal.Body className="my-4 max-w-none overflow-y-auto px-2 sm:px-6 lg:px-10">
             <div className="text-very-dark-blue flex flex-col gap-8">
-              <ModalBodySection title={ModalBodySectionTitles.scenario}>
+              <ModalBodySection title={MODAL_BODY_SECTION_TITLES.scenario}>
                 <ReactMarkdown
                   components={
                     { p: ({ children }) => <p>{children}</p> } as Components
@@ -82,7 +102,7 @@ const SolutionModal = ({ item }: { item: TechnicalSolution }) => (
                 </ReactMarkdown>
               </ModalBodySection>
 
-              <ModalBodySection title={ModalBodySectionTitles.solution}>
+              <ModalBodySection title={MODAL_BODY_SECTION_TITLES.solution}>
                 <ReactMarkdown
                   components={
                     { p: ({ children }) => <p>{children}</p> } as Components
@@ -92,7 +112,7 @@ const SolutionModal = ({ item }: { item: TechnicalSolution }) => (
                 </ReactMarkdown>
               </ModalBodySection>
 
-              <ModalBodySection title={ModalBodySectionTitles.exploreRepo}>
+              <ModalBodySection title={MODAL_BODY_SECTION_TITLES.exploreRepo}>
                 <HeroUILink
                   href={EXTERNAL_LINKS[item.linkKey]}
                   target="_blank"
@@ -108,6 +128,54 @@ const SolutionModal = ({ item }: { item: TechnicalSolution }) => (
       </Modal.Container>
     </Modal.Backdrop>
   </Modal>
+);
+
+const SolutionsSection = ({
+  title,
+  description,
+  items,
+  className,
+}: SolutionsSectionProps) => (
+  <div className={cn('mt-12 flex flex-col gap-8', className)}>
+    {/* Solutions Section Header */}
+    <div className="flex flex-col items-center text-center">
+      <h4 className="text-moderate-lime-green uppercase">{title}</h4>
+      <p>{description}</p>
+    </div>
+
+    <div className={cn('grid w-full grid-cols-1 gap-8 lg:grid-cols-2')}>
+      {items.map((item) => (
+        <div
+          key={item.linkKey || item.title}
+          className={cn(
+            'flex w-full flex-col items-center justify-between gap-3',
+            'p-10 sm:p-12 lg:px-8 lg:py-10',
+            'bg-very-light-gray/10 backdrop-blur-sm',
+            'border-very-light-gray/5 rounded-2xl border',
+          )}
+        >
+          {/* Top Content */}
+          <div className="flex flex-col items-center gap-3">
+            <h4 className="text-moderate-lime-green text-center">
+              {item.title}
+            </h4>
+            <p className="text-very-light-gray/80 text-center italic">
+              {item.summary}
+            </p>
+          </div>
+
+          {/* Bottom Content & Modal Action */}
+          <div className="flex w-full flex-col items-center">
+            <hr className="border-very-soft-violet my-6 w-1/2" />
+            <p className="text-very-light-gray/80 mb-8 text-center font-semibold">
+              {item.keyStack}
+            </p>
+            <SolutionModal item={item} />
+          </div>
+        </div>
+      ))}
+    </div>
+  </div>
 );
 
 export default function SectionTechnical() {
@@ -132,94 +200,20 @@ export default function SectionTechnical() {
           {data.description1}
         </ReactMarkdown>
 
-        {/* Solutions Block */}
-        <div className="mt-12 flex flex-col gap-8">
-          {/* Section Header */}
-          <div className="flex flex-col items-center text-center">
-            <h4 className="text-moderate-lime-green">
-              DATA PIPELINES & AUTOMATION
-            </h4>
-            <p>Getting scattered data into shape and keeping it moving.</p>
-          </div>
+        {/* Solutions Section */}
+        {/* Data Pipelines & Automation Block */}
+        <SolutionsSection
+          title={SOLUTIONS_SECTION[0].title}
+          description={SOLUTIONS_SECTION[0].description}
+          items={data.solutions.slice(0, 2)}
+        />
 
-          {/* Solutions Grid */}
-          <div className="grid w-full grid-cols-1 gap-8 lg:grid-cols-2">
-            {data.solutions.slice(0, 2).map((item) => (
-              <div
-                key={item.linkKey || item.title}
-                className={cn(
-                  'flex w-full flex-col items-center justify-between gap-3',
-                  'p-10 sm:p-16 lg:px-16 lg:py-12',
-                  'bg-very-light-gray/10 backdrop-blur-sm',
-                  'border-very-light-gray/5 rounded-2xl border',
-                )}
-              >
-                {/* Top Content */}
-                <div className="flex flex-col items-center gap-3">
-                  <h4 className="text-moderate-lime-green text-center">
-                    {item.title}
-                  </h4>
-                  <p className="text-very-light-gray/80 text-center italic">
-                    {item.summary}
-                  </p>
-                </div>
-
-                {/* Bottom Content & Modal Action */}
-                <div className="flex w-full flex-col items-center">
-                  <hr className="border-very-soft-violet my-6 w-1/2" />
-                  <p className="text-very-light-gray/80 mb-8 text-center font-semibold">
-                    {item.keyStack}
-                  </p>
-                  <SolutionModal item={item} />
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-
-        <div className="mt-12 flex flex-col gap-8">
-          {/* Section Header */}
-          <div className="flex flex-col items-center text-center">
-            <h4 className="text-moderate-lime-green">
-              AI APPLICATIONS ON ORGANIZATIONAL DATA{' '}
-            </h4>
-            <p>Making that data searchable and useful with RAG and MCP.</p>
-          </div>
-
-          {/* Solutions Grid */}
-          <div className="grid w-full grid-cols-1 gap-8 lg:grid-cols-2">
-            {data.solutions.slice(2, 4).map((item) => (
-              <div
-                key={item.linkKey || item.title}
-                className={cn(
-                  'flex w-full flex-col items-center justify-between gap-3',
-                  'p-10 sm:p-16 lg:px-16 lg:py-12',
-                  'bg-very-light-gray/10 backdrop-blur-sm',
-                  'border-very-light-gray/5 rounded-2xl border',
-                )}
-              >
-                {/* Top Content */}
-                <div className="flex flex-col items-center gap-3">
-                  <h4 className="text-moderate-lime-green text-center">
-                    {item.title}
-                  </h4>
-                  <p className="text-very-light-gray/80 text-center italic">
-                    {item.summary}
-                  </p>
-                </div>
-
-                {/* Bottom Content & Modal Action */}
-                <div className="flex w-full flex-col items-center">
-                  <hr className="border-very-soft-violet my-6 w-1/2" />
-                  <p className="text-very-light-gray/80 mb-8 text-center font-semibold">
-                    {item.keyStack}
-                  </p>
-                  <SolutionModal item={item} />
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
+        {/* AI Applications Block */}
+        <SolutionsSection
+          title={SOLUTIONS_SECTION[1].title}
+          description={SOLUTIONS_SECTION[1].description}
+          items={data.solutions.slice(2, 4)}
+        />
 
         {/* Summary Block */}
         <ReactMarkdown
