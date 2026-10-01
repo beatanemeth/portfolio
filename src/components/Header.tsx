@@ -18,7 +18,12 @@ interface Item {
   onClick?: () => void;
   isMobile?: boolean;
 }
-const menuItems = ['About', 'Solutions', 'Business', 'Blog', 'Contact'];
+const menuItems = ['About', 'Solutions', 'For employers', 'Blog', 'Contact'];
+
+// Helper function to safely derive the key from the label
+const getLinkKey = (text: string): keyof typeof INTERNAL_LINKS => {
+  return text.toUpperCase().replace(/\s+/g, '_') as keyof typeof INTERNAL_LINKS;
+};
 
 const MenuItem = ({ linkText, linkKey, onClick, isMobile = false }: Item) => {
   const pathname = usePathname();
@@ -26,7 +31,7 @@ const MenuItem = ({ linkText, linkKey, onClick, isMobile = false }: Item) => {
 
   // If it's an anchor link and we are not on the home page, prefix with '/'
   const resolvedHref =
-    href.startsWith('#') && pathname !== '/' ? `/${href}` : href;
+    href?.startsWith('#') && pathname !== '/' ? `/${href}` : href;
 
   return (
     <Link
@@ -76,11 +81,7 @@ export default function Header() {
         {/* Desktop Navigation */}
         <nav className="ml-auto hidden gap-4 md:flex lg:gap-8">
           {menuItems.map((item) => (
-            <MenuItem
-              key={item}
-              linkText={item}
-              linkKey={item.toUpperCase() as keyof typeof INTERNAL_LINKS}
-            />
+            <MenuItem key={item} linkText={item} linkKey={getLinkKey(item)} />
           ))}
         </nav>
 
@@ -101,7 +102,7 @@ export default function Header() {
             <MenuItem
               key={item}
               linkText={item}
-              linkKey={item.toUpperCase() as keyof typeof INTERNAL_LINKS}
+              linkKey={getLinkKey(item)}
               onClick={() => setIsMenuOpen(false)}
               isMobile
             />

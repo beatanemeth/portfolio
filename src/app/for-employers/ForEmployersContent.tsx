@@ -2,9 +2,10 @@
 
 import Container from '@/components/Container';
 import ContainerWrapper from '@/components/ContainerWrapper';
+import { EXTERNAL_LINKS } from '@/constants/links';
 import { cn } from '@/utils/cn';
 import { withBasePath } from '@/utils/path';
-import { Accordion, Tabs } from '@heroui/react';
+import { Accordion, Link as HeroUILink, Tabs } from '@heroui/react';
 import Link from 'next/link';
 import {
   HiOutlineLightBulb,
@@ -13,7 +14,7 @@ import {
 } from 'react-icons/hi';
 import { SlArrowDown } from 'react-icons/sl';
 import ReactMarkdown, { type Components } from 'react-markdown';
-import type { BusinessData } from './page';
+import type { ForEmployersData } from './page';
 
 const ICON_MAP = {
   trending: HiOutlineTrendingUp,
@@ -27,27 +28,36 @@ const getIcon = (iconName: string) => {
   return Icon ? <Icon className="text-strong-blue text-5xl" /> : null;
 };
 
-export default function BusinessImpactContent({
+export default function ForEmployersContent({
   data,
 }: {
-  data: BusinessData;
+  data: ForEmployersData;
 }) {
   return (
     <>
       {/* Hero Section */}
       <ContainerWrapper id="businessHero" variant="primary">
-        <Container className="flex flex-col items-center justify-center gap-6 py-6 text-center lg:py-12">
+        <Container className="flex flex-col items-center justify-center gap-6 py-2 text-center lg:py-8">
           <h1 className="font-raleway text-very-light-gray">
             {data.hero.title}
           </h1>
-          <p className="text-very-light-gray/90 lg:w-2/3">
-            {data.hero.paragraph1}
-          </p>
+
           <ReactMarkdown
             components={
               {
                 p: ({ children }) => (
-                  <p className="mx-auto text-center text-base leading-loose tracking-wide lg:w-2/3 lg:text-2xl">
+                  <p className="text-very-light-gray lg:w-3/4">{children}</p>
+                ),
+              } as Components
+            }
+          >
+            {data.hero.paragraph1}
+          </ReactMarkdown>
+          <ReactMarkdown
+            components={
+              {
+                p: ({ children }) => (
+                  <p className="mx-auto text-center text-base leading-loose tracking-wide lg:w-3/4 lg:text-2xl">
                     {children}
                   </p>
                 ),
@@ -56,12 +66,31 @@ export default function BusinessImpactContent({
           >
             {data.hero.paragraph2}
           </ReactMarkdown>
+          <ReactMarkdown
+            components={{
+              p: ({ children }) => (
+                <p className="text-very-light-gray text-center lg:w-3/4">
+                  {children}
+                </p>
+              ),
+              ul: ({ children }) => (
+                <ul className="text-very-light-gray mx-auto flex w-fit list-disc flex-col items-center gap-1 text-center">
+                  {children}
+                </ul>
+              ),
+              li: ({ children }) => (
+                <li className="leading-relaxed">{children}</li>
+              ),
+            }}
+          >
+            {data.hero.paragraph3}
+          </ReactMarkdown>
         </Container>
       </ContainerWrapper>
 
-      {/* Value Proposition Grid */}
-      <ContainerWrapper id="valueProposition" variant="ghost">
-        <Container>
+      {/* Impact at a glance Grid */}
+      <ContainerWrapper id="impactAtAGlance" variant="ghost">
+        <Container className="flex flex-col gap-8">
           <h2 className="mb-12 text-center">{data.values.title}</h2>
           <div className="grid grid-cols-1 gap-8 lg:grid-cols-3">
             {data.values.items.map((item) => (
@@ -90,9 +119,29 @@ export default function BusinessImpactContent({
                 >
                   {item.description}
                 </ReactMarkdown>
+
+                {/* Bottom Content & Modal Action */}
+                <div className="flex w-full flex-col items-center">
+                  <hr className="border-moderate-lime-green text-very-dark-blue my-6 w-1/2" />
+                  <p className="text-very-dark-blue text-center italic">
+                    {item.proof}
+                  </p>
+                </div>
               </div>
             ))}
           </div>
+
+          {/* CTA Block */}
+          <Link
+            href="/for-employers#seeTheWork"
+            className={cn(
+              'bg-very-soft-violet text-very-dark-blue rounded-full px-8 py-2 font-semibold! no-underline',
+              'hover:bg-very-soft-violet/90 transition-all duration-300 hover:scale-105 active:scale-95',
+              'mx-auto my-8 w-fit text-lg sm:text-xl lg:text-2xl',
+            )}
+          >
+            See the proof
+          </Link>
         </Container>
       </ContainerWrapper>
 
@@ -107,13 +156,13 @@ export default function BusinessImpactContent({
         <div className="bg-very-dark-blue/20 absolute inset-0" />
       </div>
 
-      {/* Industry Solutions (Tabs) */}
-      <ContainerWrapper id="industrySolutions" variant="primary">
+      {/* Where I step in (Tabs) */}
+      <ContainerWrapper id="whereIStepIn" variant="primary">
         <Container className="flex flex-col gap-8">
           <h2 className="text-very-light-gray mb-6 text-center">
             {data.industries.title}
           </h2>
-          <p className="text-very-soft-blue mx-auto text-center lg:w-2/3">
+          <p className="text-very-light-gray mx-auto text-center lg:w-2/3">
             {data.industries.description}
           </p>
           <div className="business-tabs flex w-full flex-col items-center lg:mt-8">
@@ -161,6 +210,21 @@ export default function BusinessImpactContent({
             </Tabs>
           </div>
 
+          {/* Summary Block */}
+          <ReactMarkdown
+            components={
+              {
+                p: ({ children }) => (
+                  <p className="mx-auto mt-12 text-center text-base leading-loose tracking-wide whitespace-pre-line lg:w-2/3 lg:text-2xl">
+                    {children}
+                  </p>
+                ),
+              } as Components
+            }
+          >
+            {data.industries.conclusion}
+          </ReactMarkdown>
+
           {/* CTA Block */}
           <Link
             href="/#contactSection"
@@ -184,13 +248,25 @@ export default function BusinessImpactContent({
         }}
       />
 
-      {/* Executive Reads (Accordions) */}
-      <ContainerWrapper id="executiveReads" variant="ghost">
-        <Container>
+      {/* See the work (Accordions) */}
+      <ContainerWrapper id="seeTheWork" variant="ghost">
+        <Container className="flex flex-col gap-8">
           <h2 className="mb-4 text-center">{data.reads.title}</h2>
-          <p className="mx-auto mb-12 text-center lg:w-2/3">
+
+          <ReactMarkdown
+            components={
+              {
+                p: ({ children }) => (
+                  <p className="mx-auto mb-12 text-center lg:w-2/3">
+                    {' '}
+                    {children}
+                  </p>
+                ),
+              } as Components
+            }
+          >
             {data.reads.description}
-          </p>
+          </ReactMarkdown>
 
           <div className="mx-auto w-full lg:w-3/4">
             <Accordion>
@@ -206,11 +282,12 @@ export default function BusinessImpactContent({
                         <SlArrowDown strokeWidth={96} />
                       </Accordion.Indicator>
                       <div className="flex flex-1 flex-col items-start gap-1">
-                        <span className="text-very-dark-blue text-left text-lg font-semibold sm:text-xl">
-                          {read.title}
-                        </span>
-                        <span className="text-strong-blue/80 text-left text-sm font-medium">
+                        <h5 className="text-very-dark-blue">{read.title}</h5>
+                        <span className="text-very-dark-blue text-left font-semibold">
                           {read.subtitle}
+                        </span>
+                        <span className="text-strong-blue/90 text-left text-lg font-medium sm:text-xl">
+                          {read.technologies}
                         </span>
                       </div>
                     </Accordion.Trigger>
@@ -218,45 +295,57 @@ export default function BusinessImpactContent({
                   <Accordion.Panel>
                     <Accordion.Body>
                       <div className="text-very-dark-blue/80 flex flex-col gap-4 pb-6 leading-relaxed">
-                        <ReactMarkdown>{read.p1}</ReactMarkdown>
-                        <ReactMarkdown>{read.p2}</ReactMarkdown>
-
-                        {read.id === '1' && (
-                          <div className="bg-very-soft-blue/20 rounded-lg p-4 font-mono text-sm">
-                            <p className="text-center">
-                              [Fragmented Systems] &rarr; (Manual Copy-Paste)
-                              &rarr; [High Error Risk & Friction]
-                            </p>
-                            <p className="text-moderate-lime-green text-center font-bold">
-                              [Unified Pipeline] &rarr; (Automated Validation)
-                              &rarr; [Single Source of Truth]
-                            </p>
-                          </div>
+                        {Array.isArray(read.p1) ? (
+                          read.p1.map((item, index) => (
+                            <ReactMarkdown key={index}>{item}</ReactMarkdown>
+                          ))
+                        ) : (
+                          <ReactMarkdown>{read.p1}</ReactMarkdown>
                         )}
 
-                        <h6 className="text-strong-blue mt-2">
-                          The Architectural Solution
-                        </h6>
-                        <ReactMarkdown>
-                          {read.architecture_solution}
-                        </ReactMarkdown>
-
-                        <h6 className="text-strong-blue mt-2">
-                          The Business Impact
-                        </h6>
-                        <ul className="mb-4 list-disc space-y-2 pl-6">
-                          {read.impact_points.map((point) => (
-                            <li key={point}>
-                              <ReactMarkdown>{point}</ReactMarkdown>
-                            </li>
-                          ))}
-                        </ul>
+                        <HeroUILink
+                          href={EXTERNAL_LINKS[read.linkKey]}
+                          target="_blank"
+                          className="text-hyperlink hover:text-very-dark-blue/80 hover:decoration-very-dark-blue/80 font-bold no-underline hover:underline"
+                        >
+                          <p>Explore the repo</p>
+                          <HeroUILink.Icon />
+                        </HeroUILink>
                       </div>
                     </Accordion.Body>
                   </Accordion.Panel>
                 </Accordion.Item>
               ))}
             </Accordion>
+          </div>
+
+          {/* Summary Block */}
+          <div className="mx-auto flex flex-col items-center gap-4 text-center lg:w-3/4">
+            <ReactMarkdown
+              components={
+                {
+                  p: ({ children }) => (
+                    <p className="mx-auto mt-12 text-center text-base leading-loose tracking-wide whitespace-pre-line lg:text-2xl">
+                      {children}
+                    </p>
+                  ),
+                } as Components
+              }
+            >
+              {data.reads.conclusion}
+            </ReactMarkdown>
+
+            {/* CTA Block */}
+            <Link
+              href="/#contactSection"
+              className={cn(
+                'bg-very-soft-violet text-very-dark-blue rounded-full px-8 py-2 font-semibold! no-underline',
+                'hover:bg-very-soft-violet/90 transition-all duration-300 hover:scale-105 active:scale-95',
+                'mx-auto my-8 w-fit text-lg sm:text-xl lg:text-2xl',
+              )}
+            >
+              Get in touch
+            </Link>
           </div>
         </Container>
       </ContainerWrapper>
