@@ -43,7 +43,7 @@ export default function SectionHero() {
         {/* Availability Block */}
         <div className="flex items-center gap-2">
           <FaCircle className="text-moderate-lime-green" />
-          <p className="text-very-light-gray/80 mb-0 text-sm sm:text-base lg:text-lg">
+          <p className="text-very-light-gray/80 mb-0 text-base sm:text-lg lg:text-xl">
             {data.availability}
           </p>
         </div>

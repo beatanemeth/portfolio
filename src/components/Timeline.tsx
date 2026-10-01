@@ -73,9 +73,9 @@ export default function Timeline() {
                   <span
                     className={cn(
                       'text-very-light-gray/80',
-                      event.status === 'COMPLETED'
-                        ? 'font-normal'
-                        : 'font-bold',
+                      event.status === 'CORE FOCUS'
+                        ? 'font-bold'
+                        : 'font-normal',
                     )}
                   >
                     {event.status}
@@ -100,8 +100,8 @@ export default function Timeline() {
                     size="lg"
                     variant="tertiary"
                     className={cn(
-                      'bg-moderate-lime-green text-very-dark-blue',
-                      'text-semibold text-sm sm:text-base lg:text-xl',
+                      'bg-moderate-lime-green text-very-dark-blue/80',
+                      'text-sm sm:text-base lg:text-xl',
                       'shadow-very-dark-blue/80 shadow-lg/40',
                     )}
                   >

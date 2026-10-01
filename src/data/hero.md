@@ -1,24 +1,22 @@
 ---
-availability: 'Open for new projects'
-title: |
-  Systems
-  Engineer & Architect
-subtitle: 'Data & AI Integration'
-bio: 'I am designing and building reliable backend systems, data workflows, and AI integrations that allow problems to keep solving themselves tomorrow.'
-buttonText: 'Find out more'
+availability: 'Open to Data Engineering roles · Remote-first'
+title: 'Data Engineering'
+subtitle: 'Reliable, automated data pipelines'
+bio: |
+  From neurobiology to data systems.  
+  I build **pipelines** that turn *scattered*, *manual information* into **clean**, **accessible** **data**, and keep running without constant attention.  
+  ***Google Professional Data Engineer certified.***
+buttonText: 'See my projects'
 image:
   src: '/system_line_drawing_green.webp'
-  alt: 'Architecture Diagram'
+  alt: 'Architecture diagram'
   attributionText: 'Generated with Gemini'
-coreStackTitle: 'Core Stack'
+coreStackTitle: 'Core stack'
 coreStackItems:
-  - 'Data Engineering'
-  - 'AI Engineering'
-  - 'MCP'
-  - 'RAG'
   - 'Python'
-  - 'Data Science'
-  - 'Jupyter'
-  - 'Linux'
+  - 'SQL'
   - 'GCP'
+  - 'Docker'
+  - 'Linux'
+  - 'Jupyter'
 ---

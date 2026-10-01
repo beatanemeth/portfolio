@@ -1,5 +1,5 @@
 ---
-title: 'A Great Fullness: Discovering Grateful Living with Brother David'
+title: 'A great fullness: Discovering grateful living with Brother David'
 date: '2026-08-12'
 excerpt: 'Reflecting on the gentle wisdom of Benedictine monk Brother David Steindl-Rast and learning to practice gratefulness as a doorway to the gifts of the presence.'
 ---
@@ -12,7 +12,7 @@ Sometimes, life brings us into contact with certain teachers at the exact moment
 
 &nbsp;
 
-#### Gratefulness — The Art of Being Surprised
+#### Gratefulness — The art of being surprised
 
 Brother David has "_surprised_" me twice in my life. The first time was in the spring of 2024. I have a personal rule that I only listen to podcast interviews if the title and the speaker resonate with me in that precise moment. As I was scrolling, a conversation with Brother David popped up on SRF:
 
@@ -26,7 +26,7 @@ Brother David’s understanding of gratitude was completely different. It wasn't
 
 &nbsp;
 
-#### Interreligious Wisdom and the Library
+#### Interreligious wisdom and the library
 
 The second time Brother David crossed my path was in the spring of 2026. Another interview appeared, introducing me to his pioneering work in interreligious dialogue.
 
@@ -40,7 +40,7 @@ Being able to speak multiple languages—and German in particular—has been a t
 
 &nbsp;
 
-#### The Essence of Grateful Living
+#### The essence of grateful living
 
 At the core of Brother David's teaching is a quiet distinction between _gratitude_ and _gratefulness_.
 
@@ -67,18 +67,18 @@ For Brother David, spirituality isn't an abstract religious concept; it is **ali
 
 &nbsp;
 
-#### Recommended Resources
+#### Recommended resources
 
 For those who wish to explore Brother David’s gentle wisdom, here is a curated selection of talks and written archives:
 
-**_Recommended English Resources:_**
+**_Recommended English resources:_**
 
 - 🔗 [TED Talk: Want to be happy? Be grateful](https://www.ted.com/talks/david_steindl_rast_want_to_be_happy_be_grateful)
 - 🔗 [Grateful Living – Brother David's Official English Archive](https://grateful.org/brother-david/)
 - 🔗 [Sounds True Conversation: The Way of Silence](https://www.youtube.com/watch?v=_KZeRVUIxmA)
 - 🔗 [Interview: The Gift of the Present Moment](https://www.youtube.com/watch?v=mifql9hIyE8)
 
-**_Recommended German Resources:_**
+**_Recommended German resources:_**
 
 - 🔗 [Bibliothek David Steindl-Rast (Offizielles Archiv)](https://www.bibliothek-david-steindl-rast.ch/)
 - 🔗 [Sternstunde Philosophie: Dankbarkeit als Lebenshaltung](https://www.youtube.com/watch?v=3rLNALMh_yk)

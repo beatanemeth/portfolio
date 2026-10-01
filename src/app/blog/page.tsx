@@ -26,7 +26,7 @@ export default function BlogPage() {
         {/* Featured Post Section */}
         {featuredPost && (
           <div className="mb-16">
-            <h6 className="text-very-light-gray mb-6">Featured Post</h6>
+            <h6 className="text-very-light-gray mb-6">Featured post</h6>
             <PostCard post={featuredPost} />
           </div>
         )}

@@ -1,5 +1,5 @@
 ---
-title: 'From Biochemistry to BigQuery: Building a Mental Model of Data Systems'
+title: 'From biochemistry to BigQuery: Building a mental model of Data Systems'
 date: '2026-05-18'
 excerpt: "Everything is an analogy: why comparing a Dataflow pipeline bottleneck to a biochemical rate-limiting step helped me finally 'click' with data engineering."
 ---
@@ -8,24 +8,24 @@ excerpt: "Everything is an analogy: why comparing a Dataflow pipeline bottleneck
 
 &nbsp;
 
-Have you ever learned something so deeply that you suddenly started noticing it everywhere? 👀
+Have you ever learned something so deeply that you suddenly started noticing it everywhere?
 
-When I learn new technologies or programming concepts, I often start seeing them everywhere — even in simple everyday situations.
-
-&nbsp;
-
-💡 A few years ago, while learning **JavaScript array methods** like `pop()` and `unshift()`, I suddenly realized that my email inbox works in a very similar way. New emails appear at the top — almost like an automatic `unshift()`. When I delete something, it feels like a `pop()`, just from somewhere in the middle of the list. Not a perfect analogy, of course — but it helped me build intuition.
+When I learn new technologies or programming concepts, I often start seeing them everywhere—even in simple everyday situations.
 
 &nbsp;
 
-The same thing happened while preparing for the **Google Cloud Professional Data Engineer** certification. ☁️
+💡 A few years ago, while learning **JavaScript array methods** like `pop()` and `unshift()`, I suddenly realized that my email inbox works in a very similar way. New emails appear at the top—almost like an automatic `unshift()`. When I delete something, it feels like a `pop()`, just from somewhere in the middle of the list. Not a perfect analogy, of course—but it helped me build intuition.
 
-I was monitoring some **automations**, and notifications kept arriving with two different subject lines — **_grouped by day_** in my inbox. On heavy days, 2–3 messages stacked up for each automation.
+&nbsp;
+
+The same thing happened while preparing for the **Google Cloud Professional Data Engineer** certification.
+
+I was monitoring some **automations**, and notifications kept arriving with two different subject lines—**_grouped by day_** in my inbox. On heavy days, 2–3 messages stacked up for each automation.
 
 💡 And suddenly it clicked:
 “This is exactly like partitioning and clustering in BigQuery.”
 
-Grouped for easier querying — or in this case, easier browsing. A similar moment happened while scrolling through documents on my phone. They were grouped by date as well. In photo apps, this grouping is for human convenience. In databases, partitioning exists for performance and cost optimization. Still, the pattern is the same.
+Grouped for easier querying—or in this case, easier browsing. A similar moment happened while scrolling through documents on my phone. They were grouped by date as well. In photo apps, this grouping is for human convenience. In databases, partitioning exists for performance and cost optimization. Still, the pattern is the same.
 
 &nbsp;
 
@@ -33,18 +33,18 @@ Grouped for easier querying — or in this case, easier browsing. A similar mome
 _Me:_ "I realized that Dagster is basically Cloud Composer."  
 _Him:_ "Guten Morgen."  
 _Me:_ "And Jupyter Notebook is like a low-cost version of Dagster or Dataflow."  
-_Him:_ "Well, not everyone has the budget for a Ferrari." 🏎️
+_Him:_ "Well, not everyone has the budget for a Ferrari."
 
 &nbsp;
 
 💡 I’ve even found an analogy from my biochemistry studies.
 
-In biochemistry, a metabolic pathway is only as fast as its slowest reaction — the **_rate-limiting step_**. Imagine a chain like this:
+In biochemistry, a metabolic pathway is only as fast as its slowest reaction—the **_rate-limiting step_**. Imagine a chain like this:
 
 A → B → C → D → E
 
 - A→B: fast
-- B→C: slow 🐌
+- B→C: _slow_
 - C→D: fast
 - D→E: fast
 
@@ -56,8 +56,8 @@ Consider a **Dataflow pipeline**:
 - Click event → Pub/Sub topic → Subscription backlog → Dataflow → Advertising Pub/Sub topic
 
 Suppose the team needs events within 30 seconds, but the actual freshness is closer to 40 seconds.  
-The transformations inside **Dataflow** may be fast — just like the quick biochemical reactions — but if there’s a growing **Pub/Sub** subscription backlog, Dataflow receives events late. That backlog becomes the **_rate-limiting step_**, adding extra delay before the job even starts processing the messages.
+The transformations inside **Dataflow** may be fast—just like the quick biochemical reactions—but if there’s a growing **Pub/Sub** subscription backlog, Dataflow receives events late. That backlog becomes the **_rate-limiting step_**, adding extra delay before the job even starts processing the messages.
 
 &nbsp;
 
-✨ These are the moments of joy – when I realize I'm not just memorizing, but truly understanding.
+> These are the moments of joy—when I realize I'm not just memorizing, but truly understanding.
