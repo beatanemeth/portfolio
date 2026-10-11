@@ -59,9 +59,17 @@ industries:
 
 reads:
   title: 'See the work'
-  description: 'Two projects, both based on a real world needs, with the code available to inspect.'
+  description: 'Three projects, all based on real-world needs, with the code available to inspect.'
   items:
     - id: '1'
+      title: 'GCP content intelligence platform'
+      subtitle: 'Rebuilding a local pipeline as a cloud data pipeline on GCP'
+      technologies: 'Terraform, GCP, BigQuery, Cloud Run, Python, Claude Code'
+      p1:
+        - "**The Challenge:** The Wix content pipeline ran on one laptop. To serve a whole team, it had to move to the company's existing GCP platform, without changing anything the platform already runs."
+        - '**The Engineering:** Built a standalone Terraform module that adds the pipeline as a new feature. Uploaded exports trigger a Cloud Run function that cleans the data, and BigQuery takes it through staging tables, cleaned views and analysis views, one view per business question. Least-privilege service accounts, tests on every layer, and **AI-assisted development (Claude Code)** guided by custom project rules and skills.'
+      linkKey: 'GCP_CONTENT_PLATFORM'
+    - id: '2'
       title: 'Wix content intelligence pipeline'
       subtitle: 'Turning fragmented CMS exports into strategic data pipelines'
       technologies: 'ETL, Python, Jupyter, Docker'
@@ -69,7 +77,7 @@ reads:
         - '**The Challenge:** Disconnected operational data across events, blogs, and content systems created blind spots that hindered data-driven decisions.'
         - '**The Engineering:** Designed and built an automated ETL architecture that pulls disparate CMS data via REST APIs, standardizes raw payloads, and streams them through pythonic analytical pipelines for real-time visibility.'
       linkKey: 'WIX_CONTENT_PIPELINE'
-    - id: '2'
+    - id: '3'
       title: 'Modular event automation'
       subtitle: 'Replacing fragile manual workflows with event-driven infrastructure'
       technologies: 'n8n, Python, Wix API, Docker, Google Workspace, Stripe'
