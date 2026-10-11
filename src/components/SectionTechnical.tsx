@@ -9,6 +9,8 @@ import ReactMarkdown, { type Components } from 'react-markdown';
 import ContainerWrapper from './ContainerWrapper';
 import Languages from './Languages';
 
+type SolutionGroup = 'cloud' | 'pipelines' | 'ai';
+
 interface TechnicalSolution {
   title: string;
   summary: string;
@@ -17,6 +19,7 @@ interface TechnicalSolution {
   keyStack: string;
   linkKey: keyof typeof EXTERNAL_LINKS;
   linkText: string;
+  group: SolutionGroup;
 }
 
 interface TechnicalData {
@@ -39,18 +42,27 @@ const MODAL_BODY_SECTION_TITLES = {
   exploreRepo: 'Explore the repo',
 } as const;
 
-const SOLUTIONS_SECTION = [
+const SOLUTIONS_SECTION: {
+  group: SolutionGroup;
+  title: string;
+  description: string;
+}[] = [
   {
+    group: 'cloud',
+    title: 'Cloud data platform',
+    description: 'The same pipeline, rebuilt on GCP as infrastructure as code.',
+  },
+  {
+    group: 'pipelines',
     title: 'Data pipelines & automation',
     description: 'Getting scattered data into shape and keeping it moving.',
-    items: [],
   },
   {
+    group: 'ai',
     title: 'AI applications on organizational data',
     description: 'Making that data searchable and useful with RAG and MCP.',
-    items: [],
   },
-] as const;
+];
 
 const ModalBodySection = ({
   title,
@@ -143,7 +155,15 @@ const SolutionsSection = ({
       <p>{description}</p>
     </div>
 
-    <div className={cn('grid w-full grid-cols-1 gap-8 lg:grid-cols-2')}>
+    {/* A single card is centred at the width of one column */}
+    <div
+      className={cn(
+        'grid w-full grid-cols-1 gap-8',
+        items.length > 1
+          ? 'lg:grid-cols-2'
+          : 'lg:mx-auto lg:w-[calc(50%-1rem)]',
+      )}
+    >
       {items.map((item) => (
         <div
           key={item.linkKey || item.title}
@@ -200,20 +220,17 @@ export default function SectionTechnical() {
           {data.description1}
         </ReactMarkdown>
 
-        {/* Solutions Section */}
-        {/* Data Pipelines & Automation Block */}
-        <SolutionsSection
-          title={SOLUTIONS_SECTION[0].title}
-          description={SOLUTIONS_SECTION[0].description}
-          items={data.solutions.slice(0, 2)}
-        />
-
-        {/* AI Applications Block */}
-        <SolutionsSection
-          title={SOLUTIONS_SECTION[1].title}
-          description={SOLUTIONS_SECTION[1].description}
-          items={data.solutions.slice(2, 4)}
-        />
+        {/* Solutions Section: Cloud, Data Pipelines & Automation, AI Applications */}
+        {SOLUTIONS_SECTION.map((section) => (
+          <SolutionsSection
+            key={section.group}
+            title={section.title}
+            description={section.description}
+            items={data.solutions.filter(
+              (item) => item.group === section.group,
+            )}
+          />
+        ))}
 
         {/* Summary Block */}
         <ReactMarkdown
