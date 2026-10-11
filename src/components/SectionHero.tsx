@@ -51,13 +51,13 @@ export default function SectionHero() {
         {/* Main Content Block */}
         <div className="mb-12 flex flex-col items-center gap-16 lg:flex-row">
           {/* Left Side Content: Text */}
-          <div className="flex w-full flex-col justify-center gap-2 lg:w-2/3">
+          <div className="flex w-full flex-col justify-center gap-2">
             <h1 className="mb-8 whitespace-pre-line">{data.title}</h1>
             <h3>{data.subtitle}</h3>
             <ReactMarkdown
               components={{
                 p: ({ children }) => (
-                  <p className="mb-4 w-full text-base sm:text-xl lg:w-3/4 lg:text-2xl">
+                  <p className="mb-4 w-full text-base sm:text-xl lg:text-2xl">
                     {children}
                   </p>
                 ),

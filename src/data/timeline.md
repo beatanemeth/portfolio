@@ -4,7 +4,7 @@ events:
   - title: 'Data Engineering'
     date: '2025 – Present'
     status: 'CORE FOCUS'
-    description: 'Building reliable, **automated data pipelines** with Python, Docker, and GCP. What started as replacing manual, scattered workflows has grown into a broader practice: structuring data at its source, moving it reliably, and layering **AI tooling** (RAG/MCP) on top so teams can search and query it directly. The same end-to-end instinct from building full websites now shows up in how I approach a pipeline: not just the code, but the **infrastructure, monitoring, and documentation** around it.'
+    description: 'Building reliable, **automated data pipelines** with Python, Docker, and GCP. What started as replacing manual, scattered workflows has grown into a broader practice: structuring data at its source, moving it reliably, and layering **AI tooling** (RAG/MCP) on top so teams can search and query it directly. The same end-to-end instinct from building full websites now shows up in how I approach a pipeline: not just the code, but the **infrastructure, monitoring, and documentation** around it. It also shapes the workflow: **AI-assisted development (Claude Code)**, guided by custom project rules and skills, with changes reviewed and understood before they are committed.'
     technologies:
       [
         'Python',
@@ -15,6 +15,7 @@ events:
         'n8n',
         'Wix API',
         'AI Engineering',
+        'Claude Code',
         'RAG',
         'MCP',
         'GTM',

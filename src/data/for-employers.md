@@ -7,7 +7,8 @@ hero:
   paragraph2: |
     **Data Engineering** is my focus  
     (***Google Professional Data Engineer certified***):   
-     I build the pipelines and automation behind the scenes that carry data from where it  is created to where people use it, cleanly, reliably, and without constant manual attention.
+     I build the pipelines and automation behind the scenes that carry data from where it  is created to where people use it, cleanly, reliably, and without constant manual attention.  
+     My workflow uses **AI-assisted development (Claude Code)**, guided by my own project rules, with changes reviewed and understood before they are committed.
   paragraph3: |
     I came to this through:
     - ten-plus years of research (neurobiology, biochemistry),
