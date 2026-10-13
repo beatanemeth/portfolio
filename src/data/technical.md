@@ -8,8 +8,8 @@ description2: |
   When we let the system reduce friction, we free people to focus on the work that actually matters.
 solutions:
   - title: 'GCP content intelligence platform'
-    summary: 'Rebuilding the Wix content pipeline as a cloud data pipeline on GCP, delivered as a standalone Terraform module.'
-    scenario: "A content pipeline that runs on one laptop (Docker and Jupyter) has to move to a company's existing GCP platform, without changing anything the platform already runs."
+    summary: 'Rebuilding the Wix content intelligence pipeline as a cloud data pipeline on GCP, delivered as a standalone Terraform module.'
+    scenario: 'The Wix content intelligence pipeline only runs locally, with Docker and Jupyter.'
     solution: 'A standalone Terraform module that adds the pipeline as a new feature. Uploaded exports trigger a Cloud Run function that cleans the data, and BigQuery takes it through staging tables, cleaned views and analysis views, one view per content question. Tested with Terraform tests, pytest and data quality checks on every layer. Built with **AI-assisted development (Claude Code)**, guided by custom project rules and skills.'
     keyStack: 'Terraform, GCP, BigQuery, Cloud Run, Python, Claude Code'
     linkKey: 'GCP_CONTENT_PLATFORM'

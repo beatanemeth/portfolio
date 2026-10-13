@@ -66,7 +66,7 @@ reads:
       subtitle: 'Rebuilding a local pipeline as a cloud data pipeline on GCP'
       technologies: 'Terraform, GCP, BigQuery, Cloud Run, Python, Claude Code'
       p1:
-        - "**The Challenge:** The Wix content pipeline ran on one laptop. To serve a whole team, it had to move to the company's existing GCP platform, without changing anything the platform already runs."
+        - '**The Goal:** A portfolio project that moves a local pipeline (Docker and Jupyter) to GCP as infrastructure as code (IaC), designed as a new feature on an existing GCP platform.'
         - '**The Engineering:** Built a standalone Terraform module that adds the pipeline as a new feature. Uploaded exports trigger a Cloud Run function that cleans the data, and BigQuery takes it through staging tables, cleaned views and analysis views, one view per business question. Least-privilege service accounts, tests on every layer, and **AI-assisted development (Claude Code)** guided by custom project rules and skills.'
       linkKey: 'GCP_CONTENT_PLATFORM'
     - id: '2'
