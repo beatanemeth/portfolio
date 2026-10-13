@@ -5,6 +5,7 @@ subtitle: 'Reliable, automated data pipelines'
 bio: |
   From neurobiology to data systems.  
   I build **pipelines** that turn *scattered*, *manual information* into **clean**, **accessible** **data**, and keep running without constant attention.  
+  I work with **AI-assisted development (Claude Code)**, and I review the changes myself.  
   ***Google Professional Data Engineer certified.***
 buttonText: 'See my projects'
 image:
@@ -16,7 +17,9 @@ coreStackItems:
   - 'Python'
   - 'SQL'
   - 'GCP'
+  - 'Terraform'
   - 'Docker'
   - 'Linux'
   - 'Jupyter'
+  - 'Claude Code'
 ---

@@ -7,7 +7,8 @@ hero:
   paragraph2: |
     **Data Engineering** is my focus  
     (***Google Professional Data Engineer certified***):   
-     I build the pipelines and automation behind the scenes that carry data from where it  is created to where people use it, cleanly, reliably, and without constant manual attention.
+     I build the pipelines and automation behind the scenes that carry data from where it  is created to where people use it, cleanly, reliably, and without constant manual attention.  
+     My workflow uses **AI-assisted development (Claude Code)**, guided by my own project rules, with changes reviewed and understood before they are committed.
   paragraph3: |
     I came to this through:
     - ten-plus years of research (neurobiology, biochemistry),
@@ -58,9 +59,17 @@ industries:
 
 reads:
   title: 'See the work'
-  description: 'Two projects, both based on a real world needs, with the code available to inspect.'
+  description: 'Three projects, all based on real-world needs, with the code available to inspect.'
   items:
     - id: '1'
+      title: 'GCP content intelligence platform'
+      subtitle: 'Rebuilding a local pipeline as a cloud data pipeline on GCP'
+      technologies: 'Terraform, GCP, BigQuery, Cloud Run, Python, Claude Code'
+      p1:
+        - '**The Goal:** A portfolio project that moves a local pipeline (Docker and Jupyter) to GCP as infrastructure as code (IaC), designed as a new feature on an existing GCP platform.'
+        - '**The Engineering:** Built a standalone Terraform module that adds the pipeline as a new feature. Uploaded exports trigger a Cloud Run function that cleans the data, and BigQuery takes it through staging tables, cleaned views and analysis views, one view per business question. Least-privilege service accounts, tests on every layer, and **AI-assisted development (Claude Code)** guided by custom project rules and skills.'
+      linkKey: 'GCP_CONTENT_PLATFORM'
+    - id: '2'
       title: 'Wix content intelligence pipeline'
       subtitle: 'Turning fragmented CMS exports into strategic data pipelines'
       technologies: 'ETL, Python, Jupyter, Docker'
@@ -68,7 +77,7 @@ reads:
         - '**The Challenge:** Disconnected operational data across events, blogs, and content systems created blind spots that hindered data-driven decisions.'
         - '**The Engineering:** Designed and built an automated ETL architecture that pulls disparate CMS data via REST APIs, standardizes raw payloads, and streams them through pythonic analytical pipelines for real-time visibility.'
       linkKey: 'WIX_CONTENT_PIPELINE'
-    - id: '2'
+    - id: '3'
       title: 'Modular event automation'
       subtitle: 'Replacing fragile manual workflows with event-driven infrastructure'
       technologies: 'n8n, Python, Wix API, Docker, Google Workspace, Stripe'

@@ -10,6 +10,8 @@ export const EXTERNAL_LINKS = {
   CONTENT_NAVIGATOR_AI:
     'https://github.com/beatanemeth/ai-engineering-custom-wix-data-chat',
   N8N_WIX_WORKFLOW: 'https://github.com/beatanemeth/n8n_wix_events',
+  GCP_CONTENT_PLATFORM:
+    'https://github.com/beatanemeth/gcp-content-intelligence-platform_implementation',
   GOOGLE_FORM: 'https://forms.gle/oCvPGhw6WiMGGmri6',
 };
 

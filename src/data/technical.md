@@ -7,6 +7,14 @@ description2: |
   The goal is to **turn complexity into structure**, and **structure into a system**.
   When we let the system reduce friction, we free people to focus on the work that actually matters.
 solutions:
+  - title: 'GCP content intelligence platform'
+    summary: 'Rebuilding the Wix content intelligence pipeline as a cloud data pipeline on GCP, delivered as a standalone Terraform module.'
+    scenario: 'The Wix content intelligence pipeline only runs locally, with Docker and Jupyter.'
+    solution: 'A standalone Terraform module that adds the pipeline as a new feature. Uploaded exports trigger a Cloud Run function that cleans the data, and BigQuery takes it through staging tables, cleaned views and analysis views, one view per content question. Tested with Terraform tests, pytest and data quality checks on every layer. Built with **AI-assisted development (Claude Code)**, guided by custom project rules and skills.'
+    keyStack: 'Terraform, GCP, BigQuery, Cloud Run, Python, Claude Code'
+    linkKey: 'GCP_CONTENT_PLATFORM'
+    linkText: 'GCP content intelligence platform: implementation'
+    group: 'cloud'
   - title: 'Wix content intelligence pipeline'
     summary: 'Transforming scattered CMS data into a structured intelligence pipeline for actionable insights.'
     scenario: 'Fragmented organizational data (events, blogs, CMS) that is difficult to analyze.'
@@ -14,6 +22,7 @@ solutions:
     keyStack: 'ETL, Python, Jupyter, Docker'
     linkKey: 'WIX_CONTENT_PIPELINE'
     linkText: 'Wix content intelligence pipeline'
+    group: 'pipelines'
   - title: 'From manual chaos to modular automation'
     summary: 'Replacing fragile manual event workflows with event-driven automation that serves as a scalable operating system.'
     scenario: 'Fragile, manual workflows for event management and member communication.'
@@ -21,6 +30,7 @@ solutions:
     keyStack: 'n8n, Python, Wix API, Docker'
     linkKey: 'N8N_WIX_WORKFLOW'
     linkText: 'From manual chaos to modular automation: Building a scalable n8n workflow for a foundation'
+    group: 'pipelines'
   - title: 'InsightHubAI – The archive assistant'
     summary: 'A digital memoir that preserves institutional memory, allowing anyone to query years of documentation instantly.'
     scenario: 'Institutional memory is often lost in old meeting notes and articles.'
@@ -28,6 +38,7 @@ solutions:
     keyStack: 'MCP, Python, Jupyter'
     linkKey: 'INSIGHT_HUB_AI'
     linkText: 'Making AI queries work: From RAG’s limits to MCP in practice'
+    group: 'ai'
   - title: 'ContentNavigatorAI – The knowledge-based browser'
     summary: 'Turning static, subject-heavy content into an interactive knowledge base with a conversational browser interface.'
     scenario: 'Teams struggle to find specific information within a vast, subject-heavy CMS.'
@@ -35,4 +46,5 @@ solutions:
     keyStack: 'RAG, LangChain, Python'
     linkKey: 'CONTENT_NAVIGATOR_AI'
     linkText: 'LangChain RAG project: Unified custom data chat'
+    group: 'ai'
 ---
