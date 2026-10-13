@@ -17,6 +17,7 @@ coreStackItems:
   - 'Python'
   - 'SQL'
   - 'GCP'
+  - 'Terraform'
   - 'Docker'
   - 'Linux'
   - 'Jupyter'

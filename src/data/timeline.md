@@ -8,16 +8,16 @@ events:
     technologies:
       [
         'Python',
-        'Data Engineering',
         'GCP',
+        'Terraform',
         'Docker',
         'Jupyter',
         'n8n',
         'Wix API',
         'AI Engineering',
-        'Claude Code',
         'RAG',
         'MCP',
+        'Claude Code',
         'GTM',
         'GA4',
         'Meta Pixel',

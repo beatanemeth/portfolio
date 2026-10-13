@@ -50,7 +50,8 @@ const SOLUTIONS_SECTION: {
   {
     group: 'cloud',
     title: 'Cloud data platform',
-    description: 'The same pipeline, rebuilt on GCP as infrastructure as code.',
+    description:
+      'The same pipeline, rebuilt on GCP as infrastructure as code (IaC).',
   },
   {
     group: 'pipelines',
