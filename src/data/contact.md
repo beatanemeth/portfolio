@@ -19,7 +19,7 @@ contactMethods:
     linkText: 'LinkedIn'
     linkKey: 'LINKEDIN'
   - platform: 'Contact form'
-    description: 'Reach out for strategic collaboration.'
+    description: 'Reach out for strategic collaboration or to request my CV.'
     linkText: 'Form'
     linkKey: 'GOOGLE_FORM'
 ---

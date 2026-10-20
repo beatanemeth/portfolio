@@ -89,5 +89,6 @@ reads:
     Most of my projects start the same way:  
     an organization has data that is scattered, manual, or hard to use. I build the pipeline or workflow that makes it reliable, then add automation or AI on top.  
 
-    Let's discuss how I can contribute to your data team.
+    Let's discuss how I can contribute to your data team.  
+    My full CV is available on request via the contact form or LinkedIn.
 ---
