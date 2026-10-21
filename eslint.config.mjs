@@ -14,6 +14,8 @@ const eslintConfig = defineConfig([
     'out/**',
     'build/**',
     'next-env.d.ts',
+    // Static export output (distDir in next.config.ts):
+    'dist/**',
   ]),
   {
     plugins: {
